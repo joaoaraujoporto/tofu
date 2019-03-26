@@ -3,62 +3,65 @@ package io.tofu.teprl.machines.af;
 import java.util.ArrayList;
 import java.util.LinkedList;
 
-import io.tofu.teprl.machines.Mecanismo;
+import io.tofu.teprl.machines.Machine;
 import io.tofu.teprl.machines.exceptions.EditarMecanismoException;
 
-public class AF extends Mecanismo {
-	private static int numeroEstadosCriados;
-	private LinkedList<State> estados;
+public class AF extends Machine {
+	private static int order;
+	private LinkedList<State> states;
 	private LinkedList<String> simbolos;
 	private LinkedList<Transicao> transicoes;
 	private State estadoMorto;
 	
 	public AF(String nome) {
 		super(nome);
-		numeroEstadosCriados = 0;
-		estados = new LinkedList<State>();
+		order = 0;
+		states = new LinkedList<State>();
 		simbolos = new LinkedList<String>();
 		transicoes = new LinkedList<Transicao>();
-		estadoMorto = new State(numeroEstadosCriados, "-");
+		estadoMorto = new State("-");
 	}
 
 	public void criarEstado() {
-		String nomeEstado = "q" + estados.size();
+		String nomeEstado = "q" + states.size();
 		
 		for (int i = 1; existeEstadoComNome(nomeEstado); i++)
-			nomeEstado = "q" + (estados.size() + i);
+			nomeEstado = "q" + (states.size() + i);
 		
-		State estado = new State(++numeroEstadosCriados, nomeEstado);
+		State estado = new State(nomeEstado);
 		
-		if (numeroEstadosCriados == 1)
+		if (order == 1)
 			estado.setInicial(true);
 		
-		estados.addLast(estado);
+		states.addLast(estado);
 		
 		for (String simbolo : simbolos) {
 			ArrayList<Integer> indicesEstadosEntrada = new ArrayList<Integer>();
 			
-			transicoes.addLast(new Transicao(estados.indexOf(estado),
+			transicoes.addLast(new Transicao(states.indexOf(estado),
 					simbolos.indexOf(simbolo),
 					indicesEstadosEntrada));
 		}
 	}
 
-	private void criarEstado(String nome) throws EditarMecanismoException {
-		if (existeEstadoComNome(nome))
-			throw new EditarMecanismoException("Já existe estado com esse nome");
+	public void createState(String name) throws EditarMecanismoException {
+		State s = new State(name);
+		addState(s);
+	}
+	
+	public void addState(State s) throws EditarMecanismoException {
+		if (existeEstadoComNome(s.getName()))
+			throw new EditarMecanismoException("There is already a state with this name");
 		
-		State estado = new State(++numeroEstadosCriados, nome);
+		states.addLast(s);
 		
-		estados.addLast(estado);
-		
-		if (numeroEstadosCriados == 1)
-			estado.setInicial(true);
+		if (order == 1)
+			s.setInicial(true);
 		
 		for (String simbolo : simbolos) {
 			ArrayList<Integer> indicesEstadosEntrada = new ArrayList<Integer>();
 			
-			transicoes.addLast(new Transicao(estados.indexOf(estado),
+			transicoes.addLast(new Transicao(states.indexOf(s),
 					simbolos.indexOf(simbolo),
 					indicesEstadosEntrada));
 		}
@@ -66,15 +69,15 @@ public class AF extends Mecanismo {
 	
 	private void inserirEstado(State estado) {
 		// TODO - encurtar criarEstado com esse metodo
-		if (existeEstadoComNome(estado.getNome()))
+		if (existeEstadoComNome(estado.getName()))
 			return;
 		
-		estados.addLast(estado);
+		states.addLast(estado);
 		
 		for (String simbolo : simbolos) {
 			ArrayList<Integer> indicesEstadosEntrada = new ArrayList<Integer>();
 			
-			transicoes.addLast(new Transicao(estados.indexOf(estado),
+			transicoes.addLast(new Transicao(states.indexOf(estado),
 					simbolos.indexOf(simbolo),
 					(ArrayList<Integer>)indicesEstadosEntrada));
 		}
@@ -120,8 +123,8 @@ public class AF extends Mecanismo {
 	 */
 	public void alterarEstado(Integer indiceEstado, String nome,
 			boolean inicial, boolean aceitacao) throws EditarMecanismoException {
-		State estado = estados.get(indiceEstado);
-		String nomeAntigo = estado.getNome();
+		State estado = states.get(indiceEstado);
+		String nomeAntigo = estado.getName();
 		estado.setNome(nome);
 		
 		if (existeEstadoComNome(estado)) {
@@ -140,8 +143,8 @@ public class AF extends Mecanismo {
 	private void alterarEstado(String nome, Boolean aceitacao) {
 		State estado = null;
 		
-		for (State e : estados)
-			if (e.getNome().equals(nome))
+		for (State e : states)
+			if (e.getName().equals(nome))
 					estado = e;
 		
 		if (estado == null)
@@ -151,17 +154,17 @@ public class AF extends Mecanismo {
 	}
 	
 	public Boolean existeEstadoComNome(String nome) {
-		for (State e : estados)
-			if (e.getNome().equals(nome))
+		for (State e : states)
+			if (e.getName().equals(nome))
 					return true;
 		
 		return false;
 	}
 	
 	public Boolean existeEstadoComNome(State estado) {
-		for (State e : estados)
+		for (State e : states)
 			if (!e.equals(estado))
-				if (e.getNome().equals(estado.getNome()))
+				if (e.getName().equals(estado.getName()))
 					return true;
 		
 		return false;
@@ -218,13 +221,13 @@ public class AF extends Mecanismo {
 		for (int i = 0; i < nomesEstados.length; i++) {
 			
 			int j;
-			for (j = 0; j < estados.size(); j++)
-				if (estados.get(j).getNome().equals(nomesEstados[i])) {
-					indicesEstadosEntrada.add(estados.indexOf(estados.get(j)));
+			for (j = 0; j < states.size(); j++)
+				if (states.get(j).getName().equals(nomesEstados[i])) {
+					indicesEstadosEntrada.add(states.indexOf(states.get(j)));
 					break;
 				}
 			
-			if (j == estados.size()) {
+			if (j == states.size()) {
 				if (!nomesEstados[i].equals("-"))
 					throw new EditarMecanismoException("Um ou mais dos estados indicados não existe");
 			}	
@@ -286,7 +289,7 @@ public class AF extends Mecanismo {
 	}
 
 	public int getQtdEstados() {
-		return estados.size();
+		return states.size();
 	}
 
 	/**
@@ -301,8 +304,8 @@ public class AF extends Mecanismo {
 		
 		simbolos.add(simbolo);
 		
-		for (State estado : estados)
-			transicoes.addLast(new Transicao(estados.indexOf(estado),
+		for (State estado : states)
+			transicoes.addLast(new Transicao(states.indexOf(estado),
 					simbolos.indexOf(simbolo), new ArrayList<Integer>()));
 	}
 
@@ -331,9 +334,9 @@ public class AF extends Mecanismo {
 	public void excluirEstado(String nomeEstado) throws EditarMecanismoException {
 		int i;
 		
-		for (i = 0; i < estados.size(); i++)
-			if (estados.get(i).getNome().equals(nomeEstado)) {
-				Integer indiceEstado = estados.indexOf(estados.get(i));
+		for (i = 0; i < states.size(); i++)
+			if (states.get(i).getName().equals(nomeEstado)) {
+				Integer indiceEstado = states.indexOf(states.get(i));
 				
 				ArrayList<Integer> indiceTransicoesRemocao = new ArrayList<Integer>();
 				
@@ -351,10 +354,10 @@ public class AF extends Mecanismo {
 				break;
 			}
 		
-		if (i == estados.size())
+		if (i == states.size())
 			throw new EditarMecanismoException("Estado não existe");
 		
-		estados.remove(i);
+		states.remove(i);
 	}
 
 	public void excluirSimbolo(String simbolo) throws EditarMecanismoException {
@@ -389,7 +392,7 @@ public class AF extends Mecanismo {
 		Transicao transicao = getTransicao(estadoSaida, simbolo);
 		
 		for (Integer indiceEstado : transicao.getIndicesEstadosEntrada())
-			estadosEntrada.add(estados.get(indiceEstado));
+			estadosEntrada.add(states.get(indiceEstado));
 		
 		return estadosEntrada;
 	}
@@ -405,7 +408,7 @@ public class AF extends Mecanismo {
 	}
 	
 	public Transicao getTransicao(State estadoSaida, String simbolo) {
-		return getTransicao(estados.indexOf(estadoSaida), simbolos.indexOf(simbolo));
+		return getTransicao(states.indexOf(estadoSaida), simbolos.indexOf(simbolo));
 	}
 	
 	public Transicao getTransicao(Integer indiceEstadoSaida, String simbolo) {
@@ -430,28 +433,28 @@ public class AF extends Mecanismo {
 	}
 
 	private Integer getIndiceEstado(State eE) {
-		return estados.indexOf(eE);
+		return states.indexOf(eE);
 	}
 
 	private State getEstado(String nomeEstado) {
 		if (nomeEstado.equals("-"))
 			return estadoMorto;
 		
-		for (State e : estados)
-			if (e.getNome().equals(nomeEstado))
+		for (State e : states)
+			if (e.getName().equals(nomeEstado))
 				return e;
 		
 		return null;
 	}
 
 	public State getEstado(Integer indiceEstado) {
-		return estados.get(indiceEstado);
+		return states.get(indiceEstado);
 	}
 	
 	private ConjuntoEstados getEstadosFinais() {
 		ConjuntoEstados finais = new ConjuntoEstados();
 		
-		for (State e : estados)
+		for (State e : states)
 			if (e.isAceitacao())
 				finais.add(e);
 		
@@ -461,7 +464,7 @@ public class AF extends Mecanismo {
 	private ConjuntoEstados getEstadosNaoFinais() {
 		ConjuntoEstados naoFinais = new ConjuntoEstados();
 		
-		for (State e : estados)
+		for (State e : states)
 			if (!e.isAceitacao())
 				naoFinais.add(e);
 		
@@ -471,7 +474,7 @@ public class AF extends Mecanismo {
 	private ConjuntoEstados getEstadosMortos() {
 		ConjuntoEstados mortos = new ConjuntoEstados();
 		
-		for (State e : estados)
+		for (State e : states)
 			if (ehMorto(e))
 				mortos.add(e);
 		
@@ -493,7 +496,7 @@ public class AF extends Mecanismo {
 			for (Transicao t : transicoes)
 				if (t.getIndiceEstadoSaida().equals(getIndiceEstado(estado)))
 					for (Integer indiceEstadoEntrada : t.getIndicesEstadosEntrada()) // somente um indice, pois AFD
-						if (!ehMorto(estados.get(indiceEstadoEntrada), visitados))
+						if (!ehMorto(states.get(indiceEstadoEntrada), visitados))
 							return false;
 		}
 		
@@ -501,7 +504,7 @@ public class AF extends Mecanismo {
 	}
 	
 	public State getInitialState() {
-		for (State e : estados)
+		for (State e : states)
 			if (e.isInicial())
 				return e;
 		

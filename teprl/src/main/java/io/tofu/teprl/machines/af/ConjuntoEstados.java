@@ -24,10 +24,10 @@ public class ConjuntoEstados extends ArrayList<State> {
 		String nomeConjuntoEstados = "{";
 		
 		if (!isEmpty()) {
-			nomeConjuntoEstados += get(0).getNome();
+			nomeConjuntoEstados += get(0).getName();
 			
 			for (int i = 1; i < size(); i++)
-				nomeConjuntoEstados += ", " + get(i).getNome();
+				nomeConjuntoEstados += ", " + get(i).getName();
 		}
 		
 		return nomeConjuntoEstados + "}";

@@ -1,38 +1,27 @@
 package io.tofu.teprl.machines.af;
 
 public class State {
-	private int numero;
 	private String nome;
 	private boolean inicial;
 	private boolean aceitacao;
 
-	public State(Integer numero, String nome) {
-		this.numero = numero;
+	public State(String nome) {
 		this.nome = nome;
 	}
 	
-	public State(Integer numero, String nome, Boolean inicial, Boolean aceitacao) {
-		this.numero = numero;
-		this.nome = nome;
+	public State(String name, Boolean inicial, Boolean aceitacao) {
+		this(name);
 		this.inicial = inicial;
 		this.aceitacao = aceitacao;
 	}
 	
-	public String getNome() {
+	public String getName() {
 		return this.nome;
 	}
 	
 	@Override
 	public int hashCode() {
-		return numero;
-	}
-
-	public int getNumero() {
-		return numero;
-	}
-
-	public void setNumero(int numero) {
-		this.numero = numero;
+		return nome.hashCode();
 	}
 
 	public boolean isInicial() {
@@ -57,7 +46,7 @@ public class State {
 	
 	@Override
 	public boolean equals(Object o) {
-		return this.numero == ((State) o).getNumero();
+		return this.hashCode() == ((State) o).hashCode();
 	}
 	
 	@Override
