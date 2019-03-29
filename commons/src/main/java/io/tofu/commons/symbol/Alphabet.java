@@ -2,8 +2,8 @@ package io.tofu.commons.symbol;
 
 import java.util.ArrayList;
 
-public class Alfabeto extends ArrayList<String> {
-	public Alfabeto() {
+public class Alphabet extends ArrayList<String> {
+	public Alphabet() {
 		for (char c = 'A'; c <= 'Z'; c++)
 		    add(String.valueOf(c));
 		
@@ -21,6 +21,10 @@ public class Alfabeto extends ArrayList<String> {
 		
 		for (char c : ".&[]{}|!-/".toCharArray())
 			add(String.valueOf(c));
+		
+		add(String.valueOf(' '));
+		add(String.valueOf('\t'));
+		add(String.valueOf('\n'));
 	}
 }
 

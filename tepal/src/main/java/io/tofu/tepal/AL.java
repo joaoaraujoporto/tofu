@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.LinkedList;
 
-import io.tofu.commons.symbol.Alfabeto;
+import io.tofu.commons.symbol.Alphabet;
 import io.tofu.commons.symbol.Token;
 import io.tofu.commons.ts.TS;
 import io.tofu.commons.ts.TSEntry;
@@ -21,7 +21,7 @@ public class AL {
 
 	public AL() {
 		this.ts = new TS(); // TODO
-		this.alfabeto = new Alfabeto();
+		this.alfabeto = new Alphabet();
 		this.buffer = new LinkedList<Character>();
 	}
 

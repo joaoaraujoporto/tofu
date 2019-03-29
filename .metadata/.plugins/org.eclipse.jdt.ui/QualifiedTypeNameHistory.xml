@@ -7,4 +7,7 @@
 <fullyQualifiedTypeName name="io.tofu.teprl.machines.af.AF"/>
 <fullyQualifiedTypeName name="java.util.HashMap"/>
 <fullyQualifiedTypeName name="io.tofu.teprl.machines.af.State"/>
+<fullyQualifiedTypeName name="io.tofu.teprl.machines.exceptions.OperarMecanismoException"/>
+<fullyQualifiedTypeName name="java.lang.String"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
 </qualifiedTypeNameHistroy>

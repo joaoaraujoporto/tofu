@@ -1,5 +1,0 @@
-package io.tofu.tepal;
-
-public class UnsupportedSymbolException {
-
-}

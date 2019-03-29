@@ -1,11 +1,10 @@
 package io.tofu.teprl.machines.af.dt;
 
-import java.lang.reflect.Method;
-
 import io.tofu.teprl.machines.af.AF;
 import io.tofu.teprl.machines.af.State;
 import io.tofu.teprl.machines.af.Transicao;
 import io.tofu.teprl.machines.exceptions.EditarMecanismoException;
+import io.tofu.teprl.machines.exceptions.OperarMecanismoException;
 
 public class DT extends AF {
 	private DTState currState;
@@ -14,9 +13,9 @@ public class DT extends AF {
 		super(nome);
 	}
 	
-	public void createState(String name, Boolean inicial,
-			Boolean aceitacao, boolean backable, Method action) throws EditarMecanismoException {
-		DTState s = new DTState(name, inicial, aceitacao, backable, action);
+	public void createState(String name, Boolean start,
+			Boolean accept, Boolean dead, Boolean backable) throws EditarMecanismoException {
+		DTState s = new DTState(name, start, accept, dead, backable);
 		addState(s);
 	}
 	
@@ -28,36 +27,46 @@ public class DT extends AF {
 		super.addState(s);
 	}
 	
-	public void init() {
-		currState = (DTState) getInitialState();
+	public void init() throws OperarMecanismoException {
+		State startState = getInitialState();
+		
+		if (startState == null)
+			throw new OperarMecanismoException("There is not a start state");
+		
+		currState = (DTState) startState;
 	}
 	
 	/*
 	 * Verify if input is accepted or rejected
 	 */
-	public void a(String input) {
+	public void a(String input) throws OperarMecanismoException {
 		for (char c : input.toCharArray())
-			b(c);
+			read(c);
 	}
 	
 	/*
 	 * Do a transition according to currState and symbol c
 	 */
-	public Method b(char c) {
+	public DTState read(char c) throws OperarMecanismoException {
 		if (currState == null)
-			throw new EditarMecanismoException("A state to DT must be a DTState"); // TODO - operateMachineException
+			throw new OperarMecanismoException("There is not a start state");
 		
 		Transicao t = getTransicao(currState, String.valueOf(c));
 		
+		
 		if (t == null)
-			currState = null;
+			try { currState = new DTState("dead", false, false, true, false);
+			} catch (Exception e) {}
 		
 		currState = (DTState) getEstado(t.getIndicesEstadosEntrada().get(0));
 		
-		return currState.getAction();
+		return currState;
 	}
 	
-	public DTState getCurrState() {
+	public DTState getCurrState() throws OperarMecanismoException {
+		if (currState == null)
+			throw new OperarMecanismoException("There is not a current state");
+			
 		return currState;
 	}
 }

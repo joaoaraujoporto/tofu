@@ -1,47 +1,54 @@
 package io.tofu.teprl.machines.af;
 
-public class State {
-	private String nome;
-	private boolean inicial;
-	private boolean aceitacao;
+import io.tofu.teprl.machines.exceptions.EditarMecanismoException;
 
-	public State(String nome) {
-		this.nome = nome;
+public class State {
+	private String name;
+	private boolean start;
+	private boolean accept;
+	private boolean dead;
+
+	public State(String name) throws EditarMecanismoException {
+		this(name, false, false, false);
 	}
 	
-	public State(String name, Boolean inicial, Boolean aceitacao) {
-		this(name);
-		this.inicial = inicial;
-		this.aceitacao = aceitacao;
+	public State(String name, Boolean start, Boolean accept, Boolean dead) throws EditarMecanismoException {
+		if (accept && dead)
+			throw new EditarMecanismoException("A state cannot accept and be dead");
+		
+		this.name = name;
+		this.start = start;
+		this.accept = accept;
+		this.setDead(dead);
 	}
 	
 	public String getName() {
-		return this.nome;
+		return this.name;
 	}
 	
 	@Override
 	public int hashCode() {
-		return nome.hashCode();
+		return name.hashCode();
 	}
 
-	public boolean isInicial() {
-		return inicial;
+	public boolean isStart() {
+		return start;
 	}
 
-	public void setInicial(boolean inicial) {
-		this.inicial = inicial;
+	public void setStart(boolean inicial) {
+		this.start = inicial;
 	}
 
-	public boolean isAceitacao() {
-		return aceitacao;
+	public boolean isAccept() {
+		return accept;
 	}
 
-	public void setAceitacao(boolean aceitacao) {
-		this.aceitacao = aceitacao;
+	public void setAccept(boolean aceitacao) {
+		this.accept = aceitacao;
 	}
 
-	public void setNome(String nome) {
-		this.nome = nome;
+	public void setName(String nome) {
+		this.name = nome;
 	}
 	
 	@Override
@@ -51,7 +58,15 @@ public class State {
 	
 	@Override
 	public String toString() {
-		return nome;
+		return name;
+	}
+
+	public boolean isDead() {
+		return dead;
+	}
+
+	public void setDead(boolean dead) {
+		this.dead = dead;
 	}
 }
 
