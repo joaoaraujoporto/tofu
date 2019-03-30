@@ -19,12 +19,8 @@ public class Alphabet extends ArrayList<String> {
 		for (char c = '('; c <= '+'; c++)
 		    add(String.valueOf(c));
 		
-		for (char c : ".&[]{}|!-/".toCharArray())
+		for (char c : ".&[]{}|!-/ \t\r\n".toCharArray())
 			add(String.valueOf(c));
-		
-		add(String.valueOf(' '));
-		add(String.valueOf('\t'));
-		add(String.valueOf('\n'));
 	}
 }
 

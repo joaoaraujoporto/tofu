@@ -1424,3 +1424,223 @@ Caused by: org.codehaus.plexus.util.xml.pull.XmlPullParserException: end tag nam
 2019-03-29 08:15:42,110 [Worker-29: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
 2019-03-29 08:15:42,114 [Worker-29: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\joaov\Google Drive\raiz\atual\estudos\graduacao\20191\ine5426\tofu\teprl\src\test\resources
 2019-03-29 08:15:43,295 [Worker-33: Launching DTTest] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/commons: io.tofu:commons:0.0.1 with classifier null to /commons/target/classes
+2019-03-29 20:03:58,674 [Worker-7: Loading available Gradle versions] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2019-03-29 20:04:00,804 [Worker-11: Building workspace] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/commons: io.tofu:commons:0.0.1 with classifier  to /commons/target/classes
+2019-03-29 20:04:01,034 [Worker-11: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-03-29 20:04:01,034 [Worker-11: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\joaov\Google Drive\raiz\atual\estudos\graduacao\20191\ine5426\tofu\teprl\src\main\resources
+2019-03-29 20:04:01,035 [Worker-11: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-03-29 20:04:01,035 [Worker-11: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\joaov\Google Drive\raiz\atual\estudos\graduacao\20191\ine5426\tofu\teprl\src\test\resources
+2019-03-29 20:08:43,447 [Worker-14: Building workspace] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/commons: io.tofu:commons:0.0.1 with classifier  to /commons/target/classes
+2019-03-29 20:08:43,453 [Worker-14: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-03-29 20:08:43,454 [Worker-14: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\joaov\Google Drive\raiz\atual\estudos\graduacao\20191\ine5426\tofu\tepal\src\main\resources
+2019-03-29 20:08:43,455 [Worker-14: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-03-29 20:08:43,455 [Worker-14: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\joaov\Google Drive\raiz\atual\estudos\graduacao\20191\ine5426\tofu\tepal\src\test\resources
+2019-03-29 20:10:09,599 [Worker-16: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-03-29 20:10:09,599 [Worker-16: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\joaov\Google Drive\raiz\atual\estudos\graduacao\20191\ine5426\tofu\tepal\src\main\resources
+2019-03-29 20:10:09,600 [Worker-16: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-03-29 20:10:09,600 [Worker-16: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\joaov\Google Drive\raiz\atual\estudos\graduacao\20191\ine5426\tofu\tepal\src\test\resources
+2019-03-29 20:10:51,436 [Worker-11: Building workspace] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: io.tofu:tepal:0.0.1 @ C:\Users\joaov\Google Drive\raiz\atual\estudos\graduacao\20191\ine5426\tofu\tepal\pom.xml.
+2019-03-29 20:10:51,444 [Worker-11: Building workspace] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/commons: io.tofu:commons:0.0.1 with classifier  to /commons/target/classes
+2019-03-29 20:10:51,444 [Worker-11: Building workspace] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/teprl: io.tofu:teprl:0.0.1 with classifier  to /teprl/target/classes
+2019-03-29 20:10:51,545 [Worker-11: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-03-29 20:10:51,545 [Worker-11: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\joaov\Google Drive\raiz\atual\estudos\graduacao\20191\ine5426\tofu\tepal\src\main\resources
+2019-03-29 20:10:51,550 [Worker-11: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-03-29 20:10:51,550 [Worker-11: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\joaov\Google Drive\raiz\atual\estudos\graduacao\20191\ine5426\tofu\tepal\src\test\resources
+2019-03-29 20:10:52,723 [Worker-7: Building workspace] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/commons: io.tofu:commons:0.0.1 with classifier  to /commons/target/classes
+2019-03-29 20:10:52,723 [Worker-7: Building workspace] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/teprl: io.tofu:teprl:0.0.1 with classifier  to /teprl/target/classes
+2019-03-29 20:10:52,730 [Worker-7: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-03-29 20:10:52,734 [Worker-7: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\joaov\Google Drive\raiz\atual\estudos\graduacao\20191\ine5426\tofu\tepal\src\main\resources
+2019-03-29 20:10:52,738 [Worker-7: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-03-29 20:10:52,738 [Worker-7: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\joaov\Google Drive\raiz\atual\estudos\graduacao\20191\ine5426\tofu\tepal\src\test\resources
+2019-03-29 20:12:15,165 [Worker-11: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-03-29 20:12:15,165 [Worker-11: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\joaov\Google Drive\raiz\atual\estudos\graduacao\20191\ine5426\tofu\tepal\src\main\resources
+2019-03-29 20:12:15,167 [Worker-11: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-03-29 20:12:15,167 [Worker-11: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\joaov\Google Drive\raiz\atual\estudos\graduacao\20191\ine5426\tofu\tepal\src\test\resources
+2019-03-29 20:12:43,596 [Worker-11: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-03-29 20:12:43,597 [Worker-11: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\joaov\Google Drive\raiz\atual\estudos\graduacao\20191\ine5426\tofu\tepal\src\main\resources
+2019-03-29 20:12:43,601 [Worker-11: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-03-29 20:12:43,604 [Worker-11: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\joaov\Google Drive\raiz\atual\estudos\graduacao\20191\ine5426\tofu\tepal\src\test\resources
+2019-03-29 20:12:52,261 [Worker-21: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-03-29 20:12:52,261 [Worker-21: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\joaov\Google Drive\raiz\atual\estudos\graduacao\20191\ine5426\tofu\tepal\src\main\resources
+2019-03-29 20:12:52,263 [Worker-21: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-03-29 20:12:52,264 [Worker-21: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\joaov\Google Drive\raiz\atual\estudos\graduacao\20191\ine5426\tofu\tepal\src\test\resources
+2019-03-29 20:13:19,906 [Worker-21: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-03-29 20:13:19,907 [Worker-21: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\joaov\Google Drive\raiz\atual\estudos\graduacao\20191\ine5426\tofu\tepal\src\main\resources
+2019-03-29 20:13:19,911 [Worker-21: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-03-29 20:13:19,911 [Worker-21: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\joaov\Google Drive\raiz\atual\estudos\graduacao\20191\ine5426\tofu\tepal\src\test\resources
+2019-03-29 20:21:40,424 [Worker-16: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-03-29 20:21:40,424 [Worker-16: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\joaov\Google Drive\raiz\atual\estudos\graduacao\20191\ine5426\tofu\tepal\src\main\resources
+2019-03-29 20:21:40,426 [Worker-16: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-03-29 20:21:40,426 [Worker-16: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\joaov\Google Drive\raiz\atual\estudos\graduacao\20191\ine5426\tofu\tepal\src\test\resources
+2019-03-29 20:22:48,912 [Worker-16: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-03-29 20:22:48,912 [Worker-16: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\joaov\Google Drive\raiz\atual\estudos\graduacao\20191\ine5426\tofu\tepal\src\main\resources
+2019-03-29 20:22:48,912 [Worker-16: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-03-29 20:22:48,912 [Worker-16: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\joaov\Google Drive\raiz\atual\estudos\graduacao\20191\ine5426\tofu\tepal\src\test\resources
+2019-03-29 20:23:06,865 [Worker-25: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-03-29 20:23:06,865 [Worker-25: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\joaov\Google Drive\raiz\atual\estudos\graduacao\20191\ine5426\tofu\tepal\src\main\resources
+2019-03-29 20:23:06,865 [Worker-25: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-03-29 20:23:06,865 [Worker-25: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\joaov\Google Drive\raiz\atual\estudos\graduacao\20191\ine5426\tofu\tepal\src\test\resources
+2019-03-29 20:23:14,611 [Worker-26: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-03-29 20:23:14,611 [Worker-26: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\joaov\Google Drive\raiz\atual\estudos\graduacao\20191\ine5426\tofu\tepal\src\main\resources
+2019-03-29 20:23:14,627 [Worker-26: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-03-29 20:23:14,627 [Worker-26: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\joaov\Google Drive\raiz\atual\estudos\graduacao\20191\ine5426\tofu\tepal\src\test\resources
+2019-03-29 20:23:24,071 [Worker-26: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-03-29 20:23:24,072 [Worker-26: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\joaov\Google Drive\raiz\atual\estudos\graduacao\20191\ine5426\tofu\tepal\src\main\resources
+2019-03-29 20:23:24,073 [Worker-26: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-03-29 20:23:24,073 [Worker-26: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\joaov\Google Drive\raiz\atual\estudos\graduacao\20191\ine5426\tofu\tepal\src\test\resources
+2019-03-29 20:24:13,459 [Worker-22: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-03-29 20:24:13,459 [Worker-22: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\joaov\Google Drive\raiz\atual\estudos\graduacao\20191\ine5426\tofu\tepal\src\main\resources
+2019-03-29 20:24:13,474 [Worker-22: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-03-29 20:24:13,474 [Worker-22: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\joaov\Google Drive\raiz\atual\estudos\graduacao\20191\ine5426\tofu\tepal\src\test\resources
+2019-03-29 20:24:19,762 [Worker-24: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-03-29 20:24:19,762 [Worker-24: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\joaov\Google Drive\raiz\atual\estudos\graduacao\20191\ine5426\tofu\tepal\src\main\resources
+2019-03-29 20:24:19,762 [Worker-24: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-03-29 20:24:19,762 [Worker-24: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\joaov\Google Drive\raiz\atual\estudos\graduacao\20191\ine5426\tofu\tepal\src\test\resources
+2019-03-29 20:24:41,242 [Worker-22: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-03-29 20:24:41,242 [Worker-22: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\joaov\Google Drive\raiz\atual\estudos\graduacao\20191\ine5426\tofu\tepal\src\main\resources
+2019-03-29 20:24:41,242 [Worker-22: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-03-29 20:24:41,242 [Worker-22: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\joaov\Google Drive\raiz\atual\estudos\graduacao\20191\ine5426\tofu\tepal\src\test\resources
+2019-03-29 20:26:42,163 [Worker-26: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-03-29 20:26:42,163 [Worker-26: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\joaov\Google Drive\raiz\atual\estudos\graduacao\20191\ine5426\tofu\tepal\src\main\resources
+2019-03-29 20:26:42,163 [Worker-26: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-03-29 20:26:42,163 [Worker-26: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\joaov\Google Drive\raiz\atual\estudos\graduacao\20191\ine5426\tofu\tepal\src\test\resources
+2019-03-29 20:26:56,481 [Worker-16: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-03-29 20:26:56,481 [Worker-16: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\joaov\Google Drive\raiz\atual\estudos\graduacao\20191\ine5426\tofu\tepal\src\main\resources
+2019-03-29 20:26:56,481 [Worker-16: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-03-29 20:26:56,481 [Worker-16: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\joaov\Google Drive\raiz\atual\estudos\graduacao\20191\ine5426\tofu\tepal\src\test\resources
+2019-03-29 20:27:01,813 [Worker-24: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-03-29 20:27:01,813 [Worker-24: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\joaov\Google Drive\raiz\atual\estudos\graduacao\20191\ine5426\tofu\tepal\src\main\resources
+2019-03-29 20:27:01,813 [Worker-24: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-03-29 20:27:01,813 [Worker-24: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\joaov\Google Drive\raiz\atual\estudos\graduacao\20191\ine5426\tofu\tepal\src\test\resources
+2019-03-29 20:27:13,507 [Worker-24: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-03-29 20:27:13,507 [Worker-24: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\joaov\Google Drive\raiz\atual\estudos\graduacao\20191\ine5426\tofu\tepal\src\main\resources
+2019-03-29 20:27:13,507 [Worker-24: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-03-29 20:27:13,507 [Worker-24: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\joaov\Google Drive\raiz\atual\estudos\graduacao\20191\ine5426\tofu\tepal\src\test\resources
+2019-03-29 20:27:23,905 [Worker-25: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-03-29 20:27:23,905 [Worker-25: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\joaov\Google Drive\raiz\atual\estudos\graduacao\20191\ine5426\tofu\tepal\src\main\resources
+2019-03-29 20:27:23,905 [Worker-25: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-03-29 20:27:23,905 [Worker-25: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\joaov\Google Drive\raiz\atual\estudos\graduacao\20191\ine5426\tofu\tepal\src\test\resources
+2019-03-29 20:28:24,414 [Worker-24: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-03-29 20:28:24,414 [Worker-24: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\joaov\Google Drive\raiz\atual\estudos\graduacao\20191\ine5426\tofu\tepal\src\main\resources
+2019-03-29 20:28:24,414 [Worker-24: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-03-29 20:28:24,414 [Worker-24: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\joaov\Google Drive\raiz\atual\estudos\graduacao\20191\ine5426\tofu\tepal\src\test\resources
+2019-03-29 20:28:31,140 [Worker-26: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-03-29 20:28:31,140 [Worker-26: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\joaov\Google Drive\raiz\atual\estudos\graduacao\20191\ine5426\tofu\tepal\src\main\resources
+2019-03-29 20:28:31,140 [Worker-26: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-03-29 20:28:31,140 [Worker-26: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\joaov\Google Drive\raiz\atual\estudos\graduacao\20191\ine5426\tofu\tepal\src\test\resources
+2019-03-29 20:28:44,103 [Worker-16: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-03-29 20:28:44,103 [Worker-16: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\joaov\Google Drive\raiz\atual\estudos\graduacao\20191\ine5426\tofu\tepal\src\main\resources
+2019-03-29 20:28:44,118 [Worker-16: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-03-29 20:28:44,118 [Worker-16: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\joaov\Google Drive\raiz\atual\estudos\graduacao\20191\ine5426\tofu\tepal\src\test\resources
+2019-03-29 20:29:19,734 [Worker-22: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-03-29 20:29:19,734 [Worker-22: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\joaov\Google Drive\raiz\atual\estudos\graduacao\20191\ine5426\tofu\tepal\src\main\resources
+2019-03-29 20:29:19,734 [Worker-22: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-03-29 20:29:19,734 [Worker-22: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\joaov\Google Drive\raiz\atual\estudos\graduacao\20191\ine5426\tofu\tepal\src\test\resources
+2019-03-29 20:30:15,239 [Worker-24: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-03-29 20:30:15,239 [Worker-24: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\joaov\Google Drive\raiz\atual\estudos\graduacao\20191\ine5426\tofu\tepal\src\main\resources
+2019-03-29 20:30:15,255 [Worker-24: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-03-29 20:30:15,255 [Worker-24: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\joaov\Google Drive\raiz\atual\estudos\graduacao\20191\ine5426\tofu\tepal\src\test\resources
+2019-03-29 20:32:20,114 [Worker-24: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-03-29 20:32:20,114 [Worker-24: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\joaov\Google Drive\raiz\atual\estudos\graduacao\20191\ine5426\tofu\tepal\src\main\resources
+2019-03-29 20:32:20,114 [Worker-24: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-03-29 20:32:20,114 [Worker-24: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\joaov\Google Drive\raiz\atual\estudos\graduacao\20191\ine5426\tofu\tepal\src\test\resources
+2019-03-29 20:33:18,365 [Worker-22: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-03-29 20:33:18,365 [Worker-22: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\joaov\Google Drive\raiz\atual\estudos\graduacao\20191\ine5426\tofu\tepal\src\main\resources
+2019-03-29 20:33:18,365 [Worker-22: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-03-29 20:33:18,365 [Worker-22: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\joaov\Google Drive\raiz\atual\estudos\graduacao\20191\ine5426\tofu\tepal\src\test\resources
+2019-03-29 20:33:54,022 [Worker-26: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-03-29 20:33:54,022 [Worker-26: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\joaov\Google Drive\raiz\atual\estudos\graduacao\20191\ine5426\tofu\tepal\src\main\resources
+2019-03-29 20:33:54,022 [Worker-26: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-03-29 20:33:54,022 [Worker-26: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\joaov\Google Drive\raiz\atual\estudos\graduacao\20191\ine5426\tofu\tepal\src\test\resources
+2019-03-29 20:53:47,965 [Worker-27: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-03-29 20:53:47,965 [Worker-27: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\joaov\Google Drive\raiz\atual\estudos\graduacao\20191\ine5426\tofu\tepal\src\main\resources
+2019-03-29 20:53:47,965 [Worker-27: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-03-29 20:53:47,965 [Worker-27: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\joaov\Google Drive\raiz\atual\estudos\graduacao\20191\ine5426\tofu\tepal\src\test\resources
+2019-03-29 20:54:09,652 [Worker-30: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-03-29 20:54:09,652 [Worker-30: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\joaov\Google Drive\raiz\atual\estudos\graduacao\20191\ine5426\tofu\tepal\src\main\resources
+2019-03-29 20:54:09,652 [Worker-30: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-03-29 20:54:09,652 [Worker-30: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\joaov\Google Drive\raiz\atual\estudos\graduacao\20191\ine5426\tofu\tepal\src\test\resources
+2019-03-29 21:06:55,833 [Worker-35: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-03-29 21:06:55,833 [Worker-35: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\joaov\Google Drive\raiz\atual\estudos\graduacao\20191\ine5426\tofu\commons\src\main\resources
+2019-03-29 21:06:55,848 [Worker-35: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-03-29 21:06:55,848 [Worker-35: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\joaov\Google Drive\raiz\atual\estudos\graduacao\20191\ine5426\tofu\commons\src\test\resources
+2019-03-29 21:14:08,377 [Worker-37: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-03-29 21:14:08,377 [Worker-37: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\joaov\Google Drive\raiz\atual\estudos\graduacao\20191\ine5426\tofu\tepal\src\main\resources
+2019-03-29 21:14:08,377 [Worker-37: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-03-29 21:14:08,377 [Worker-37: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\joaov\Google Drive\raiz\atual\estudos\graduacao\20191\ine5426\tofu\tepal\src\test\resources
+2019-03-29 21:14:15,591 [Worker-38: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-03-29 21:14:15,591 [Worker-38: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\joaov\Google Drive\raiz\atual\estudos\graduacao\20191\ine5426\tofu\tepal\src\main\resources
+2019-03-29 21:14:15,606 [Worker-38: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-03-29 21:14:15,606 [Worker-38: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\joaov\Google Drive\raiz\atual\estudos\graduacao\20191\ine5426\tofu\tepal\src\test\resources
+2019-03-29 21:14:21,330 [Worker-32: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-03-29 21:14:21,330 [Worker-32: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\joaov\Google Drive\raiz\atual\estudos\graduacao\20191\ine5426\tofu\tepal\src\main\resources
+2019-03-29 21:14:21,330 [Worker-32: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-03-29 21:14:21,330 [Worker-32: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\joaov\Google Drive\raiz\atual\estudos\graduacao\20191\ine5426\tofu\tepal\src\test\resources
+2019-03-29 21:14:34,595 [Worker-27: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-03-29 21:14:34,595 [Worker-27: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\joaov\Google Drive\raiz\atual\estudos\graduacao\20191\ine5426\tofu\tepal\src\main\resources
+2019-03-29 21:14:34,595 [Worker-27: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-03-29 21:14:34,595 [Worker-27: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\joaov\Google Drive\raiz\atual\estudos\graduacao\20191\ine5426\tofu\tepal\src\test\resources
+2019-03-29 21:15:04,737 [Worker-38: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-03-29 21:15:04,737 [Worker-38: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\joaov\Google Drive\raiz\atual\estudos\graduacao\20191\ine5426\tofu\tepal\src\main\resources
+2019-03-29 21:15:04,737 [Worker-38: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-03-29 21:15:04,737 [Worker-38: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\joaov\Google Drive\raiz\atual\estudos\graduacao\20191\ine5426\tofu\tepal\src\test\resources
+2019-03-29 21:16:23,303 [Worker-37: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-03-29 21:16:23,303 [Worker-37: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\joaov\Google Drive\raiz\atual\estudos\graduacao\20191\ine5426\tofu\tepal\src\main\resources
+2019-03-29 21:16:23,303 [Worker-37: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-03-29 21:16:23,303 [Worker-37: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\joaov\Google Drive\raiz\atual\estudos\graduacao\20191\ine5426\tofu\tepal\src\test\resources
+2019-03-29 21:16:30,015 [Worker-40: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-03-29 21:16:30,015 [Worker-40: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\joaov\Google Drive\raiz\atual\estudos\graduacao\20191\ine5426\tofu\tepal\src\main\resources
+2019-03-29 21:16:30,015 [Worker-40: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-03-29 21:16:30,015 [Worker-40: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\joaov\Google Drive\raiz\atual\estudos\graduacao\20191\ine5426\tofu\tepal\src\test\resources
+2019-03-29 21:19:09,432 [Worker-42: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-03-29 21:19:09,435 [Worker-42: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\joaov\Google Drive\raiz\atual\estudos\graduacao\20191\ine5426\tofu\tepal\src\main\resources
+2019-03-29 21:19:09,440 [Worker-42: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-03-29 21:19:09,440 [Worker-42: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\joaov\Google Drive\raiz\atual\estudos\graduacao\20191\ine5426\tofu\tepal\src\test\resources
+2019-03-29 21:19:41,214 [Worker-42: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-03-29 21:19:41,214 [Worker-42: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\joaov\Google Drive\raiz\atual\estudos\graduacao\20191\ine5426\tofu\tepal\src\main\resources
+2019-03-29 21:19:41,214 [Worker-42: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-03-29 21:19:41,214 [Worker-42: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\joaov\Google Drive\raiz\atual\estudos\graduacao\20191\ine5426\tofu\tepal\src\test\resources
+2019-03-29 21:20:54,283 [Worker-32: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-03-29 21:20:54,298 [Worker-32: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\joaov\Google Drive\raiz\atual\estudos\graduacao\20191\ine5426\tofu\tepal\src\main\resources
+2019-03-29 21:20:54,298 [Worker-32: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-03-29 21:20:54,298 [Worker-32: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\joaov\Google Drive\raiz\atual\estudos\graduacao\20191\ine5426\tofu\tepal\src\test\resources
+2019-03-29 21:22:28,833 [Worker-43: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-03-29 21:22:28,833 [Worker-43: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\joaov\Google Drive\raiz\atual\estudos\graduacao\20191\ine5426\tofu\tepal\src\main\resources
+2019-03-29 21:22:28,833 [Worker-43: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-03-29 21:22:28,833 [Worker-43: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\joaov\Google Drive\raiz\atual\estudos\graduacao\20191\ine5426\tofu\tepal\src\test\resources
+2019-03-29 21:24:22,199 [Worker-42: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-03-29 21:24:22,199 [Worker-42: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\joaov\Google Drive\raiz\atual\estudos\graduacao\20191\ine5426\tofu\tepal\src\main\resources
+2019-03-29 21:24:22,199 [Worker-42: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-03-29 21:24:22,199 [Worker-42: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\joaov\Google Drive\raiz\atual\estudos\graduacao\20191\ine5426\tofu\tepal\src\test\resources
+2019-03-29 21:24:42,425 [Worker-44: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-03-29 21:24:42,425 [Worker-44: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\joaov\Google Drive\raiz\atual\estudos\graduacao\20191\ine5426\tofu\tepal\src\main\resources
+2019-03-29 21:24:42,441 [Worker-44: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-03-29 21:24:42,441 [Worker-44: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\joaov\Google Drive\raiz\atual\estudos\graduacao\20191\ine5426\tofu\tepal\src\test\resources
+2019-03-29 21:29:32,331 [Worker-37: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-03-29 21:29:32,346 [Worker-37: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\joaov\Google Drive\raiz\atual\estudos\graduacao\20191\ine5426\tofu\tepal\src\main\resources
+2019-03-29 21:29:32,346 [Worker-37: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-03-29 21:29:32,346 [Worker-37: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\joaov\Google Drive\raiz\atual\estudos\graduacao\20191\ine5426\tofu\tepal\src\test\resources
+2019-03-29 21:30:27,635 [Worker-45: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-03-29 21:30:27,635 [Worker-45: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\joaov\Google Drive\raiz\atual\estudos\graduacao\20191\ine5426\tofu\tepal\src\main\resources
+2019-03-29 21:30:27,635 [Worker-45: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-03-29 21:30:27,635 [Worker-45: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\joaov\Google Drive\raiz\atual\estudos\graduacao\20191\ine5426\tofu\tepal\src\test\resources
+2019-03-29 21:30:32,950 [Worker-46: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-03-29 21:30:32,950 [Worker-46: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\joaov\Google Drive\raiz\atual\estudos\graduacao\20191\ine5426\tofu\tepal\src\main\resources
+2019-03-29 21:30:32,965 [Worker-46: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-03-29 21:30:32,965 [Worker-46: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\joaov\Google Drive\raiz\atual\estudos\graduacao\20191\ine5426\tofu\tepal\src\test\resources
+2019-03-29 21:30:56,422 [Worker-45: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-03-29 21:30:56,422 [Worker-45: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\joaov\Google Drive\raiz\atual\estudos\graduacao\20191\ine5426\tofu\tepal\src\main\resources
+2019-03-29 21:30:56,422 [Worker-45: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-03-29 21:30:56,422 [Worker-45: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\joaov\Google Drive\raiz\atual\estudos\graduacao\20191\ine5426\tofu\tepal\src\test\resources
+2019-03-29 21:31:06,739 [Worker-44: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-03-29 21:31:06,739 [Worker-44: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\joaov\Google Drive\raiz\atual\estudos\graduacao\20191\ine5426\tofu\tepal\src\main\resources
+2019-03-29 21:31:06,739 [Worker-44: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-03-29 21:31:06,739 [Worker-44: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\joaov\Google Drive\raiz\atual\estudos\graduacao\20191\ine5426\tofu\tepal\src\test\resources
+2019-03-29 21:35:48,208 [Worker-45: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-03-29 21:35:48,208 [Worker-45: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\joaov\Google Drive\raiz\atual\estudos\graduacao\20191\ine5426\tofu\commons\src\main\resources
+2019-03-29 21:35:48,208 [Worker-45: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-03-29 21:35:48,208 [Worker-45: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\joaov\Google Drive\raiz\atual\estudos\graduacao\20191\ine5426\tofu\commons\src\test\resources
+2019-03-29 21:40:38,616 [Worker-49: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-03-29 21:40:38,616 [Worker-49: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\joaov\Google Drive\raiz\atual\estudos\graduacao\20191\ine5426\tofu\tepal\src\main\resources
+2019-03-29 21:40:38,632 [Worker-49: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-03-29 21:40:38,632 [Worker-49: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\joaov\Google Drive\raiz\atual\estudos\graduacao\20191\ine5426\tofu\tepal\src\test\resources
