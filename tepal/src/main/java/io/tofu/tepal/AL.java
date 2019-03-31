@@ -30,7 +30,7 @@ public class AL {
 		this.buffer = new LinkedList<Character>();
 		this.alphabet = new Alphabet();
 	}
-
+	
 	public ArrayList<Token> out(BufferedReader in) throws IOException {
 		setBufferedReader(in);
 		
