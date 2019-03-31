@@ -4,9 +4,9 @@ public class Token implements Terminal {
 	private String name;
 	private Object value;
 	
-	public Token(String nome, Object valor) {
-		this.name = nome;
-		this.value = valor;
+	public Token(String name, Object value) {
+		this.name = name;
+		this.value = value;
 	}
 	
 	@Override
