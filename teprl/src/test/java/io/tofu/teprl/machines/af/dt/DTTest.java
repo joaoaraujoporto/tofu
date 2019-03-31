@@ -19,11 +19,15 @@ public class DTTest extends TestCase {
 		String w3 = "aba";
 		String w4 = " \t\nab";
 		
-		outro.remove(" ");
-		outro.remove("\t");
-		outro.remove("\n");
+		
 		
 		try {
+			dt.addSymbols(outro);
+						
+			outro.remove(" ");
+			outro.remove("\t");
+			outro.remove("\n");
+			
 			dt.createState("19", true, false, false, false);
 			dt.createState("20", false, false, false, false);
 			dt.createState("21", false, true, false, true);
@@ -39,18 +43,13 @@ public class DTTest extends TestCase {
 			
 			dt.init();
 			
-			assertEquals(dt.getCurrState().getName(), "19");
-			assertEquals(dt.read(w1.charAt(0)).getName(), "20");
-			assertEquals(dt.read(w1.charAt(1)).getName(), "20");
-			assertEquals(dt.read(w1.charAt(2)).getName(), "20");
-			//assertEquals(dt.read(w1.charAt(3)).getName(), "21");
-			System.out.println(dt.getCurrState().getName());
-			assertEquals(dt.getCurrState().isBackable(), true);
-			
-		} catch (EditarMecanismoException e) {
-			e.printStackTrace();
-		} catch (OperarMecanismoException e) {
-			// TODO Auto-generated catch block
+			assertEquals("19", dt.getCurrState().getName());
+			assertEquals("20", dt.read(w1.charAt(0)).getName());
+			assertEquals("20", dt.read(w1.charAt(1)).getName());
+			assertEquals("20", dt.read(w1.charAt(2)).getName());
+			assertEquals("21", dt.read(w1.charAt(3)).getName());
+			assertEquals(true, dt.getCurrState().isBackable());
+		} catch (EditarMecanismoException | OperarMecanismoException e) {
 			e.printStackTrace();
 		}
 		

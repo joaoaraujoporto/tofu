@@ -22,6 +22,7 @@ public class AL {
 	private int currentLine;
 	private int currentColumn;
 	private char currentSymbol;
+	private String currentLexeme;
 	private ArrayList<DT> dts;
 
 	public AL() {
@@ -30,14 +31,15 @@ public class AL {
 		this.alphabet = new Alphabet();
 	}
 
-	public ArrayList<Token> out(BufferedReader bufferedReader) throws IOException {
-		setBufferedReader(bufferedReader);
+	public ArrayList<Token> out(BufferedReader in) throws IOException {
+		setBufferedReader(in);
 		
 		ArrayList<Token> tokens = new ArrayList<Token>();
-		setBufferedReader(bufferedReader);
+		setBufferedReader(in);
 		
-		while (currentSymbol != '$')
+		while (getNextSymbol() != '$')
 			try {
+				currentLexeme = new String();
 				tokens.add(getNextToken());
 			} catch (NotATokenException | UnsupportedSymbolException e) {
 				System.err.println(e.getMessage());
@@ -55,25 +57,31 @@ public class AL {
 		while (dtsReading.size() > 1) {
 			for (DT dt : dtsReading) {
 				try {
-					DTState s = dt.read(getNextSymbol());
+					char c = popNextSymbol();
+					currentLexeme = currentLexeme + c;
+					DTState s = dt.read(c);
 					
 					if (s.isDead())
 						dtsNotReading.add(dt);
 				} catch (OperarMecanismoException e) {}
 			}
 			
-			dts.removeAll(dtsNotReading);
+			dtsReading.removeAll(dtsNotReading);
 		}
 		
 		if (dtsReading.size() == 1) {
 			DT dt = dtsReading.get(0);
 			
 			try {
-				if (!dt.getCurrState().isAccept())
-					while (!dt.getCurrState().isAccept())
-						if (dt.read(getNextSymbol()).isDead())
-							throw new NotATokenException("Error: line " + currentLine + ", column " + currentColumn + ": \"" +
-									currentSymbol + "\"" + " something is wrong here.");
+				while (!dt.getCurrState().isAccept()) {
+					char c = popNextSymbol();
+					currentLexeme = currentLexeme + c;
+					DTState s = dt.read(c);
+					
+					if (s.isDead())
+						throw new NotATokenException("Error: line " + currentLine + ", column " + currentColumn + ": \"" +
+								currentSymbol + "\"" + " something is wrong here.");
+				}						
 				
 				if (dt.getCurrState().isBackable())
 					back();
@@ -87,11 +95,13 @@ public class AL {
 	}
 	
 	private Token yieldToken(DT dt) {
-		// TODO Auto-generated method stub
+		// TODO Here TS begin
 		return null;
 	}
 
 	public void back() {
+		currentSymbol = currentLexeme.charAt(currentLexeme.length() - 1);
+		currentLexeme = currentLexeme.substring(0, currentLexeme.length() - 1);
 		currentColumn--;
 		buffer.addFirst(currentSymbol);
 	}
@@ -119,7 +129,7 @@ public class AL {
 		}
 	}
 	
-	private Character getNextSymbol() throws IOException, UnsupportedSymbolException {
+	private Character popNextSymbol() throws IOException, UnsupportedSymbolException {
 		currentColumn++;
 		
 		if (buffer.isEmpty())
@@ -139,5 +149,12 @@ public class AL {
 		
 		currentSymbol = c;
 		return c;
+	}
+	
+	private Character getNextSymbol() throws IOException {		
+		if (buffer.isEmpty())
+			setBuffer();
+
+		return buffer.getFirst();
 	}
 }

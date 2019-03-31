@@ -2,7 +2,7 @@ package io.tofu.teprl.machines.af.dt;
 
 import io.tofu.teprl.machines.af.AF;
 import io.tofu.teprl.machines.af.State;
-import io.tofu.teprl.machines.af.Transicao;
+import io.tofu.teprl.machines.af.Transition;
 import io.tofu.teprl.machines.exceptions.EditarMecanismoException;
 import io.tofu.teprl.machines.exceptions.OperarMecanismoException;
 
@@ -51,14 +51,14 @@ public class DT extends AF {
 		if (currState == null)
 			throw new OperarMecanismoException("There is not a start state");
 		
-		Transicao t = getTransicao(currState, String.valueOf(c));
+		Transition t = getTransicao(currState, String.valueOf(c));
 		
 		
-		if (t == null)
+		if (t == null | t.getIndicesEstadosEntrada().isEmpty())
 			try { currState = new DTState("dead", false, false, true, false);
 			} catch (Exception e) {}
-		
-		currState = (DTState) getEstado(t.getIndicesEstadosEntrada().get(0));
+		else		
+			currState = (DTState) getEstado(t.getIndicesEstadosEntrada().get(0));
 		
 		return currState;
 	}

@@ -2,18 +2,18 @@ package io.tofu.teprl.machines.af;
 
 import java.util.ArrayList;
 
-public class Transicao implements Cloneable {
+public class Transition implements Cloneable {
 	private Integer indiceEstadoSaida;
 	private Integer indiceSimbolo;
 	private ArrayList<Integer> indicesEstadosEntrada;
 
-	public Transicao(int indiceEstadoSaida, int indiceSimbolo) {
+	public Transition(int indiceEstadoSaida, int indiceSimbolo) {
 		this.indiceEstadoSaida = indiceEstadoSaida;
 		this.indiceSimbolo = indiceSimbolo;
 		this.indicesEstadosEntrada = new ArrayList<Integer>();
 	}
 	
-	public Transicao(int indiceEstadoSaida, int indiceSimbolo, ArrayList<Integer> indicesEstadosEntrada) {
+	public Transition(int indiceEstadoSaida, int indiceSimbolo, ArrayList<Integer> indicesEstadosEntrada) {
 		this.indiceEstadoSaida = indiceEstadoSaida;
 		this.indiceSimbolo = indiceSimbolo;
 		this.indicesEstadosEntrada = indicesEstadosEntrada;
