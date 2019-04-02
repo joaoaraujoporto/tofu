@@ -1,18 +1,20 @@
 package io.tofu.commons.ts;
 
 public class TSEntry {
-	private String tokenName;
+	private String token; // is it needed?
 	private String lexeme;
 	private String type;
+	private PositionInCode position;
 	
-	public TSEntry(String tokenName, String lexeme, String type) {
-		this.tokenName = tokenName;
+	public TSEntry(String token, String lexeme, String type, PositionInCode position) {
+		this.token = token;
 		this.lexeme = lexeme;
-		this.setType(type);
+		this.type = type;
+		this.position = position;
 	}
 
 	public String getTokenName() {
-		return tokenName;
+		return token;
 	}
 
 	public String getLexeme() {
@@ -21,7 +23,7 @@ public class TSEntry {
 	
 	@Override
 	public String toString() {
-		return "tokenName: " + tokenName +
+		return "tokenName: " + token +
 				"lexeme: " + lexeme;
 	}
 
@@ -31,6 +33,10 @@ public class TSEntry {
 
 	public void setType(String type) {
 		this.type = type;
+	}
+
+	public PositionInCode getPosition() {
+		return position;
 	}
 }
 
