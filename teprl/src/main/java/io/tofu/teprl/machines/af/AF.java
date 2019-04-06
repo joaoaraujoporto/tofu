@@ -306,7 +306,7 @@ public class AF extends Machine {
 	public void addSymbol(String symbol) throws EditarMecanismoException {
 		for (String s : symbols)
 			if (s.equals(symbol))
-				throw new EditarMecanismoException("This symbol already belongs to the alphabet of AF");
+				throw new EditarMecanismoException("The symbol "+ s +" already belongs to the alphabet of AF");
 		
 		symbols.add(symbol);
 		

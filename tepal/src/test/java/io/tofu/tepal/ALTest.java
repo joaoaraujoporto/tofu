@@ -2,12 +2,19 @@ package io.tofu.tepal;
 
 import static org.junit.Assert.*;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 
 import org.junit.Test;
 
 import io.tofu.commons.symbol.Alphabet;
+import io.tofu.commons.symbol.Token;
 import io.tofu.commons.ts.TS;
+import io.tofu.commons.ts.TSEntry;
 import io.tofu.teprl.machines.af.dt.DT;
 import io.tofu.teprl.machines.exceptions.EditarMecanismoException;
 import io.tofu.teprl.machines.exceptions.OperarMecanismoException;
@@ -15,10 +22,10 @@ import io.tofu.teprl.machines.exceptions.OperarMecanismoException;
 public class ALTest {
 
 	@Test
-	public void test() {
+	public void test() throws IOException {
 		DT dt1 = new DT("white-space");
 		DT dt2 = new DT("opa");
-		Alphabet outro = new Alphabet();
+		Alphabet outro = Alphabet.getDefaultSymbols();
 		
 		try {
 			dt1.addSymbols(outro);
@@ -57,6 +64,33 @@ public class ALTest {
 		dts.add(dt1);
 		dts.add(dt2);
 		
-		AL al = new AL(new TS(), new Alphabet(), dts);
+		TS ts = new TS();
+		
+		AL al = new AL(ts, Alphabet.getDefaultSymbols(), dts);
+		
+		FileReader sourceCode = new FileReader("./sources/source_test_1.xpp");
+		ArrayList<Token> tokens = al.out(new BufferedReader(sourceCode));
+		
+		System.out.println(tokens.toString());
+		
+		for (TSEntry tse : ts.values()) {
+			System.out.println(tse.getToken() + "," + tse.getLexeme() + ","
+					+ tse.getType() + "," + tse.getPosition());
+		}
+		
+		System.out.println("finges");
+		
+		AL al2 = new AL(ts, Alphabet.getDefaultSymbols(), dts);
+		
+		sourceCode = new FileReader("./sources/source_test_2.xpp");
+		tokens = al2.out(new BufferedReader(sourceCode));
+		
+		System.out.println(tokens.toString());
+		
+		for (TSEntry tse : ts.values()) {
+			System.out.println(tse.getToken() + "," + tse.getLexeme() + ","
+					+ tse.getType() + "," + tse.getPosition());
+		}
+		
 	}
 }

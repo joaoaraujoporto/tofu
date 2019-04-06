@@ -25,7 +25,6 @@ public class AL {
 	private char currentSymbol;
 	private String currentLexeme;
 	private ArrayList<DT> dts;
-	// private HashMap<DT,String> mappingDtToToken; TODO - Confirm remotion
 
 	public AL(TS ts, Alphabet alphabet, ArrayList<DT> dts) {
 		this.ts = ts;
@@ -38,8 +37,6 @@ public class AL {
 	}
 	
 	public ArrayList<Token> out(BufferedReader in) throws IOException {
-		setBufferedReader(in);
-		
 		ArrayList<Token> tokens = new ArrayList<Token>();
 		setBufferedReader(in);
 		
@@ -66,10 +63,16 @@ public class AL {
 		dtsReading.addAll(dts);
 		
 		while (dtsReading.size() > 1) {
+			char c = popNextSymbol();
+			
+			if (!alphabet.contains(String.valueOf(c)))
+				throw new UnsupportedSymbolException("Error: line " + currentLine + ", column " + currentColumn + ": \"" +
+						c + "\"" + " is not a recognized symbol.");
+			
+			currentLexeme = currentLexeme + c;
+			
 			for (DT dt : dtsReading) {
 				try {
-					char c = popNextSymbol();
-					currentLexeme = currentLexeme + c;
 					DTState s = dt.read(c);
 					
 					if (s.isDead())
@@ -86,6 +89,11 @@ public class AL {
 			try {
 				while (!dt.getCurrState().isAccept()) {
 					char c = popNextSymbol();
+					
+					if (!alphabet.contains(String.valueOf(c)))
+						throw new UnsupportedSymbolException("Error: line " + currentLine + ", column " + currentColumn + ": \"" +
+								c + "\"" + " is not a recognized symbol.");
+					
 					currentLexeme = currentLexeme + c;
 					DTState s = dt.read(c);
 					
@@ -160,11 +168,6 @@ public class AL {
 			setBuffer();
 
 		Character c = buffer.pop();
-		
-		if (!alphabet.contains(String.valueOf(c)))
-			throw new UnsupportedSymbolException("Error: line " + currentLine + ", column " + currentColumn + ": \"" +
-					c + "\"" + " is not a supported symbol.");
-
 		
 		if (c.equals(Character.valueOf('\n'))) {
 			currentColumn = 0;

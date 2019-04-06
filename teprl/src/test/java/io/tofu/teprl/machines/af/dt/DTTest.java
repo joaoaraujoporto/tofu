@@ -12,7 +12,7 @@ public class DTTest extends TestCase {
 	@Test
 	public void test() {
 		DT dt = new DT("myDT");
-		Alphabet outro = new Alphabet();
+		Alphabet outro = Alphabet.getDefaultSymbols();
 		
 		String w1 = " \t\ns";
 		String w2 = " \t\n \t \n";
