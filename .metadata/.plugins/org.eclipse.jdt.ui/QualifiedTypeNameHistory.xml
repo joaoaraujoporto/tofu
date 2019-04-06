@@ -5,9 +5,10 @@
 <fullyQualifiedTypeName name="io.tofu.teprl.machines.Mecanismo"/>
 <fullyQualifiedTypeName name="java.util.LinkedList"/>
 <fullyQualifiedTypeName name="io.tofu.teprl.machines.af.AF"/>
-<fullyQualifiedTypeName name="java.util.HashMap"/>
 <fullyQualifiedTypeName name="io.tofu.teprl.machines.af.State"/>
 <fullyQualifiedTypeName name="io.tofu.teprl.machines.exceptions.OperarMecanismoException"/>
 <fullyQualifiedTypeName name="java.lang.String"/>
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="io.tofu.commons.ts.Position"/>
+<fullyQualifiedTypeName name="java.util.HashMap"/>
 </qualifiedTypeNameHistroy>

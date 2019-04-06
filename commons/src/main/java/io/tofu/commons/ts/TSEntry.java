@@ -1,7 +1,7 @@
 package io.tofu.commons.ts;
 
 public class TSEntry {
-	private String token; // is it needed?
+	private String token; // is it really needed?
 	private String lexeme;
 	private String type;
 	private PositionInCode position;
@@ -13,7 +13,7 @@ public class TSEntry {
 		this.position = position;
 	}
 
-	public String getTokenName() {
+	public String getToken() {
 		return token;
 	}
 

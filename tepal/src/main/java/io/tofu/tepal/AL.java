@@ -3,16 +3,17 @@ package io.tofu.tepal;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.LinkedList;
 
 import io.tofu.commons.symbol.Alphabet;
 import io.tofu.commons.symbol.Token;
+import io.tofu.commons.ts.PositionInCode;
 import io.tofu.commons.ts.TS;
 import io.tofu.commons.ts.TSEntry;
 import io.tofu.teprl.machines.af.dt.DT;
 import io.tofu.teprl.machines.af.dt.DTState;
 import io.tofu.teprl.machines.exceptions.OperarMecanismoException;
-import io.tofu.commons.*;
 
 public class AL {
 	private TS ts;
@@ -24,11 +25,16 @@ public class AL {
 	private char currentSymbol;
 	private String currentLexeme;
 	private ArrayList<DT> dts;
+	// private HashMap<DT,String> mappingDtToToken; TODO - Confirm remotion
 
-	public AL() {
-		this.ts = new TS(); // TODO
+	public AL(TS ts, Alphabet alphabet, ArrayList<DT> dts) {
+		this.ts = ts;
+		this.alphabet = alphabet;
 		this.buffer = new LinkedList<Character>();
-		this.alphabet = new Alphabet();
+		this.dts = dts;
+		
+		currentLine = 1;
+		currentColumn = 0;
 	}
 	
 	public ArrayList<Token> out(BufferedReader in) throws IOException {
@@ -38,7 +44,7 @@ public class AL {
 		setBufferedReader(in);
 		
 		while (getNextSymbol() != '$')
-			try {
+			try {				
 				currentLexeme = new String();
 				tokens.add(getNextToken());
 			} catch (NotATokenException | UnsupportedSymbolException e) {
@@ -51,6 +57,11 @@ public class AL {
 	public Token getNextToken() throws NotATokenException, IOException, UnsupportedSymbolException {
 		ArrayList<DT> dtsReading = new ArrayList<DT>();
 		ArrayList<DT> dtsNotReading = new ArrayList<DT>();
+		
+		for (DT dt : dts)
+			try {
+				dt.init();
+			} catch (OperarMecanismoException e) {System.out.println(e.getMessage()); System.exit(0);}
 		
 		dtsReading.addAll(dts);
 		
@@ -95,8 +106,24 @@ public class AL {
 	}
 	
 	private Token yieldToken(DT dt) {
-		// TODO Here TS begin
-		return null;
+		String token = dt.getName();
+		
+		if (token == "ident") // TODO - as fast as possible, change this
+			if (isKeyword(currentLexeme))
+				return new Token(currentLexeme, null); // for now, no value is needed
+		
+		PositionInCode position = new PositionInCode(currentLine, currentColumn);
+		ts.put(ts.size(), new TSEntry(token, currentLexeme, null, position));
+		
+		return new Token(token, ts.size());
+	}
+
+	private boolean isKeyword(String currentLexeme) {
+		for (TSEntry tse : ts.values())
+			if (tse.getToken().equals(currentLexeme))
+				return true;
+		
+		return false;
 	}
 
 	public void back() {
@@ -111,9 +138,6 @@ public class AL {
 			throw new IOException("No bufferedReader to read."); // TODO - is it really a IOException?
 		
 		this.bufferedReader = bufferedReader;
-		
-		currentLine = 1;
-		currentColumn = 0;
 	}
 	
 	public void setBuffer() throws IOException {
