@@ -179,6 +179,7 @@ public class ALGenerator {
 		punctuation.add(",");
 		punctuation.add(")");
 		punctuation.add("(");
+		punctuation.add(".");
 		
 		for (String punc : punctuation) {
 			DT dt = new DT(punc);

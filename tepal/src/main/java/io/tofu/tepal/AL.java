@@ -22,6 +22,7 @@ public class AL {
 	private BufferedReader bufferedReader;
 	private int currentLine;
 	private int currentColumn;
+	private int lastLineSize;
 	private char currentSymbol;
 	private String currentLexeme;
 	private ArrayList<DT> dts;
@@ -41,7 +42,7 @@ public class AL {
 		setBufferedReader(in);
 		
 		while (getNextSymbol() != '$')
-			try {				
+			try {
 				currentLexeme = new String();
 				tokens.add(getNextToken());
 			} catch (NotATokenException | UnsupportedSymbolException e) {
@@ -105,6 +106,16 @@ public class AL {
 				if (dt.getCurrState().isBackable())
 					back();
 				
+				int minimalLexemeSize = currentLexeme.length();
+				
+				if (getNextSymbol() != '$')
+					try {
+						return getNextToken();
+					} catch (NotATokenException e) {
+						for (int i = 0; i < currentLexeme.length() - minimalLexemeSize; i++)
+							back();
+					}
+				
 				return yieldToken(dt);
 			} catch (OperarMecanismoException e) {System.out.println(e.getMessage()); System.exit(0);}
 		}
@@ -138,6 +149,12 @@ public class AL {
 		currentSymbol = currentLexeme.charAt(currentLexeme.length() - 1);
 		currentLexeme = currentLexeme.substring(0, currentLexeme.length() - 1);
 		currentColumn--;
+		
+		if (currentSymbol == '\n') {
+			currentColumn = lastLineSize;
+			currentLine--;
+		}
+		
 		buffer.addFirst(currentSymbol);
 	}
 	
@@ -170,6 +187,7 @@ public class AL {
 		Character c = buffer.pop();
 		
 		if (c.equals(Character.valueOf('\n'))) {
+			lastLineSize = currentColumn;
 			currentColumn = 0;
 			currentLine++;
 		}

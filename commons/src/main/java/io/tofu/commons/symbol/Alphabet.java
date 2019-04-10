@@ -21,7 +21,16 @@ public class Alphabet extends ArrayList<String> {
 		defaultSymbols.addAll(getOpa());
 		defaultSymbols.addAll(getWhiteSpace());
 		
-		for (char c = ';'; c <= '>'; c++)
+		for (char c = '!'; c <= '/'; c++)
+			defaultSymbols.add(String.valueOf(c));
+		
+		for (char c = ':'; c <= '@'; c++)
+			defaultSymbols.add(String.valueOf(c));
+		
+		for (char c = '['; c <= '`'; c++)
+			defaultSymbols.add(String.valueOf(c));
+		
+		for (char c = ':'; c <= '>'; c++)
 			defaultSymbols.add(String.valueOf(c));
 		
 		for (char c = '('; c <= ')'; c++)
@@ -30,10 +39,13 @@ public class Alphabet extends ArrayList<String> {
 		for (char c = '{'; c <= '}'; c++)
 			defaultSymbols.add(String.valueOf(c));
 		
+		for (char c = '['; c <= ']'; c++)
+			defaultSymbols.add(String.valueOf(c));
+		
 		for (char c = '!'; c <= '\"'; c++)
 			defaultSymbols.add(String.valueOf(c));
 		
-		for (char c : ",.[]".toCharArray())
+		for (char c : ",.".toCharArray())
 			defaultSymbols.add(String.valueOf(c));
 		
 		return new Alphabet(defaultSymbols);
