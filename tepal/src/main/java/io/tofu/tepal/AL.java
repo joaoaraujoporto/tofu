@@ -66,9 +66,9 @@ public class AL {
 		while (dtsReading.size() > 1) {
 			char c = popNextSymbol();
 			
-			if (!alphabet.contains(String.valueOf(c)))
+			/* if (!alphabet.contains(String.valueOf(c)))
 				throw new UnsupportedSymbolException("Error: line " + currentLine + ", column " + currentColumn + ": \"" +
-						c + "\"" + " is not a recognized symbol.");
+						c + "\"" + " is not a recognized symbol."); */
 			
 			currentLexeme = currentLexeme + c;
 			
@@ -91,9 +91,10 @@ public class AL {
 				while (!dt.getCurrState().isAccept()) {
 					char c = popNextSymbol();
 					
-					if (!alphabet.contains(String.valueOf(c)))
+					/* TODO - For deletion, because is unnecessary. Confirm delation by tests. */
+					/* if (!alphabet.contains(String.valueOf(c)))
 						throw new UnsupportedSymbolException("Error: line " + currentLine + ", column " + currentColumn + ": \"" +
-								c + "\"" + " is not a recognized symbol.");
+							c + "\"" + " is not a recognized symbol."); */
 					
 					currentLexeme = currentLexeme + c;
 					DTState s = dt.read(c);
@@ -176,6 +177,8 @@ public class AL {
 			buffer.add(Character.valueOf('$'));
 			bufferedReader.close();
 		}
+		
+		bufferedReader.
 	}
 	
 	private Character popNextSymbol() throws IOException, UnsupportedSymbolException {

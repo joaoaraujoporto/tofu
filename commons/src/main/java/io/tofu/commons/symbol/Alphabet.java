@@ -16,39 +16,12 @@ public class Alphabet extends ArrayList<String> {
 	public static Alphabet getDefaultSymbols() {
 		ArrayList<String> defaultSymbols = new ArrayList<String>();
 		
-		defaultSymbols.addAll(getLetter());
-		defaultSymbols.addAll(getDigit());
-		defaultSymbols.addAll(getOpa());
+		for (char c = '!'; c <= '~'; c++)
+			defaultSymbols.add(String.valueOf(c));
+		
 		defaultSymbols.addAll(getWhiteSpace());
-		
-		for (char c = '!'; c <= '/'; c++)
-			defaultSymbols.add(String.valueOf(c));
-		
-		for (char c = ':'; c <= '@'; c++)
-			defaultSymbols.add(String.valueOf(c));
-		
-		for (char c = '['; c <= '`'; c++)
-			defaultSymbols.add(String.valueOf(c));
-		
-		for (char c = ':'; c <= '>'; c++)
-			defaultSymbols.add(String.valueOf(c));
-		
-		for (char c = '('; c <= ')'; c++)
-			defaultSymbols.add(String.valueOf(c));
-		
-		for (char c = '{'; c <= '}'; c++)
-			defaultSymbols.add(String.valueOf(c));
-		
-		for (char c = '['; c <= ']'; c++)
-			defaultSymbols.add(String.valueOf(c));
-		
-		for (char c = '!'; c <= '\"'; c++)
-			defaultSymbols.add(String.valueOf(c));
-		
-		for (char c : ",.".toCharArray())
-			defaultSymbols.add(String.valueOf(c));
-		
 		return new Alphabet(defaultSymbols);
+		
 	}
 	
 	public static Alphabet getDigit() {

@@ -53,9 +53,9 @@ public class DT extends AF {
 		
 		Transition t = getTransicao(currState, String.valueOf(c));
 		
-		if (t == null | t.getIndicesEstadosEntrada().isEmpty())
+		if (t == null || t.getIndicesEstadosEntrada().isEmpty())
 			try { currState = new DTState("dead", false, false, true, false);
-			} catch (Exception e) {}
+			} catch (Exception e) {System.err.println(e.getMessage());}
 		else		
 			currState = (DTState) getEstado(t.getIndicesEstadosEntrada().get(0));
 		
