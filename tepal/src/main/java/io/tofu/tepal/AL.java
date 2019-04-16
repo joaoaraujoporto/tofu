@@ -178,7 +178,6 @@ public class AL {
 			bufferedReader.close();
 		}
 		
-		bufferedReader.
 	}
 	
 	private Character popNextSymbol() throws IOException, UnsupportedSymbolException {
