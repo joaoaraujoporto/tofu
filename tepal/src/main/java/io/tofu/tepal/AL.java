@@ -26,6 +26,7 @@ public class AL {
 	private char currentSymbol;
 	private String currentLexeme;
 	private ArrayList<DT> dts;
+	private boolean bufferedReaderClosed;
 
 	public AL(TS ts, Alphabet alphabet, ArrayList<DT> dts) {
 		this.ts = ts;
@@ -35,13 +36,14 @@ public class AL {
 		
 		currentLine = 1;
 		currentColumn = 0;
+		bufferedReaderClosed = false;
 	}
 	
 	public ArrayList<Token> out(BufferedReader in) throws IOException {
 		ArrayList<Token> tokens = new ArrayList<Token>();
 		setBufferedReader(in);
 		
-		while (getNextSymbol() != '$')
+		while (!bufferedReaderClosed)
 			try {
 				currentLexeme = new String();
 				tokens.add(getNextToken());
@@ -109,7 +111,7 @@ public class AL {
 				
 				int minimalLexemeSize = currentLexeme.length();
 				
-				if (getNextSymbol() != '$')
+				if (!bufferedReaderClosed)
 					try {
 						return getNextToken();
 					} catch (NotATokenException e) {
@@ -174,10 +176,9 @@ public class AL {
 				buffer.add(Character.valueOf((char) r));
 		
 		if (r == -1) {
-			buffer.add(Character.valueOf('$'));
 			bufferedReader.close();
+			bufferedReaderClosed = true;
 		}
-		
 	}
 	
 	private Character popNextSymbol() throws IOException, UnsupportedSymbolException {
