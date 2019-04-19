@@ -65,48 +65,24 @@ public class AL {
 		
 		dtsReading.addAll(dts);
 		
-		while (dtsReading.size() > 1) {
+		
+		while (!dtsReading.isEmpty()) {
 			char c = popNextSymbol();
 			
-			/* if (!alphabet.contains(String.valueOf(c)))
-				throw new UnsupportedSymbolException("Error: line " + currentLine + ", column " + currentColumn + ": \"" +
-						c + "\"" + " is not a recognized symbol."); */
-			
-			currentLexeme = currentLexeme + c;
+			currentLexeme += c;
 			
 			for (DT dt : dtsReading) {
-				try {
-					DTState s = dt.read(c);
-					
-					if (s.isDead())
-						dtsNotReading.add(dt);
-				} catch (OperarMecanismoException e) {}
-			}
-			
-			dtsReading.removeAll(dtsNotReading);
-		}
-		
-		if (dtsReading.size() == 1) {
-			DT dt = dtsReading.get(0);
-			
-			try {
-				while (!dt.getCurrState().isAccept()) {
-					char c = popNextSymbol();
-					
-					/* TODO - For deletion, because is unnecessary. Confirm delation by tests. */
-					/* if (!alphabet.contains(String.valueOf(c)))
-						throw new UnsupportedSymbolException("Error: line " + currentLine + ", column " + currentColumn + ": \"" +
-							c + "\"" + " is not a recognized symbol."); */
-					
-					currentLexeme = currentLexeme + c;
-					DTState s = dt.read(c);
-					
-					if (s.isDead())
-						throw new NotATokenException("Error: line " + currentLine + ", column " + currentColumn + ": \"" +
-								currentSymbol + "\"" + " something is wrong here.");
-				}						
+				DTState s = null; // TODO - is that a good practice?
 				
-				if (dt.getCurrState().isBackable())
+				try { s = dt.read(c); } catch (OperarMecanismoException e) {}
+				
+				if (s.isDead())
+					dtsReading.remove(dt);
+				
+				if (!s.isAccept())
+					continue;
+					
+				if (s.isBackable())
 					back();
 				
 				int minimalLexemeSize = currentLexeme.length();
@@ -120,7 +96,7 @@ public class AL {
 					}
 				
 				return yieldToken(dt);
-			} catch (OperarMecanismoException e) {System.out.println(e.getMessage()); System.exit(0);}
+			}
 		}
 		
 		throw new NotATokenException("Error: line " + currentLine + ", column " + currentColumn + ": \"" +
