@@ -3,7 +3,6 @@ package io.tofu.tepal;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.LinkedList;
 
 import io.tofu.commons.symbol.Alphabet;
@@ -17,7 +16,6 @@ import io.tofu.teprl.machines.exceptions.OperarMecanismoException;
 
 public class AL {
 	private TS ts;
-	private Alphabet alphabet;
 	private LinkedList<Character> buffer;
 	private BufferedReader bufferedReader;
 	private int currentLine;
@@ -30,7 +28,6 @@ public class AL {
 
 	public AL(TS ts, Alphabet alphabet, ArrayList<DT> dts) {
 		this.ts = ts;
-		this.alphabet = alphabet;
 		this.buffer = new LinkedList<Character>();
 		this.dts = dts;
 		
@@ -43,60 +40,86 @@ public class AL {
 		ArrayList<Token> tokens = new ArrayList<Token>();
 		setBufferedReader(in);
 		
-		while (!bufferedReaderClosed)
+		while (!bufferedReaderClosed) {
 			try {
+				ArrayList<DT> dtsReading = new ArrayList<DT>();
 				currentLexeme = new String();
-				tokens.add(getNextToken());
+				
+				for (DT dt : dts)
+					try {
+						dt.init();
+					} catch (OperarMecanismoException e) {System.out.println(e.getMessage()); System.exit(0);}
+				
+				dtsReading.addAll(dts);
+				
+				tokens.add(getNextToken(dtsReading));
 			} catch (NotATokenException | UnsupportedSymbolException e) {
 				System.err.println(e.getMessage());
 			}
+		}
+			
 		
 		return tokens;
 	}
 	
-	public Token getNextToken() throws NotATokenException, IOException, UnsupportedSymbolException {
-		ArrayList<DT> dtsReading = new ArrayList<DT>();
+	public Token getNextToken(ArrayList<DT> dtsReading) throws NotATokenException, IOException, UnsupportedSymbolException {
 		ArrayList<DT> dtsNotReading = new ArrayList<DT>();
 		
-		for (DT dt : dts)
-			try {
-				dt.init();
-			} catch (OperarMecanismoException e) {System.out.println(e.getMessage()); System.exit(0);}
-		
-		dtsReading.addAll(dts);
-		
-		
 		while (!dtsReading.isEmpty()) {
-			char c = popNextSymbol();
+			char c;
+			
+			/*if (bufferedReaderClosed)
+				c = '\u0003'; 
+			else*/
+			c = popNextSymbol();
 			
 			currentLexeme += c;
 			
+			if (currentLexeme.equals("1900")) // TODO remove
+				System.out.println("w"); 
+			
+			if (c == 'á') // TODO remove
+				System.out.println("wtong");;
+			
+			DT dtAcceptor = null;	
+				
 			for (DT dt : dtsReading) {
 				DTState s = null; // TODO - is that a good practice?
 				
 				try { s = dt.read(c); } catch (OperarMecanismoException e) {}
 				
 				if (s.isDead())
-					dtsReading.remove(dt);
+					dtsNotReading.add(dt);
 				
 				if (!s.isAccept())
 					continue;
 					
-				if (s.isBackable())
-					back();
-				
-				int minimalLexemeSize = currentLexeme.length();
-				
-				if (!bufferedReaderClosed)
-					try {
-						return getNextToken();
-					} catch (NotATokenException e) {
-						for (int i = 0; i < currentLexeme.length() - minimalLexemeSize; i++)
-							back();
-					}
-				
-				return yieldToken(dt);
+				dtAcceptor = dt;
 			}
+			
+			dtsReading.removeAll(dtsNotReading);
+			
+			if (dtAcceptor == null)
+				continue;
+			
+			try {
+				if (dtAcceptor.getCurrState().isBackable())
+					back();
+			} catch (OperarMecanismoException e1) {
+				e1.printStackTrace();
+			}
+			
+			int minimalLexemeSize = currentLexeme.length();
+			
+			if (!bufferedReaderClosed)
+				try {
+					return getNextToken(dtsReading);
+				} catch (NotATokenException e) {
+					for (int i = 0; i < currentLexeme.length() - minimalLexemeSize; i++)
+						back();
+				}
+			
+			return yieldToken(dtAcceptor);
 		}
 		
 		throw new NotATokenException("Error: line " + currentLine + ", column " + currentColumn + ": \"" +
@@ -144,7 +167,7 @@ public class AL {
 		this.bufferedReader = bufferedReader;
 	}
 	
-	public void setBuffer() throws IOException {
+	public void setBuffer() throws IOException  {		
 		int r = 0;
 		
 		for (int i = 0; i < 10 && r != -1; i++)
@@ -153,8 +176,10 @@ public class AL {
 		
 		if (r == -1) {
 			bufferedReader.close();
+			buffer.add('\u0003');
 			bufferedReaderClosed = true;
 		}
+			
 	}
 	
 	private Character popNextSymbol() throws IOException, UnsupportedSymbolException {

@@ -35,7 +35,9 @@ public class ALGenerator {
 		other.removeAll(letter);
 		
 		try {
-			dt.addSymbols(Alphabet.getDefaultSymbols());
+			// dt.addSymbols(Alphabet.getDefaultSymbols()); TODO
+			dt.addSymbols(digit);
+			dt.addSymbols(letter);
 			
 			dt.createState("11", DTConstants.START, !DTConstants.ACCEPT, !DTConstants.DEAD, !DTConstants.BACKABLE);
 			dt.createState("12", !DTConstants.START, !DTConstants.ACCEPT, !DTConstants.DEAD, !DTConstants.BACKABLE);
@@ -44,7 +46,8 @@ public class ALGenerator {
 			dt.addTransition("11", letter, "12");
 			dt.addTransition("12", letter, "12");
 			dt.addTransition("12", digit, "12");
-			dt.addTransition("12", other, "13");
+			//dt.addTransition("12", other, "13"); TODO
+			dt.addTransitionByOther("12", "13");
 		} catch (EditarMecanismoException e) { e.printStackTrace(); }
 		
 		return dt;		
@@ -58,7 +61,8 @@ public class ALGenerator {
 		other.removeAll(digit);
 		
 		try {
-			dt.addSymbols(Alphabet.getDefaultSymbols());
+			// dt.addSymbols(Alphabet.getDefaultSymbols()); TODO
+			dt.addSymbols(digit);
 			
 			dt.createState("0", DTConstants.START, !DTConstants.ACCEPT, !DTConstants.DEAD, !DTConstants.BACKABLE);
 			dt.createState("1", !DTConstants.START, !DTConstants.ACCEPT, !DTConstants.DEAD, !DTConstants.BACKABLE);
@@ -66,7 +70,8 @@ public class ALGenerator {
 			
 			dt.addTransition("0", digit, "1");
 			dt.addTransition("1", digit, "1");
-			dt.addTransition("1", other, "2");
+			//dt.addTransition("1", other, "2"); TODO
+			dt.addTransitionByOther("1", "2");
 		} catch (EditarMecanismoException e) { e.printStackTrace(); }
 		
 		return dt;
@@ -79,14 +84,17 @@ public class ALGenerator {
 		symbols.remove("\"");
 		
 		try {
-			dt.addSymbols(Alphabet.getDefaultSymbols());
+			// dt.addSymbols(Alphabet.getDefaultSymbols()); TODO
+			dt.addSymbol("\"");
+			
 			
 			dt.createState("0", DTConstants.START, !DTConstants.ACCEPT, !DTConstants.DEAD, !DTConstants.BACKABLE);
 			dt.createState("1", !DTConstants.START, !DTConstants.ACCEPT, !DTConstants.DEAD, !DTConstants.BACKABLE);
 			dt.createState("2", !DTConstants.START, DTConstants.ACCEPT, !DTConstants.DEAD, !DTConstants.BACKABLE);
 			
 			dt.addTransition("0", "\"", "1");
-			dt.addTransition("1", symbols, "1");
+			//dt.addTransition("1", symbols, "1"); TODO
+			dt.addTransitionByOther("1", "1");
 			dt.addTransition("1", "\"", "2");
 		} catch (EditarMecanismoException e) { e.printStackTrace(); }
 		
@@ -100,7 +108,11 @@ public class ALGenerator {
 		other.remove("=");
 		
 		try {
-			dt.addSymbols(Alphabet.getDefaultSymbols());
+			// dt.addSymbols(Alphabet.getDefaultSymbols()); TODO
+			dt.addSymbol("<");
+			dt.addSymbol(">");
+			dt.addSymbol("=");
+			dt.addSymbol("!");
 			
 			dt.createState("0", DTConstants.START, !DTConstants.ACCEPT, !DTConstants.DEAD, !DTConstants.BACKABLE);
 			dt.createState("1", !DTConstants.START, !DTConstants.ACCEPT, !DTConstants.DEAD, !DTConstants.BACKABLE);
@@ -116,10 +128,12 @@ public class ALGenerator {
 			
 			dt.addTransition("0", "<", "1");
 			dt.addTransition("1", "=", "2");
-			dt.addTransition("1", other, "3");
+			//dt.addTransition("1", other, "3"); TODO
+			dt.addTransitionByOther("1", "3");
 			dt.addTransition("0", ">", "4");
 			dt.addTransition("4", "=", "5");
-			dt.addTransition("4", other, "5");
+			//dt.addTransition("4", other, "5"); TODO
+			dt.addTransitionByOther("4", "5");
 			dt.addTransition("0", "=", "7");
 			dt.addTransition("7", "=", "8");
 			dt.addTransition("0", "!", "9");
@@ -134,7 +148,8 @@ public class ALGenerator {
 		Alphabet opa = Alphabet.getOpa();
 		
 		try {
-			dt.addSymbols(Alphabet.getDefaultSymbols());
+			// dt.addSymbols(Alphabet.getDefaultSymbols()); TODO
+			dt.addSymbols(opa);
 			
 			dt.createState("0", DTConstants.START, !DTConstants.ACCEPT, !DTConstants.DEAD, !DTConstants.BACKABLE);
 			dt.createState("1", !DTConstants.START, DTConstants.ACCEPT, !DTConstants.DEAD, !DTConstants.BACKABLE);
@@ -153,7 +168,8 @@ public class ALGenerator {
 		other.removeAll(whiteSpace);
 		
 		try {
-			dt.addSymbols(Alphabet.getDefaultSymbols());
+			// dt.addSymbols(Alphabet.getDefaultSymbols()); TODO
+			dt.addSymbols(whiteSpace);
 			
 			dt.createState("19", DTConstants.START, !DTConstants.ACCEPT, !DTConstants.DEAD, !DTConstants.BACKABLE);
 			dt.createState("20", !DTConstants.START, !DTConstants.ACCEPT, !DTConstants.DEAD, !DTConstants.BACKABLE);
@@ -161,7 +177,8 @@ public class ALGenerator {
 			
 			dt.addTransition("19", whiteSpace, "20");
 			dt.addTransition("20", whiteSpace, "20");
-			dt.addTransition("20", other, "21");
+			//dt.addTransition("20", other, "21"); TODO
+			dt.addTransitionByOther("20", "21");
 		} catch (EditarMecanismoException e) { e.printStackTrace(); }
 		
 		return dt;
@@ -185,7 +202,8 @@ public class ALGenerator {
 			DT dt = new DT(punc);
 			
 			try {
-				dt.addSymbols(Alphabet.getDefaultSymbols());
+				// dt.addSymbols(Alphabet.getDefaultSymbols()); TODO
+				dt.addSymbol(punc);
 				
 				dt.createState("22", DTConstants.START, !DTConstants.ACCEPT, !DTConstants.DEAD, !DTConstants.BACKABLE);
 				dt.createState("23", !DTConstants.START, DTConstants.ACCEPT, !DTConstants.DEAD, !DTConstants.BACKABLE);
@@ -203,7 +221,8 @@ public class ALGenerator {
 		DT dt = new DT("assign");
 		
 		try {
-			dt.addSymbols(Alphabet.getDefaultSymbols());
+			// dt.addSymbols(Alphabet.getDefaultSymbols()); TODO
+			dt.addSymbol("=");
 			
 			dt.createState("22", DTConstants.START, !DTConstants.ACCEPT, !DTConstants.DEAD, !DTConstants.BACKABLE);
 			dt.createState("23", !DTConstants.START, DTConstants.ACCEPT, !DTConstants.DEAD, !DTConstants.BACKABLE);

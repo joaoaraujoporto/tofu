@@ -1,6 +1,5 @@
 package io.tofu.teprl.machines.af.dt;
 
-import java.util.ArrayList;
 import org.junit.Test;
 import io.tofu.teprl.machines.exceptions.EditarMecanismoException;
 import io.tofu.teprl.machines.exceptions.OperarMecanismoException;
@@ -18,8 +17,6 @@ public class DTTest extends TestCase {
 		String w2 = " \t\n \t \n";
 		String w3 = "aba";
 		String w4 = " \t\nab";
-		
-		
 		
 		try {
 			dt.addSymbols(outro);
@@ -39,7 +36,7 @@ public class DTTest extends TestCase {
 			dt.addTransition("20", " ", "20");
 			dt.addTransition("20", "\t", "20");
 			dt.addTransition("20", "\n", "20");
-			dt.addTransition("20", outro, "21");
+			dt.addTransitionByOther("20", "21");
 			
 			dt.init();
 			
@@ -52,6 +49,5 @@ public class DTTest extends TestCase {
 		} catch (EditarMecanismoException | OperarMecanismoException e) {
 			e.printStackTrace();
 		}
-		
 	}
 }

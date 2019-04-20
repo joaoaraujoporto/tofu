@@ -1,60 +1,25 @@
 package io.tofu.teprl.machines.af;
 
-import java.util.ArrayList;
-
-public class Transition implements Cloneable {
-	private Integer indiceEstadoSaida;
-	private Integer indiceSimbolo;
-	private ArrayList<Integer> indicesEstadosEntrada;
-
-	public Transition(int indiceEstadoSaida, int indiceSimbolo) {
-		this.indiceEstadoSaida = indiceEstadoSaida;
-		this.indiceSimbolo = indiceSimbolo;
-		this.indicesEstadosEntrada = new ArrayList<Integer>();
-	}
+public class Transition<S,A> {
+	S statout;
+	A action;
+	S statin;
 	
-	public Transition(int indiceEstadoSaida, int indiceSimbolo, ArrayList<Integer> indicesEstadosEntrada) {
-		this.indiceEstadoSaida = indiceEstadoSaida;
-		this.indiceSimbolo = indiceSimbolo;
-		this.indicesEstadosEntrada = indicesEstadosEntrada;
-	}
-	
-	/**
-	 * 
-	 * @param idEstadoDeEntrada
-	 */
-	public boolean setEstadoDeEntrado(int idEstadoDeEntrada) {
-		// TODO - implement Transicao.setEstadoDeEntrado
-		throw new UnsupportedOperationException();
+	public Transition(S statout, A action, S statin) {
+		this.statout = statout;
+		this.action = action;
+		this.statin = statin;
 	}
 
-	public void setIndiceEstadoSaida(Integer indiceEstadoSaida) {
-		this.indiceEstadoSaida = indiceEstadoSaida;
+	public S getStatout() {
+		return statout;
 	}
 
-	public void setIndiceSimbolo(Integer indiceSimbolo) {
-		this.indiceSimbolo = indiceSimbolo;
+	public A getAction() {
+		return action;
 	}
 
-	public void setIndicesEstadosEntrada(ArrayList<Integer> indicesEstadosEntrada) {
-		this.indicesEstadosEntrada = indicesEstadosEntrada;
-	}
-
-	public Integer getIndiceEstadoSaida() {
-		return indiceEstadoSaida;
-	}
-
-	public Integer getIndiceSimbolo() {
-		return indiceSimbolo;
-	}
-
-	public ArrayList<Integer> getIndicesEstadosEntrada() {
-		return indicesEstadosEntrada;
-	}
-	
-	@Override
-	protected Object clone() throws CloneNotSupportedException {
-	    return super.clone();
+	public S getStatin() {
+		return statin;
 	}
 }
-

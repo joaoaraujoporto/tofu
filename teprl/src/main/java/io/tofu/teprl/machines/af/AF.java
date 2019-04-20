@@ -4,21 +4,20 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 
 import io.tofu.teprl.machines.Machine;
-import io.tofu.teprl.machines.af.dt.DTState;
 import io.tofu.teprl.machines.exceptions.EditarMecanismoException;
 
 public class AF extends Machine {
 	private static int order;
 	private LinkedList<State> states;
-	private LinkedList<String> symbols;
-	private LinkedList<Transition> transitions;
+	protected LinkedList<String> symbols;
+	private LinkedList<TransitionAF> transitions;
 	
 	public AF(String nome) {
 		super(nome);
 		order = 0;
 		states = new LinkedList<State>();
 		symbols = new LinkedList<String>();
-		transitions = new LinkedList<Transition>();
+		transitions = new LinkedList<TransitionAF>();
 		// try { estadoMorto = new State("-"); } catch (Exception e) {}
 	}
 
@@ -41,7 +40,7 @@ public class AF extends Machine {
 			for (String simbolo : symbols) {
 				ArrayList<Integer> indicesEstadosEntrada = new ArrayList<Integer>();
 				
-				transitions.addLast(new Transition(states.indexOf(estado),
+				transitions.addLast(new TransitionAF(states.indexOf(estado),
 						symbols.indexOf(simbolo),
 						indicesEstadosEntrada));
 			}
@@ -66,7 +65,7 @@ public class AF extends Machine {
 		for (String simbolo : symbols) {
 			ArrayList<Integer> indicesEstadosEntrada = new ArrayList<Integer>();
 			
-			transitions.addLast(new Transition(states.indexOf(s),
+			transitions.addLast(new TransitionAF(states.indexOf(s),
 					symbols.indexOf(simbolo),
 					indicesEstadosEntrada));
 		}
@@ -98,7 +97,7 @@ public class AF extends Machine {
 	public void addTransition(State estadoSaida, String symbol, State estadoEntrada) {
 		ArrayList<Integer> indicesEstadosEntrada = new ArrayList<Integer>();
 		
-		for (Transition t : transitions)
+		for (TransitionAF t : transitions)
 			if (t.getIndiceEstadoSaida() == getIndiceEstado(estadoSaida))
 				if (t.getIndiceSimbolo() == symbols.indexOf(symbol)) {
 					t.getIndicesEstadosEntrada().add(getIndiceEstado(estadoEntrada));
@@ -108,7 +107,7 @@ public class AF extends Machine {
 		if (!estadoEntrada.isDead())
 			indicesEstadosEntrada.add(getIndiceEstado(estadoEntrada));
 		
-		transitions.addLast(new Transition(getIndiceEstado(estadoSaida),
+		transitions.addLast(new TransitionAF(getIndiceEstado(estadoSaida),
 				symbols.indexOf(symbol),
 				(ArrayList<Integer>)indicesEstadosEntrada));
 	}
@@ -215,7 +214,7 @@ public class AF extends Machine {
 	 * @throws EditarMecanismoException 
 	 */
 	public void alterarTransicao(Integer indiceTransicao, String estadosEntrada) throws EditarMecanismoException {		
-		Transition transicao = transitions.get(indiceTransicao);
+		TransitionAF transicao = transitions.get(indiceTransicao);
 		String[] nomesEstados = estadosEntrada.split(",");
 		
 		for (int i = 0; i < nomesEstados.length; i++)
@@ -252,7 +251,7 @@ public class AF extends Machine {
 		if (!estadoEntrada.isDead())
 			indicesEstadosEntrada.add(getIndiceEstado(estadoEntrada));
 			
-		Transition t = getTransicao(estadoSaida, simbolo);
+		TransitionAF t = getTransicao(estadoSaida, simbolo);
 		t.setIndiceEstadoSaida(getIndiceEstado(estadoSaida));
 		t.setIndiceSimbolo(symbols.indexOf(simbolo));
 		t.setIndicesEstadosEntrada(indicesEstadosEntrada);
@@ -311,7 +310,7 @@ public class AF extends Machine {
 		symbols.add(symbol);
 		
 		for (State state : states)
-			transitions.addLast(new Transition(states.indexOf(state),
+			transitions.addLast(new TransitionAF(states.indexOf(state),
 					symbols.indexOf(symbol), new ArrayList<Integer>()));
 	}
 	
@@ -351,14 +350,14 @@ public class AF extends Machine {
 				
 				ArrayList<Integer> indiceTransicoesRemocao = new ArrayList<Integer>();
 				
-				for (Transition transicao : transitions)
+				for (TransitionAF transicao : transitions)
 					if (transicao.getIndiceEstadoSaida().equals(indiceEstado))
 						indiceTransicoesRemocao.add(transitions.indexOf(transicao));
 				
 				for(Integer indiceTransicao : indiceTransicoesRemocao)
 					transitions.remove(transitions.get(indiceTransicao));
 				
-				for (Transition transicao : transitions)
+				for (TransitionAF transicao : transitions)
 					if (transicao.getIndicesEstadosEntrada().contains(indiceEstado))
 						transicao.getIndicesEstadosEntrada().remove(indiceEstado);
 				
@@ -380,7 +379,7 @@ public class AF extends Machine {
 				
 				ArrayList<Integer> indiceTransicoesRemocao = new ArrayList<Integer>();
 				
-				for (Transition transicao : transitions)
+				for (TransitionAF transicao : transitions)
 					if (transicao.getIndiceSimbolo().equals(indiceSimbolo))
 						indiceTransicoesRemocao.add(transitions.indexOf(transicao));
 				
@@ -400,7 +399,7 @@ public class AF extends Machine {
 		ConjuntoEstados estadosEntrada = new ConjuntoEstados();
 		
 		State estadoSaida = getEstado(nomeEstado);
-		Transition transicao = getTransicao(estadoSaida, simbolo);
+		TransitionAF transicao = getTransicao(estadoSaida, simbolo);
 		
 		for (Integer indiceEstado : transicao.getIndicesEstadosEntrada())
 			estadosEntrada.add(states.get(indiceEstado));
@@ -410,7 +409,7 @@ public class AF extends Machine {
 	
 	// TODO - soh para AFDs
 	private State getEstadoEntrada(String nomeEstadoSaida, String simbolo) {
-		Transition t = getTransicao(getEstado(nomeEstadoSaida), simbolo);
+		TransitionAF t = getTransicao(getEstado(nomeEstadoSaida), simbolo);
 		
 		if (t.getIndicesEstadosEntrada().isEmpty())
 			try { return new State("dead", false, false, true);
@@ -419,16 +418,16 @@ public class AF extends Machine {
 		return getEstado(t.getIndicesEstadosEntrada().get(0));
 	}
 	
-	public Transition getTransicao(State estadoSaida, String simbolo) {
+	public TransitionAF getTransicao(State estadoSaida, String simbolo) {
 		return getTransicao(states.indexOf(estadoSaida), symbols.indexOf(simbolo));
 	}
 	
-	public Transition getTransicao(Integer indiceEstadoSaida, String simbolo) {
+	public TransitionAF getTransicao(Integer indiceEstadoSaida, String simbolo) {
 		return getTransicao(indiceEstadoSaida, symbols.indexOf(simbolo));
 	}
 	
-	public Transition getTransicao(Integer indiceEstadoSaida, Integer indiceSimbolo) {
-		for (Transition transicao : transitions)
+	public TransitionAF getTransicao(Integer indiceEstadoSaida, Integer indiceSimbolo) {
+		for (TransitionAF transicao : transitions)
 			if (transicao.getIndiceEstadoSaida().equals(indiceEstadoSaida))
 				if (transicao.getIndiceSimbolo().equals(indiceSimbolo))
 					return transicao;
@@ -439,7 +438,7 @@ public class AF extends Machine {
 	public void adicionarEstadoEntradaTransicao(String nomeEstadoSaida, String simbolo, String nomeEstadoEntrada) {
 		State eS = getEstado(nomeEstadoSaida);
 		State eE = getEstado(nomeEstadoEntrada);
-		Transition t = getTransicao(eS, simbolo);
+		TransitionAF t = getTransicao(eS, simbolo);
 		
 		t.getIndicesEstadosEntrada().add(getIndiceEstado(eE));
 	}
@@ -448,7 +447,7 @@ public class AF extends Machine {
 		return states.indexOf(eE);
 	}
 
-	private State getEstado(String stateName) {
+	protected State getEstado(String stateName) {
 		if (stateName.equals("-"))
 			try { return new State("dead", false, false, true);
 			} catch (Exception e) {}
@@ -506,7 +505,7 @@ public class AF extends Machine {
 		if (!visitados.contains(estado)) {
 			visitados.add(estado);
 			
-			for (Transition t : transitions)
+			for (TransitionAF t : transitions)
 				if (t.getIndiceEstadoSaida().equals(getIndiceEstado(estado)))
 					for (Integer indiceEstadoEntrada : t.getIndicesEstadosEntrada()) // somente um indice, pois AFD
 						if (!ehMorto(states.get(indiceEstadoEntrada), visitados))

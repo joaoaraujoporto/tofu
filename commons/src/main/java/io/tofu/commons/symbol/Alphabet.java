@@ -3,6 +3,11 @@ package io.tofu.commons.symbol;
 import java.util.ArrayList;
 
 public class Alphabet extends ArrayList<String> {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	public Alphabet() {}
 	
 	public Alphabet(ArrayList<String> symbols) {

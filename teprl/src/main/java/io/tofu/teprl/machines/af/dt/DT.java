@@ -1,16 +1,22 @@
 package io.tofu.teprl.machines.af.dt;
 
+import java.util.ArrayList;
+import java.util.LinkedList;
+
 import io.tofu.teprl.machines.af.AF;
 import io.tofu.teprl.machines.af.State;
 import io.tofu.teprl.machines.af.Transition;
+import io.tofu.teprl.machines.af.TransitionAF;
 import io.tofu.teprl.machines.exceptions.EditarMecanismoException;
 import io.tofu.teprl.machines.exceptions.OperarMecanismoException;
 
 public class DT extends AF {
 	private DTState currState;
+	private LinkedList<Transition<DTState,String>> transitionsByOther;
 	
-	public DT(String nome) {
-		super(nome);
+	public DT(String name) {
+		super(name);
+		transitionsByOther = new LinkedList<Transition<DTState,String>>();
 	}
 	
 	public void createState(String name, Boolean start,
@@ -27,6 +33,25 @@ public class DT extends AF {
 		super.addState(s);
 	}
 	
+	public void addTransitionByOther(String statinName, String statoutName) {
+		DTState statout = (DTState) getEstado(statinName);
+		DTState statin = (DTState) getEstado(statoutName);
+		
+		addTransitionByOther(statout, statin);
+	}
+	
+	private void addTransitionByOther(DTState statout, DTState statin) {
+		ArrayList<Integer> indicesEstadosEntrada = new ArrayList<Integer>();
+		
+		for (Transition<DTState,String> t : transitionsByOther)
+			if (t.getStatout().equals(statout))
+				if (t.getStatin().equals(statin))
+					return; // TODO - add a transition that already exists should not have effect?
+		
+		transitionsByOther.addLast(new Transition<DTState,String>(statout,
+				null, statin));		
+	}
+
 	public void init() throws OperarMecanismoException {
 		State startState = getInitialState();
 		
@@ -51,7 +76,12 @@ public class DT extends AF {
 		if (currState == null)
 			throw new OperarMecanismoException("There is not a start state");
 		
-		Transition t = getTransicao(currState, String.valueOf(c));
+		if (!symbols.contains(String.valueOf(c)))
+			for (Transition<DTState,String> t : transitionsByOther)
+				if (t.getStatout().equals(currState))
+					return (currState = t.getStatin());
+		
+		TransitionAF t = getTransicao(currState, String.valueOf(c));
 		
 		if (t == null || t.getIndicesEstadosEntrada().isEmpty())
 			try { currState = new DTState("dead", false, false, true, false);
@@ -67,5 +97,10 @@ public class DT extends AF {
 			throw new OperarMecanismoException("There is not a current state");
 			
 		return currState;
+	}
+	
+	@Override
+	public String toString() {
+		return name;
 	}
 }

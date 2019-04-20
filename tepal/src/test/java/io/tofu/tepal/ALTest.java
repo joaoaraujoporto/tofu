@@ -1,10 +1,6 @@
 package io.tofu.tepal;
 
-import static org.junit.Assert.*;
-
 import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -17,7 +13,6 @@ import io.tofu.commons.ts.TS;
 import io.tofu.commons.ts.TSEntry;
 import io.tofu.teprl.machines.af.dt.DT;
 import io.tofu.teprl.machines.exceptions.EditarMecanismoException;
-import io.tofu.teprl.machines.exceptions.OperarMecanismoException;
 
 public class ALTest {
 
@@ -46,7 +41,9 @@ public class ALTest {
 			dt1.addTransition("20", " ", "20");
 			dt1.addTransition("20", "\t", "20");
 			dt1.addTransition("20", "\n", "20");
-			dt1.addTransition("20", outro, "21");
+			// dt1.addTransition("20", outro, "21");
+			dt1.addTransitionByOther("20", "21");
+			
 			
 			dt2.createState("17", true, false, false, false);
 			dt2.createState("18", false, true, false, false);
