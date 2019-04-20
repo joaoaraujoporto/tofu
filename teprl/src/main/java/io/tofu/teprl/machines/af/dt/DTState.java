@@ -8,7 +8,7 @@ public class DTState extends State {
 	
 	public DTState(String name, Boolean start,
 			Boolean accept, Boolean dead,
-			Boolean backable) throws EditarMecanismoException {
+			Boolean backable) {
 		super(name, start, accept, dead);
 		
 		this.backable = backable;

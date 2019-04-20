@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import io.tofu.commons.symbol.Alphabet;
 import io.tofu.commons.ts.TS;
+import io.tofu.commons.ts.TSEntry;
 import io.tofu.tepal.AL;
 import io.tofu.teprl.machines.af.dt.DT;
 import io.tofu.teprl.machines.af.dt.DTConstants;
@@ -21,21 +22,17 @@ public class ALGenerator {
 		dts.add(getDTWhiteSpace());
 		dts.add(getDTAssign());
 		dts.addAll(getDTsPunctuation());
+		setKeywords(ts);
 		
-		return new AL(ts, Alphabet.getDefaultSymbols(), dts);
+		return new AL(ts, dts);
 	}
 	
 	private static DT getDTIdent() {
 		DT dt = new DT("ident");
-		Alphabet other = Alphabet.getDefaultSymbols();
 		Alphabet digit = Alphabet.getDigit();
 		Alphabet letter = Alphabet.getLetter();
 		
-		other.removeAll(digit);
-		other.removeAll(letter);
-		
 		try {
-			// dt.addSymbols(Alphabet.getDefaultSymbols()); TODO
 			dt.addSymbols(digit);
 			dt.addSymbols(letter);
 			
@@ -46,7 +43,6 @@ public class ALGenerator {
 			dt.addTransition("11", letter, "12");
 			dt.addTransition("12", letter, "12");
 			dt.addTransition("12", digit, "12");
-			//dt.addTransition("12", other, "13"); TODO
 			dt.addTransitionByOther("12", "13");
 		} catch (EditarMecanismoException e) { e.printStackTrace(); }
 		
@@ -55,13 +51,9 @@ public class ALGenerator {
 	
 	private static DT getDTIntConstant() {
 		DT dt = new DT("int-constant");
-		Alphabet other = Alphabet.getDefaultSymbols();
 		Alphabet digit = Alphabet.getDigit();
 		
-		other.removeAll(digit);
-		
 		try {
-			// dt.addSymbols(Alphabet.getDefaultSymbols()); TODO
 			dt.addSymbols(digit);
 			
 			dt.createState("0", DTConstants.START, !DTConstants.ACCEPT, !DTConstants.DEAD, !DTConstants.BACKABLE);
@@ -70,7 +62,6 @@ public class ALGenerator {
 			
 			dt.addTransition("0", digit, "1");
 			dt.addTransition("1", digit, "1");
-			//dt.addTransition("1", other, "2"); TODO
 			dt.addTransitionByOther("1", "2");
 		} catch (EditarMecanismoException e) { e.printStackTrace(); }
 		
@@ -79,12 +70,8 @@ public class ALGenerator {
 	
 	private static DT getDTStringConstant() {
 		DT dt = new DT("string-constant");
-		Alphabet symbols = Alphabet.getDefaultSymbols();
-		
-		symbols.remove("\"");
 		
 		try {
-			// dt.addSymbols(Alphabet.getDefaultSymbols()); TODO
 			dt.addSymbol("\"");
 			
 			
@@ -93,7 +80,6 @@ public class ALGenerator {
 			dt.createState("2", !DTConstants.START, DTConstants.ACCEPT, !DTConstants.DEAD, !DTConstants.BACKABLE);
 			
 			dt.addTransition("0", "\"", "1");
-			//dt.addTransition("1", symbols, "1"); TODO
 			dt.addTransitionByOther("1", "1");
 			dt.addTransition("1", "\"", "2");
 		} catch (EditarMecanismoException e) { e.printStackTrace(); }
@@ -103,12 +89,8 @@ public class ALGenerator {
 	
 	private static DT getDTOpr() {
 		DT dt = new DT("opr");
-		Alphabet other = Alphabet.getDefaultSymbols();
-		
-		other.remove("=");
 		
 		try {
-			// dt.addSymbols(Alphabet.getDefaultSymbols()); TODO
 			dt.addSymbol("<");
 			dt.addSymbol(">");
 			dt.addSymbol("=");
@@ -128,11 +110,9 @@ public class ALGenerator {
 			
 			dt.addTransition("0", "<", "1");
 			dt.addTransition("1", "=", "2");
-			//dt.addTransition("1", other, "3"); TODO
 			dt.addTransitionByOther("1", "3");
 			dt.addTransition("0", ">", "4");
 			dt.addTransition("4", "=", "5");
-			//dt.addTransition("4", other, "5"); TODO
 			dt.addTransitionByOther("4", "5");
 			dt.addTransition("0", "=", "7");
 			dt.addTransition("7", "=", "8");
@@ -148,7 +128,6 @@ public class ALGenerator {
 		Alphabet opa = Alphabet.getOpa();
 		
 		try {
-			// dt.addSymbols(Alphabet.getDefaultSymbols()); TODO
 			dt.addSymbols(opa);
 			
 			dt.createState("0", DTConstants.START, !DTConstants.ACCEPT, !DTConstants.DEAD, !DTConstants.BACKABLE);
@@ -162,13 +141,9 @@ public class ALGenerator {
 	
 	private static DT getDTWhiteSpace() {
 		DT dt = new DT("white-space");
-		Alphabet other = Alphabet.getDefaultSymbols();
 		Alphabet whiteSpace = Alphabet.getWhiteSpace();
 		
-		other.removeAll(whiteSpace);
-		
 		try {
-			// dt.addSymbols(Alphabet.getDefaultSymbols()); TODO
 			dt.addSymbols(whiteSpace);
 			
 			dt.createState("19", DTConstants.START, !DTConstants.ACCEPT, !DTConstants.DEAD, !DTConstants.BACKABLE);
@@ -177,7 +152,6 @@ public class ALGenerator {
 			
 			dt.addTransition("19", whiteSpace, "20");
 			dt.addTransition("20", whiteSpace, "20");
-			//dt.addTransition("20", other, "21"); TODO
 			dt.addTransitionByOther("20", "21");
 		} catch (EditarMecanismoException e) { e.printStackTrace(); }
 		
@@ -202,7 +176,6 @@ public class ALGenerator {
 			DT dt = new DT(punc);
 			
 			try {
-				// dt.addSymbols(Alphabet.getDefaultSymbols()); TODO
 				dt.addSymbol(punc);
 				
 				dt.createState("22", DTConstants.START, !DTConstants.ACCEPT, !DTConstants.DEAD, !DTConstants.BACKABLE);
@@ -221,7 +194,6 @@ public class ALGenerator {
 		DT dt = new DT("assign");
 		
 		try {
-			// dt.addSymbols(Alphabet.getDefaultSymbols()); TODO
 			dt.addSymbol("=");
 			
 			dt.createState("22", DTConstants.START, !DTConstants.ACCEPT, !DTConstants.DEAD, !DTConstants.BACKABLE);
@@ -231,5 +203,27 @@ public class ALGenerator {
 		} catch (EditarMecanismoException e) { e.printStackTrace(); }
 		
 		return dt;
+	}
+	
+	private static void setKeywords(TS ts) {
+		String[] keywords = new String[14];
+		
+		keywords[0] = "class";
+		keywords[1] = "extends";
+		keywords[2] = "int";
+		keywords[3] = "string";
+		keywords[4] = "break";
+		keywords[5] = "print";
+		keywords[6] = "return";
+		keywords[7] = "super";
+		keywords[8] = "if";
+		keywords[9] = "else";
+		keywords[10] = "for";
+		keywords[11] = "new";
+		keywords[12] = "null";
+		keywords[13] = "read";
+		
+		for (String k : keywords)
+			ts.put(ts.size(), new TSEntry(k, k, null, null));
 	}
 }

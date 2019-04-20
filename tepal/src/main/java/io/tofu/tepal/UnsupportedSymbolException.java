@@ -1,6 +1,6 @@
 package io.tofu.tepal;
 
-public class UnsupportedSymbolException extends Exception {
+public class UnsupportedSymbolException extends RuntimeException {
 	/**
 	 * 
 	 */

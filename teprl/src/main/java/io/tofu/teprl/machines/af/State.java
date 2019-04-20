@@ -12,7 +12,7 @@ public class State {
 		this(name, false, false, false);
 	}
 	
-	public State(String name, Boolean start, Boolean accept, Boolean dead) throws EditarMecanismoException {
+	public State(String name, Boolean start, Boolean accept, Boolean dead) {
 		if (accept && dead)
 			throw new EditarMecanismoException("A state cannot accept and be dead");
 		

@@ -23,8 +23,8 @@ public class ALTest {
 		Alphabet outro = Alphabet.getDefaultSymbols();
 		
 		try {
-			dt1.addSymbols(outro);
-			dt2.addSymbols(outro);
+			dt1.addSymbols(Alphabet.getWhiteSpace());
+			dt2.addSymbols(Alphabet.getOpa());
 						
 			outro.remove(" ");
 			outro.remove("\t");
@@ -63,7 +63,7 @@ public class ALTest {
 		
 		TS ts = new TS();
 		
-		AL al = new AL(ts, Alphabet.getDefaultSymbols(), dts);
+		AL al = new AL(ts, dts);
 		
 		FileReader sourceCode = new FileReader("./sources/source_test_1.xpp");
 		ArrayList<Token> tokens = al.out(new BufferedReader(sourceCode));
@@ -77,7 +77,7 @@ public class ALTest {
 		
 		System.out.println("finges");
 		
-		AL al2 = new AL(ts, Alphabet.getDefaultSymbols(), dts);
+		AL al2 = new AL(ts, dts);
 		
 		sourceCode = new FileReader("./sources/source_test_2.xpp");
 		tokens = al2.out(new BufferedReader(sourceCode));

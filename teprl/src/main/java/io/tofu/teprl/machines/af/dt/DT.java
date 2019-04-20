@@ -52,7 +52,7 @@ public class DT extends AF {
 				null, statin));		
 	}
 
-	public void init() throws OperarMecanismoException {
+	public void init() {
 		State startState = getInitialState();
 		
 		if (startState == null)
@@ -62,9 +62,9 @@ public class DT extends AF {
 	}
 	
 	/*
-	 * Verify if input is accepted or rejected
+	 * Verify if input is accepted or rejected TODO
 	 */
-	public void a(String input) throws OperarMecanismoException {
+	public void a(String input) {  
 		for (char c : input.toCharArray())
 			read(c);
 	}
@@ -72,7 +72,7 @@ public class DT extends AF {
 	/*
 	 * Do a transition according to currState and symbol c
 	 */
-	public DTState read(char c) throws OperarMecanismoException {
+	public DTState read(char c) {
 		if (currState == null)
 			throw new OperarMecanismoException("There is not a start state");
 		
@@ -84,15 +84,14 @@ public class DT extends AF {
 		TransitionAF t = getTransicao(currState, String.valueOf(c));
 		
 		if (t == null || t.getIndicesEstadosEntrada().isEmpty())
-			try { currState = new DTState("dead", false, false, true, false);
-			} catch (Exception e) {System.err.println(e.getMessage());}
+			currState = new DTState("dead", false, false, true, false);
 		else		
 			currState = (DTState) getEstado(t.getIndicesEstadosEntrada().get(0));
 		
 		return currState;
 	}
 	
-	public DTState getCurrState() throws OperarMecanismoException {
+	public DTState getCurrState() {
 		if (currState == null)
 			throw new OperarMecanismoException("There is not a current state");
 			

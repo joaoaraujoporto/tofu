@@ -5,14 +5,12 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.LinkedList;
 
-import io.tofu.commons.symbol.Alphabet;
 import io.tofu.commons.symbol.Token;
 import io.tofu.commons.ts.PositionInCode;
 import io.tofu.commons.ts.TS;
 import io.tofu.commons.ts.TSEntry;
 import io.tofu.teprl.machines.af.dt.DT;
 import io.tofu.teprl.machines.af.dt.DTState;
-import io.tofu.teprl.machines.exceptions.OperarMecanismoException;
 
 public class AL {
 	private TS ts;
@@ -26,7 +24,7 @@ public class AL {
 	private ArrayList<DT> dts;
 	private boolean bufferedReaderClosed;
 
-	public AL(TS ts, Alphabet alphabet, ArrayList<DT> dts) {
+	public AL(TS ts, ArrayList<DT> dts) {
 		this.ts = ts;
 		this.buffer = new LinkedList<Character>();
 		this.dts = dts;
@@ -40,53 +38,41 @@ public class AL {
 		ArrayList<Token> tokens = new ArrayList<Token>();
 		setBufferedReader(in);
 		
-		while (!bufferedReaderClosed) {
-			try {
-				ArrayList<DT> dtsReading = new ArrayList<DT>();
-				currentLexeme = new String();
-				
-				for (DT dt : dts)
-					try {
-						dt.init();
-					} catch (OperarMecanismoException e) {System.out.println(e.getMessage()); System.exit(0);}
-				
-				dtsReading.addAll(dts);
-				
-				tokens.add(getNextToken(dtsReading));
-			} catch (NotATokenException | UnsupportedSymbolException e) {
-				System.err.println(e.getMessage());
-			}
-		}
+		while (!bufferedReaderClosed) {			
+			ArrayList<DT> dtsReading = new ArrayList<DT>();
+			currentLexeme = new String();
 			
+			for (DT dt : dts)
+				dt.init();
+			
+			dtsReading.addAll(dts);
+			
+			Token token = getNextToken(dtsReading);
+			
+			if (token == null) {
+				System.err.println("Error: line " + currentLine + ", column " + currentColumn + ": \"" +
+						currentSymbol + "\"" + " something is wrong here.");
+				continue;
+			}
+			
+			tokens.add(token);
+		}
 		
 		return tokens;
 	}
 	
-	public Token getNextToken(ArrayList<DT> dtsReading) throws NotATokenException, IOException, UnsupportedSymbolException {
+	public Token getNextToken(ArrayList<DT> dtsReading) throws IOException {
 		ArrayList<DT> dtsNotReading = new ArrayList<DT>();
 		
 		while (!dtsReading.isEmpty()) {
-			char c;
-			
-			/*if (bufferedReaderClosed)
-				c = '\u0003'; 
-			else*/
-			c = popNextSymbol();
-			
-			currentLexeme += c;
-			
-			if (currentLexeme.equals("1900")) // TODO remove
-				System.out.println("w"); 
-			
-			if (c == 'á') // TODO remove
-				System.out.println("wtong");;
-			
-			DT dtAcceptor = null;	
+			DT dtAcceptor = null;
+			char c = popNextSymbol();
+			currentLexeme += c;	
 				
 			for (DT dt : dtsReading) {
 				DTState s = null; // TODO - is that a good practice?
 				
-				try { s = dt.read(c); } catch (OperarMecanismoException e) {}
+				s = dt.read(c);
 				
 				if (s.isDead())
 					dtsNotReading.add(dt);
@@ -102,28 +88,23 @@ public class AL {
 			if (dtAcceptor == null)
 				continue;
 			
-			try {
-				if (dtAcceptor.getCurrState().isBackable())
-					back();
-			} catch (OperarMecanismoException e1) {
-				e1.printStackTrace();
-			}
+			if (dtAcceptor.getCurrState().isBackable())
+				back();
 			
 			int minimalLexemeSize = currentLexeme.length();
+			Token token = null;
 			
 			if (!bufferedReaderClosed)
-				try {
-					return getNextToken(dtsReading);
-				} catch (NotATokenException e) {
-					for (int i = 0; i < currentLexeme.length() - minimalLexemeSize; i++)
-						back();
-				}
+				if ((token = getNextToken(dtsReading)) != null)
+					return token;
+			
+			for (int i = 0; i < currentLexeme.length() - minimalLexemeSize; i++)
+				back();
 			
 			return yieldToken(dtAcceptor);
 		}
 		
-		throw new NotATokenException("Error: line " + currentLine + ", column " + currentColumn + ": \"" +
-				currentSymbol + "\"" + " something is wrong here.");
+		return null;
 	}
 	
 	private Token yieldToken(DT dt) {
@@ -167,7 +148,7 @@ public class AL {
 		this.bufferedReader = bufferedReader;
 	}
 	
-	public void setBuffer() throws IOException  {		
+	private void setBuffer() throws IOException  {		
 		int r = 0;
 		
 		for (int i = 0; i < 10 && r != -1; i++)
@@ -176,13 +157,12 @@ public class AL {
 		
 		if (r == -1) {
 			bufferedReader.close();
-			buffer.add('\u0003');
 			bufferedReaderClosed = true;
+			buffer.add('\u0003');
 		}
-			
 	}
 	
-	private Character popNextSymbol() throws IOException, UnsupportedSymbolException {
+	private Character popNextSymbol() throws IOException {
 		currentColumn++;
 		
 		if (buffer.isEmpty())
@@ -198,12 +178,5 @@ public class AL {
 		
 		currentSymbol = c;
 		return c;
-	}
-	
-	private Character getNextSymbol() throws IOException {		
-		if (buffer.isEmpty())
-			setBuffer();
-
-		return buffer.getFirst();
 	}
 }

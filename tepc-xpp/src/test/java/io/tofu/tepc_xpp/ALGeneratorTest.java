@@ -20,7 +20,7 @@ public class ALGeneratorTest {
 		
 		AL al = ALGenerator.getAL(ts);
 		
-		FileReader sourceCode = new FileReader("./sources/arvore_binaria_de_busca_2.xpp");
+		FileReader sourceCode = new FileReader("./sources/arvore_binaria_de_busca.xpp");
 		ArrayList<Token> tokens = al.out(new BufferedReader(sourceCode));
 		
 		System.out.println(tokens.toString());
