@@ -21,7 +21,7 @@ public class CompilerTest {
 			
 			Compiler c = new Compiler();
 			
-			for (Token token : c.getTokens(bufferedReader))
+			for (Token<Integer> token : c.getTokens(bufferedReader))
 				System.out.println(token.toString());
 		} catch (Exception e) {
 			e.printStackTrace();

@@ -34,8 +34,8 @@ public class AL {
 		bufferedReaderClosed = false;
 	}
 	
-	public ArrayList<Token> out(BufferedReader in) throws IOException {
-		ArrayList<Token> tokens = new ArrayList<Token>();
+	public ArrayList<Token<Integer>> out(BufferedReader in) throws IOException {
+		ArrayList<Token<Integer>> tokens = new ArrayList<Token<Integer>>();
 		setBufferedReader(in);
 		
 		while (!bufferedReaderClosed) {			
@@ -47,7 +47,7 @@ public class AL {
 			
 			dtsReading.addAll(dts);
 			
-			Token token = getNextToken(dtsReading);
+			Token<Integer> token = getNextToken(dtsReading);
 			
 			if (token == null) {
 				System.err.println("Error: line " + currentLine + ", column " + currentColumn + ": \"" +
@@ -61,7 +61,7 @@ public class AL {
 		return tokens;
 	}
 	
-	public Token getNextToken(ArrayList<DT> dtsReading) throws IOException {
+	public Token<Integer> getNextToken(ArrayList<DT> dtsReading) throws IOException {
 		ArrayList<DT> dtsNotReading = new ArrayList<DT>();
 		
 		while (!dtsReading.isEmpty()) {
@@ -92,7 +92,7 @@ public class AL {
 				back();
 			
 			int minimalLexemeSize = currentLexeme.length();
-			Token token = null;
+			Token<Integer> token = null;
 			
 			if (!bufferedReaderClosed)
 				if ((token = getNextToken(dtsReading)) != null)
@@ -107,17 +107,17 @@ public class AL {
 		return null;
 	}
 	
-	private Token yieldToken(DT dt) {
+	private Token<Integer> yieldToken(DT dt) {
 		String token = dt.getName();
 		
 		if (token == "ident") // TODO - as fast as possible, change this
 			if (isKeyword(currentLexeme))
-				return new Token(currentLexeme, null); // for now, no value is needed
+				return new Token<Integer>(currentLexeme, null); // for now, no value is needed
 		
 		PositionInCode position = new PositionInCode(currentLine, currentColumn);
 		ts.put(ts.size(), new TSEntry(token, currentLexeme, null, position));
 		
-		return new Token(token, ts.size());
+		return new Token<Integer>(token, ts.size());
 	}
 
 	private boolean isKeyword(String currentLexeme) {

@@ -1,7 +1,6 @@
 package io.tofu.teprl.machines.af.dt;
 
 import io.tofu.teprl.machines.af.State;
-import io.tofu.teprl.machines.exceptions.EditarMecanismoException;
 
 public class DTState extends State {
 	private boolean backable;

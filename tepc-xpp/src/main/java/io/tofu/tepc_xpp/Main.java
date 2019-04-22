@@ -7,7 +7,7 @@ import io.tofu.commons.symbol.Token;
 
 public class Main {
 	public static void main(String[] args) {
-    	if (args.length < 2) {
+    	if (args.length < 1) {
     		System.err.println("Error: no input file");
     		System.exit(0);
     	}
@@ -16,12 +16,12 @@ public class Main {
     	BufferedReader bufferedReader;
     	
     	try {
-    		fileReader = new FileReader(args[1]);
+    		fileReader = new FileReader(args[0]);
     		bufferedReader = new BufferedReader(fileReader);
     		
     		Compiler c = new Compiler();
     		
-    		for (Token token : c.getTokens(bufferedReader))
+    		for (Token<Integer> token : c.getTokens(bufferedReader))
 				System.out.println(token.toString());
     	} catch (Exception e) {
     		System.err.println("Error: " + e.getMessage());

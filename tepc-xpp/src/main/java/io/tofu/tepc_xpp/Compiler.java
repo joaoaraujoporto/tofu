@@ -17,7 +17,7 @@ public class Compiler {
 		al = ALGenerator.getAL(ts);
 	}
 
-	public Collection<Token> getTokens(BufferedReader bufferedReader) throws IOException {
+	public Collection<Token<Integer>> getTokens(BufferedReader bufferedReader) throws IOException {
 		return al.out(bufferedReader);
 	}  
 }

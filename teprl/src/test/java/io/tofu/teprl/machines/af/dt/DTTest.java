@@ -14,9 +14,6 @@ public class DTTest extends TestCase {
 		Alphabet outro = Alphabet.getDefaultSymbols();
 		
 		String w1 = " \t\ns";
-		String w2 = " \t\n \t \n";
-		String w3 = "aba";
-		String w4 = " \t\nab";
 		
 		try {
 			dt.addSymbols(outro);

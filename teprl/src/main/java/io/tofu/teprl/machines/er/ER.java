@@ -15,13 +15,13 @@ public class ER extends Machine {
 	}
 	
 	public void setExpression(String expressao) throws EditarMecanismoException {
-		if (!isCorrectExpression(expressao))
+		if (!isBalanced(expressao))
 			throw new EditarMecanismoException("There are unbalanced parentheses in the expression");
 		
 		this.expression = expressao;
 	}
 	
-	private boolean isCorrectExpression(String expression) {
+	public static boolean isBalanced(String expression) {
 		// TODO - verify operators
 		
 		Stack<Character> stack = new Stack<Character>();

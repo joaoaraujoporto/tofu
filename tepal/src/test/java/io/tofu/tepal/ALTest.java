@@ -66,7 +66,7 @@ public class ALTest {
 		AL al = new AL(ts, dts);
 		
 		FileReader sourceCode = new FileReader("./sources/source_test_1.xpp");
-		ArrayList<Token> tokens = al.out(new BufferedReader(sourceCode));
+		ArrayList<Token<Integer>> tokens = al.out(new BufferedReader(sourceCode));
 		
 		System.out.println(tokens.toString());
 		
