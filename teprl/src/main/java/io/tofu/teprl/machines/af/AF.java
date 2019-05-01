@@ -144,19 +144,6 @@ public class AF extends Machine {
 		if (getIndiceEstado(estado) == 0)
 			estado.setStart(true);
 	}
-
-	private void alterarEstado(String nome, Boolean aceitacao) {
-		State estado = null;
-		
-		for (State e : states)
-			if (e.getName().equals(nome))
-					estado = e;
-		
-		if (estado == null)
-			return;
-		
-		estado.setAccept(aceitacao);	
-	}
 	
 	public Boolean existeEstadoComNome(String nome) {
 		for (State e : states)
@@ -240,21 +227,6 @@ public class AF extends Machine {
 			
 		transicao.getIndicesEstadosEntrada().clear();
 		transicao.getIndicesEstadosEntrada().addAll(indicesEstadosEntrada);
-	}
-	
-	private void alterarTransicao(String nomeEstadoSaida, String simbolo, String nomeEstadoEntrada) {
-		State estadoSaida = getEstado(nomeEstadoSaida);
-		State estadoEntrada = getEstado(nomeEstadoEntrada);
-		
-		ArrayList<Integer> indicesEstadosEntrada = new ArrayList<Integer>();
-		
-		if (!estadoEntrada.isDead())
-			indicesEstadosEntrada.add(getIndiceEstado(estadoEntrada));
-			
-		TransitionAF t = getTransicao(estadoSaida, simbolo);
-		t.setIndiceEstadoSaida(getIndiceEstado(estadoSaida));
-		t.setIndiceSimbolo(symbols.indexOf(simbolo));
-		t.setIndicesEstadosEntrada(indicesEstadosEntrada);
 	}
 
 	/**
@@ -394,29 +366,6 @@ public class AF extends Machine {
 		
 		symbols.remove(i);
 	}
- 
-	private ConjuntoEstados getEstadosEntrada(String nomeEstado, String simbolo) {
-		ConjuntoEstados estadosEntrada = new ConjuntoEstados();
-		
-		State estadoSaida = getEstado(nomeEstado);
-		TransitionAF transicao = getTransicao(estadoSaida, simbolo);
-		
-		for (Integer indiceEstado : transicao.getIndicesEstadosEntrada())
-			estadosEntrada.add(states.get(indiceEstado));
-		
-		return estadosEntrada;
-	}
-	
-	// TODO - soh para AFDs
-	private State getEstadoEntrada(String nomeEstadoSaida, String simbolo) {
-		TransitionAF t = getTransicao(getEstado(nomeEstadoSaida), simbolo);
-		
-		if (t.getIndicesEstadosEntrada().isEmpty())
-			try { return new State("dead", false, false, true);
-			} catch (Exception e) {}
-		
-		return getEstado(t.getIndicesEstadosEntrada().get(0));
-	}
 	
 	public TransitionAF getTransicao(State estadoSaida, String simbolo) {
 		return getTransicao(states.indexOf(estadoSaida), symbols.indexOf(simbolo));
@@ -463,58 +412,6 @@ public class AF extends Machine {
 		return states.get(indiceEstado);
 	}
 	
-	private ConjuntoEstados getEstadosFinais() {
-		ConjuntoEstados finais = new ConjuntoEstados();
-		
-		for (State e : states)
-			if (e.isAccept())
-				finais.add(e);
-		
-		return finais;
-	}
-	
-	private ConjuntoEstados getEstadosNaoFinais() {
-		ConjuntoEstados naoFinais = new ConjuntoEstados();
-		
-		for (State e : states)
-			if (!e.isAccept())
-				naoFinais.add(e);
-		
-		return naoFinais;
-	}
-	
-	private ConjuntoEstados getEstadosMortos() {
-		ConjuntoEstados mortos = new ConjuntoEstados();
-		
-		for (State e : states)
-			if (ehMorto(e))
-				mortos.add(e);
-		
-		return mortos;
-	}
-	
-	private boolean ehMorto(State estado) {
-		ArrayList<State> visitados = new ArrayList<State>();
-		return ehMorto(estado, visitados);
-	}
-
-	private boolean ehMorto(State estado, ArrayList<State> visitados) {
-		if (estado.isAccept())
-			return false;
-		
-		if (!visitados.contains(estado)) {
-			visitados.add(estado);
-			
-			for (TransitionAF t : transitions)
-				if (t.getIndiceEstadoSaida().equals(getIndiceEstado(estado)))
-					for (Integer indiceEstadoEntrada : t.getIndicesEstadosEntrada()) // somente um indice, pois AFD
-						if (!ehMorto(states.get(indiceEstadoEntrada), visitados))
-							return false;
-		}
-		
-		return true;
-	}
-	
 	public State getInitialState() {
 		for (State e : states)
 			if (e.isStart())
@@ -523,4 +420,3 @@ public class AF extends Machine {
 		return null;
 	}
 }
-

@@ -66,13 +66,5 @@ public class Teprl {
 	public Machine getMecanismoAtivo() {
 		return currMachine;
 	}
-
-	private Machine getMecanismo(String nomeOutroAFD) {
-		for (Machine m : mecanismos)
-			if (m.getName().equals(nomeOutroAFD))
-				return m;
-		
-		return null;
-	}
 }
 

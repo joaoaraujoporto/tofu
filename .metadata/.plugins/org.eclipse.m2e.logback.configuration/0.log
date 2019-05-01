@@ -3631,3 +3631,52 @@ org.eclipse.core.runtime.CoreException: Launch configuration App references non-
 2019-04-12 21:06:18,656 [Worker-38: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\joaov\Google Drive\raiz\atual\estudos\graduacao\20191\ine5426\tofu\tepal\src\main\resources
 2019-04-12 21:06:18,657 [Worker-38: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
 2019-04-12 21:06:18,657 [Worker-38: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\joaov\Google Drive\raiz\atual\estudos\graduacao\20191\ine5426\tofu\tepal\src\test\resources
+2019-04-24 01:00:05,146 [Worker-0: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2019-04-24 01:01:29,003 [Worker-12: Updating Maven Dependencies] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: io.tofu:commons:0.0.1 @ /home/joao/git/tofu/commons/pom.xml.
+2019-04-24 01:01:29,013 [Worker-13: Building workspace] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: io.tofu:commons:0.0.1 @ /home/joao/git/tofu/commons/pom.xml.
+2019-04-24 01:01:30,837 [Worker-13: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-04-24 01:01:30,838 [Worker-13: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/joao/git/tofu/commons/src/main/resources
+2019-04-24 01:01:32,028 [Worker-13: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-04-24 01:01:32,028 [Worker-13: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/joao/git/tofu/commons/src/test/resources
+2019-04-24 01:01:32,059 [Worker-9: Updating Maven Dependencies] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: io.tofu:commons:0.0.1 @ /home/joao/git/tofu/commons/pom.xml.
+2019-04-24 01:01:32,278 [Worker-9: Updating Maven Dependencies] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: io.tofu:tepal:0.0.1 @ /home/joao/git/tofu/tepal/pom.xml.
+2019-04-24 01:01:32,345 [Worker-9: Updating Maven Dependencies] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/commons: io.tofu:commons:0.0.1 with classifier  to /commons/target/classes
+2019-04-24 01:01:32,345 [Worker-9: Updating Maven Dependencies] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/teprl: io.tofu:teprl:0.0.1 with classifier  to /teprl/target/classes
+2019-04-24 01:01:32,476 [Worker-9: Updating Maven Dependencies] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: io.tofu:tepc-xpp:0.0.1 @ /home/joao/git/tofu/tepc-xpp/pom.xml.
+2019-04-24 01:01:32,507 [Worker-9: Updating Maven Dependencies] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/commons: io.tofu:commons:0.0.1 with classifier  to /commons/target/classes
+2019-04-24 01:01:32,507 [Worker-9: Updating Maven Dependencies] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/tepal: io.tofu:tepal:0.0.1 with classifier  to /tepal/target/classes
+2019-04-24 01:01:32,508 [Worker-9: Updating Maven Dependencies] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/teprl: io.tofu:teprl:0.0.1 with classifier  to /teprl/target/classes
+2019-04-24 01:01:32,644 [Worker-9: Updating Maven Dependencies] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: io.tofu:teprl:0.0.1 @ /home/joao/git/tofu/teprl/pom.xml.
+2019-04-24 01:01:32,647 [Worker-9: Updating Maven Dependencies] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/commons: io.tofu:commons:0.0.1 with classifier  to /commons/target/classes
+2019-04-24 01:01:36,912 [Worker-3: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-04-24 01:01:36,912 [Worker-3: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/joao/git/tofu/commons/src/main/resources
+2019-04-24 01:01:36,918 [Worker-3: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-04-24 01:01:36,919 [Worker-3: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/joao/git/tofu/commons/src/test/resources
+2019-04-24 01:01:37,944 [Worker-3: Building workspace] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/commons: io.tofu:commons:0.0.1 with classifier  to /commons/target/classes
+2019-04-24 01:01:37,945 [Worker-3: Building workspace] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/tepal: io.tofu:tepal:0.0.1 with classifier  to /tepal/target/classes
+2019-04-24 01:01:37,945 [Worker-3: Building workspace] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/teprl: io.tofu:teprl:0.0.1 with classifier  to /teprl/target/classes
+2019-04-24 01:01:37,971 [Worker-3: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-04-24 01:01:37,972 [Worker-3: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/joao/git/tofu/tepc-xpp/src/main/resources
+2019-04-24 01:01:37,983 [Worker-3: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-04-24 01:01:37,983 [Worker-3: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/joao/git/tofu/tepc-xpp/src/test/resources
+2019-04-24 01:01:39,525 [Worker-3: Building workspace] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/commons: io.tofu:commons:0.0.1 with classifier  to /commons/target/classes
+2019-04-24 01:01:39,540 [Worker-3: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-04-24 01:01:39,540 [Worker-3: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/joao/git/tofu/teprl/src/main/resources
+2019-04-24 01:01:39,549 [Worker-3: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-04-24 01:01:39,550 [Worker-3: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/joao/git/tofu/teprl/src/test/resources
+2019-04-24 01:01:40,584 [Worker-3: Building workspace] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/commons: io.tofu:commons:0.0.1 with classifier  to /commons/target/classes
+2019-04-24 01:01:40,585 [Worker-3: Building workspace] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/teprl: io.tofu:teprl:0.0.1 with classifier  to /teprl/target/classes
+2019-04-24 01:01:40,598 [Worker-3: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-04-24 01:01:40,599 [Worker-3: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/joao/git/tofu/tepal/src/main/resources
+2019-04-24 01:01:40,610 [Worker-3: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-04-24 01:01:40,614 [Worker-3: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/joao/git/tofu/tepal/src/test/resources
+2019-04-24 01:01:55,679 [Worker-12: Launching CompilerTest] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-04-24 01:01:55,679 [Worker-12: Launching CompilerTest] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/joao/git/tofu/tepc-xpp/src/main/resources
+2019-04-24 01:01:55,701 [Worker-12: Launching CompilerTest] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-04-24 01:01:55,701 [Worker-12: Launching CompilerTest] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/joao/git/tofu/tepc-xpp/src/test/resources
+2019-04-24 01:01:55,967 [Worker-12: Launching CompilerTest] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/commons: io.tofu:commons:0.0.1 with classifier null to /commons/target/classes
+2019-04-24 01:01:55,968 [Worker-12: Launching CompilerTest] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/tepal: io.tofu:tepal:0.0.1 with classifier null to /tepal/target/classes
+2019-04-24 01:01:55,968 [Worker-12: Launching CompilerTest] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/teprl: io.tofu:teprl:0.0.1 with classifier null to /teprl/target/classes
+2019-04-24 01:01:56,160 [Worker-12: Launching CompilerTest] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/commons: io.tofu:commons:0.0.1 with classifier null to /commons/target/classes
+2019-04-24 01:01:56,160 [Worker-12: Launching CompilerTest] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/tepal: io.tofu:tepal:0.0.1 with classifier null to /tepal/target/classes
+2019-04-24 01:01:56,161 [Worker-12: Launching CompilerTest] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/teprl: io.tofu:teprl:0.0.1 with classifier null to /teprl/target/classes
