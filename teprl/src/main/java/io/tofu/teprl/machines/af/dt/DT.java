@@ -1,6 +1,5 @@
 package io.tofu.teprl.machines.af.dt;
 
-import java.util.ArrayList;
 import java.util.LinkedList;
 
 import io.tofu.teprl.machines.af.AF;
@@ -40,9 +39,7 @@ public class DT extends AF {
 		addTransitionByOther(statout, statin);
 	}
 	
-	private void addTransitionByOther(DTState statout, DTState statin) {
-		ArrayList<Integer> indicesEstadosEntrada = new ArrayList<Integer>();
-		
+	private void addTransitionByOther(DTState statout, DTState statin) {		
 		for (Transition<DTState,String> t : transitionsByOther)
 			if (t.getStatout().equals(statout))
 				if (t.getStatin().equals(statin))

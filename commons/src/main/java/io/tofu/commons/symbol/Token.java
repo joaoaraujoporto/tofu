@@ -1,10 +1,10 @@
 package io.tofu.commons.symbol;
 
-public class Token implements Terminal {
+public class Token<T> implements Terminal {
 	private String name;
-	private Object value;
+	private T value;
 	
-	public Token(String name, Object value) {
+	public Token(String name, T value) {
 		this.name = name;
 		this.value = value;
 	}
@@ -18,7 +18,7 @@ public class Token implements Terminal {
 		return name;
 	}
 
-	public void setValue(Object value) {
+	public void setValue(T value) {
 		this.value = value;
 	}
 }

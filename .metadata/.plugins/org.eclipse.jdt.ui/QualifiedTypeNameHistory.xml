@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="java.lang.reflect.Method"/>
-<fullyQualifiedTypeName name="org.junit.Test"/>
-<fullyQualifiedTypeName name="io.tofu.teprl.machines.Mecanismo"/>
-<fullyQualifiedTypeName name="java.util.LinkedList"/>
-<fullyQualifiedTypeName name="io.tofu.teprl.machines.af.AF"/>
-<fullyQualifiedTypeName name="io.tofu.teprl.machines.af.State"/>
-<fullyQualifiedTypeName name="io.tofu.teprl.machines.exceptions.OperarMecanismoException"/>
-<fullyQualifiedTypeName name="java.lang.String"/>
-<fullyQualifiedTypeName name="io.tofu.commons.ts.Position"/>
-<fullyQualifiedTypeName name="java.util.HashMap"/>
-<fullyQualifiedTypeName name="java.io.FileReader"/>
-<fullyQualifiedTypeName name="java.io.BufferedReader"/>
-<fullyQualifiedTypeName name="io.tofu.commons.symbol.Token"/>
-<fullyQualifiedTypeName name="java.io.File"/>
-<fullyQualifiedTypeName name="io.tofu.commons.ts.TSEntry"/>
-<fullyQualifiedTypeName name="io.tofu.teprl.machines.Machine"/>
-<fullyQualifiedTypeName name="io.tofu.teprl.machines.exceptions.EditarMecanismoException"/>
-<fullyQualifiedTypeName name="java.util.Stack"/>
-<fullyQualifiedTypeName name="java.util.ArrayList"/>
-<fullyQualifiedTypeName name="io.tofu.teprl.machines.er.ER"/>
+    <fullyQualifiedTypeName name="java.lang.reflect.Method"/>
+    <fullyQualifiedTypeName name="org.junit.Test"/>
+    <fullyQualifiedTypeName name="io.tofu.teprl.machines.Mecanismo"/>
+    <fullyQualifiedTypeName name="java.util.LinkedList"/>
+    <fullyQualifiedTypeName name="io.tofu.teprl.machines.af.AF"/>
+    <fullyQualifiedTypeName name="io.tofu.teprl.machines.af.State"/>
+    <fullyQualifiedTypeName name="io.tofu.teprl.machines.exceptions.OperarMecanismoException"/>
+    <fullyQualifiedTypeName name="java.lang.String"/>
+    <fullyQualifiedTypeName name="io.tofu.commons.ts.Position"/>
+    <fullyQualifiedTypeName name="java.util.HashMap"/>
+    <fullyQualifiedTypeName name="java.io.FileReader"/>
+    <fullyQualifiedTypeName name="java.io.BufferedReader"/>
+    <fullyQualifiedTypeName name="io.tofu.commons.symbol.Token"/>
+    <fullyQualifiedTypeName name="java.io.File"/>
+    <fullyQualifiedTypeName name="io.tofu.commons.ts.TSEntry"/>
+    <fullyQualifiedTypeName name="io.tofu.teprl.machines.Machine"/>
+    <fullyQualifiedTypeName name="io.tofu.teprl.machines.exceptions.EditarMecanismoException"/>
+    <fullyQualifiedTypeName name="java.util.Stack"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="io.tofu.teprl.machines.er.ER"/>
 </qualifiedTypeNameHistroy>
