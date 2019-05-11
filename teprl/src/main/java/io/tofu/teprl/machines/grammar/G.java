@@ -36,4 +36,14 @@ public class G {
 	public ArrayList<Production> getProductions() {
 		return productions;
 	}
+	
+	public ArrayList<Production> getProductions(Symbol head) {
+		ArrayList<Production> prods = new ArrayList<Production>();
+		
+		for (Production p : productions)
+			if (p.getHead().equals(head))
+				prods.add(p);
+		
+		return prods;
+	}
 }

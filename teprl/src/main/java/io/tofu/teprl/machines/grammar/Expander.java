@@ -1,6 +1,7 @@
 package io.tofu.teprl.machines.grammar;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Stack;
 
 public class Expander {
@@ -200,5 +201,37 @@ public class Expander {
 			return true;
 		
 		return false;		
+	}
+	
+	public static void toFactor(G g) {
+		ArrayList<String> nts = g.getNonTerminals();
+		
+		for (String nt : nts) {
+			ArrayList<Production> prods = g.getProductions(nt);
+			
+			
+			
+		}
+			for (int i = 0; i < nts.size(); i++)
+				for (int j = i + 1; j < nts.size(); j++)
+					if (sameFirstSym())
+	}
+	
+	public static boolean sameNSym(ArrayList<Symbol> p, ArrayList<Symbol> q, int n) {
+		return p.get(n).equals(q.get(n));
+	}
+	
+	public static boolean sameFirstSym(ArrayList<Symbol> p, ArrayList<Symbol> q) {
+		return sameNSym(p, q, 0);
+	}
+	
+	public static boolean sameNSym(ArrayList<ArrayList<Symbol>> lists, int n) {
+		ArrayList<Symbol> l1 = lists.get(0);
+		
+		for (ArrayList<Symbol> l : lists)
+			if (!sameNSym(l1, l, n))
+				return false;
+		
+		return true;
 	}
 }

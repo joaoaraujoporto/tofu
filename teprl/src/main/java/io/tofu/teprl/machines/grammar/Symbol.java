@@ -15,4 +15,14 @@ public class Symbol {
 	public String toString() {
 		return value;
 	}
+	
+	@Override
+	public boolean equals(Object o) {
+		Symbol sym = (Symbol) o;
+		
+		if (this.getValue().equals(sym.getValue()))
+			return true;
+		
+		return false;
+	}
 }
