@@ -2,15 +2,15 @@ package io.tofu.teprl.machines.grammar;
 import java.util.ArrayList;
 
 public class Production {
-	private Symbol head;
+	private NonTerminal head;
 	private ArrayList<Symbol> body;
 	
-	public Production(Symbol head, ArrayList<Symbol> body) {
+	public Production(NonTerminal head, ArrayList<Symbol> body) {
 		this.head = head;
 		this.body = body;
 	}
 	
-	public Symbol getHead() {
+	public NonTerminal getHead() {
 		return head;
 	}
 	

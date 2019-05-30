@@ -19,7 +19,7 @@ public class Expander {
 					exp.add(body.get(j));
 				
 				if (isBalanced(exp)) {
-					Symbol newNonTerminal = new Symbol(p.getHead().getValue() + "'");
+					NonTerminal newNonTerminal = new NonTerminal(p.getHead().getValue() + "'");
 					Production newP = new Production(newNonTerminal, (ArrayList<Symbol>) exp.clone());
 					
 					g.addProduction(newP);					
@@ -44,7 +44,7 @@ public class Expander {
 				body.remove(i);
 				
 				ArrayList<Symbol> exp = new ArrayList<Symbol>();
-				Symbol newNonTerminal = new Symbol(p.getHead().getValue() + "'");
+				NonTerminal newNonTerminal = new NonTerminal(p.getHead().getValue() + "'");
 				int posOP = i - 1;
 				ArrayList<Symbol> expAux = new ArrayList<Symbol>();
 
@@ -88,7 +88,7 @@ public class Expander {
 				body.remove(i);
 				
 				ArrayList<Symbol> exp = new ArrayList<Symbol>();
-				Symbol newNonTerminal = new Symbol(p.getHead().getValue() + "'");
+				NonTerminal newNonTerminal = new NonTerminal(p.getHead().getValue() + "'");
 				int posOP = i - 1;
 				ArrayList<Symbol> expAux = new ArrayList<Symbol>();
 
@@ -204,19 +204,85 @@ public class Expander {
 	}
 	
 	public static void toFactor(G g) {
-		ArrayList<String> nts = g.getNonTerminals();
-		
-		for (String nt : nts) {
+		ArrayList<NonTerminal> nts = g.getNonTerminals();
+		ArrayList<ArrayList<Production>> listsSameSym = new ArrayList<ArrayList<Production>>();
+			
+		for (Symbol nt : nts) {
 			ArrayList<Production> prods = g.getProductions(nt);
 			
-			
-			
+			for (int i = 0; i < prods.size(); i++)
+				for (int j = i + 1; j < prods.size(); j++) {
+					if (!sameFirstSym(prods.get(i), prods.get(j)))
+						continue;
+					
+					int k;
+					for (k = 0; k < listsSameSym.size(); k++)
+						if (sameFirstSym(listsSameSym.get(k).get(0), prods.get(i))) {
+							listsSameSym.get(k).add(prods.get(j));
+							break;
+						}
+					
+					if (k < listsSameSym.size())
+						continue;
+					
+					ArrayList<Production> l = new ArrayList<Production>();
+					listsSameSym.add(l);
+					l.add(prods.get(i));
+					l.add(prods.get(j));
+				}
 		}
-			for (int i = 0; i < nts.size(); i++)
-				for (int j = i + 1; j < nts.size(); j++)
-					if (sameFirstSym())
 	}
 	
+	private static void toFactor(G g, ArrayList<ArrayList<Production>> listsSameSym) {
+		for (ArrayList<Production> l : listsSameSym) {
+			int i;
+			for (i = 0; sameNSymm(l, i+1); i++);
+			
+			ArrayList<Symbol> prev = subword(l.get(0).getBody(), 0, i);
+			NonTerminal head = l.get(0).getHead();
+			NonTerminal headn = new NonTerminal(head.getValue() + "\'");
+			
+			for (Production p : l) {
+				ArrayList<Symbol> suc = subword(p.getBody(), i);
+				
+				g.addProduction(new Production(headn, suc));
+				g.removeProduction(p);
+			}
+			
+			prev.add(headn);
+			g.addProduction(new Production(head, prev));
+		}
+	}
+	
+	public static ArrayList<Symbol> subword(ArrayList<Symbol> word, int beginIndex) {
+		return subword(word, beginIndex, word.size());
+	}
+	
+	public static ArrayList<Symbol> subword(ArrayList<Symbol> word, int beginIndex, int endIndex) {
+		ArrayList<Symbol> subword = new ArrayList<Symbol>();
+		
+		int i;
+		for (i = 0; i < beginIndex; i++);
+		for (; i <= endIndex; i++)
+			subword.add(word.get(i));
+		
+		return subword;
+	}
+	
+	
+	private static boolean sameFirstSym(Production p, Production q) {
+		return sameFirstSym(p.getBody(), q.getBody());
+	}
+	
+	private static boolean sameNSymm(ArrayList<Production> l, int n) {
+		ArrayList<ArrayList<Symbol>> l1 = new ArrayList<ArrayList<Symbol>>();
+		
+		for (Production p : l)
+			l1.add(p.getBody());
+		
+		return sameNSym(l1, n);
+	}
+
 	public static boolean sameNSym(ArrayList<Symbol> p, ArrayList<Symbol> q, int n) {
 		return p.get(n).equals(q.get(n));
 	}

@@ -16,7 +16,7 @@ public class GTest {
 		body.add(new AuxSym(")"));
 		body.add(new AuxSym("?"));
 		
-		Production p = new Production(new Symbol("PROGRAM"), body);
+		Production p = new Production(new NonTerminal("PROGRAM"), body);
 		g.addProduction(p);
 		
 		body = new ArrayList<Symbol>();
@@ -26,7 +26,7 @@ public class GTest {
 		body.add(new AuxSym(")"));
 		body.add(new AuxSym("+"));
 		
-		p = new Production(new Symbol("CLASSLIST"), body);
+		p = new Production(new NonTerminal("CLASSLIST"), body);
 		g.addProduction(p);
 		
 		body = new ArrayList<Symbol>();
@@ -39,7 +39,7 @@ public class GTest {
 		body.add(new AuxSym("?"));
 		body.add(new Symbol("CLASSBODY"));
 		
-		p = new Production(new Symbol("CLASSDECL"), body);
+		p = new Production(new NonTerminal("CLASSDECL"), body);
 		g.addProduction(p);
 		
 		body.add(new Symbol("{"));
@@ -53,7 +53,7 @@ public class GTest {
 		body.add(new AuxSym(")"));
 		body.add(new AuxSym("?"));
 		
-		p = new Production(new Symbol("CLASSDECL"), body);
+		p = new Production(new NonTerminal("CLASSDECL"), body);
 		g.addProduction(p);
 		
 		System.out.println(g.getProductions().toString());
