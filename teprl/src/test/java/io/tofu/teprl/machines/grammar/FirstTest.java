@@ -67,7 +67,6 @@ public class FirstTest {
 		System.out.println(g.getFirst(new NonTerminal("S")));
 		System.out.println(g.getFirst(new NonTerminal("A")));
 		System.out.println(g.getFirst(new NonTerminal("B")));
-		
 	}
 
 }

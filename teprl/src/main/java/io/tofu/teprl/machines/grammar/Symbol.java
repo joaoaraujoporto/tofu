@@ -20,9 +20,14 @@ public class Symbol {
 	public boolean equals(Object o) {
 		Symbol sym = (Symbol) o;
 		
-		if (this.getValue().equals(sym.getValue()))
+		if (hashCode() == sym.hashCode())
 			return true;
 		
 		return false;
+	}
+	
+	@Override
+	public int hashCode() {
+		return value.hashCode();
 	}
 }

@@ -1,13 +1,14 @@
 package io.tofu.teprl.machines.grammar;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 
 public class G {
 	ArrayList<Terminal> terminals;
 	ArrayList<NonTerminal> nonTerminals;
 	ArrayList<Production> productions;
-	private HashMap<NonTerminal,ArrayList<Terminal>> first;
-	private HashMap<NonTerminal,ArrayList<Terminal>> follow;
+	private Map<NonTerminal,ArrayList<Terminal>> first;
+	private Map<NonTerminal,ArrayList<Terminal>> follow;
 	
 	public G() {
 		terminals = new ArrayList<Terminal>();
@@ -61,7 +62,7 @@ public class G {
 		
 		for (Symbol s : p.getBody()) {
 			if (s instanceof NonTerminal)
-				addNonTerminal((NonTerminal )s);
+				addNonTerminal((NonTerminal) s);
 			else
 				addTerminal((Terminal) s);
 		}
@@ -102,16 +103,17 @@ public class G {
 	}
 	
 	public ArrayList<Terminal> getFirst(NonTerminal nt) {
-		return (ArrayList<Terminal>) first(nt).clone();
+		return (ArrayList<Terminal>) first.get(nt).clone();
 	}
 	
-	public ArrayList<Terminal> getFollow() {
-		return (ArrayList<Terminal>) follow.clone();
+	public ArrayList<Terminal> getFollow(NonTerminal nt) {
+		// TODO return (ArrayList<Terminal>) follow(nt).clone();
+		return null;
 	}
 	
 	private void setFirst() {
 		first = new HashMap<NonTerminal,ArrayList<Terminal>>();
-		updateFirst();
+		updateFirst();	
 	}
 	
 	private void updateFirst() {
@@ -123,7 +125,7 @@ public class G {
 		ArrayList<Production> productions = getProductions(nt);		
 		ArrayList<Terminal> firsti = this.first.get(nt);
 		
-		for (Production p : productions)			
+		for (Production p : productions)
 			for (Terminal t : first(p.getBody()))
 				if (!firsti.contains(t))
 					firsti.add(t);
