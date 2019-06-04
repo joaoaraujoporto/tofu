@@ -1,16 +1,22 @@
 package io.tofu.teprl.machines.grammar;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class G {
 	ArrayList<Terminal> terminals;
 	ArrayList<NonTerminal> nonTerminals;
 	ArrayList<Production> productions;
-	
+	private HashMap<NonTerminal,ArrayList<Terminal>> first;
+	private HashMap<NonTerminal,ArrayList<Terminal>> follow;
 	
 	public G() {
 		terminals = new ArrayList<Terminal>();
 		nonTerminals = new ArrayList<NonTerminal>();
 		productions = new ArrayList<Production>();
+		
+		follow = new HashMap<NonTerminal,ArrayList<Terminal>>();
+		
+		setFirst();
 	}
 	
 	public void addTerminal(Terminal t) {
@@ -19,6 +25,7 @@ public class G {
 	
 	public void addNonTerminal(NonTerminal nt) {
 		nonTerminals.add(nt);
+		first.put(nt, new ArrayList<Terminal>());
 	}
 	
 	public void addTerminal(String t) {
@@ -60,6 +67,7 @@ public class G {
 		}
 		
 		productions.add(p);
+		updateFirst();
 	}
 	
 	public ArrayList<Production> getProductions() {
@@ -91,5 +99,52 @@ public class G {
 		}
 		
 		productions.remove(p);
+	}
+	
+	public ArrayList<Terminal> getFirst(NonTerminal nt) {
+		return (ArrayList<Terminal>) first(nt).clone();
+	}
+	
+	public ArrayList<Terminal> getFollow() {
+		return (ArrayList<Terminal>) follow.clone();
+	}
+	
+	private void setFirst() {
+		first = new HashMap<NonTerminal,ArrayList<Terminal>>();
+		updateFirst();
+	}
+	
+	private void updateFirst() {
+		for (NonTerminal nt : nonTerminals)
+			first(nt);
+	}
+	
+	private ArrayList<Terminal> first(NonTerminal nt) {
+		ArrayList<Production> productions = getProductions(nt);		
+		ArrayList<Terminal> firsti = this.first.get(nt);
+		
+		for (Production p : productions)			
+			for (Terminal t : first(p.getBody()))
+				if (!firsti.contains(t))
+					firsti.add(t);
+		
+		return firsti;
+	}
+	
+	private ArrayList<Terminal> first(ArrayList<Symbol> sentence) {
+		ArrayList<Terminal> first = new ArrayList<Terminal>();
+		Symbol s = sentence.get(0);
+		
+		if (s instanceof Terminal)
+			first.add((Terminal) s);
+		
+		if (s instanceof NonTerminal) {
+			first.addAll(first((NonTerminal) s));
+			
+			if (first.contains(new Terminal("&")))
+				first.addAll(first(Expander.subword(sentence, 1)));
+		}
+		
+		return first;
 	}
 }
