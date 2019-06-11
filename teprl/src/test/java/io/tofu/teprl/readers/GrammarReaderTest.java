@@ -18,8 +18,7 @@ public class GrammarReaderTest {
 		GrammarReader mr = new GrammarReader();
 		File xmlFile = new File("src/test/java/resources/simple_grammar.xml");
 		//File xmlFile = new File("src/test/java/resources/employees.xml");
-		
-		
+				
 		try {
 			g = mr.read(xmlFile);
 			System.out.println(g.getProductions().toString());

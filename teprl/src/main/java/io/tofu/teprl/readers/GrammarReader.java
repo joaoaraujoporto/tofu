@@ -3,6 +3,7 @@ package io.tofu.teprl.readers;
 import java.util.ArrayList;
 
 import org.w3c.dom.Document;
+import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 import org.w3c.dom.Node;
 
@@ -16,18 +17,23 @@ public class GrammarReader extends MachineReader<Grammar>{
 	
 	@Override
 	protected Grammar read(Document doc) {
+		NodeList productionList = doc.getElementsByTagName(GrammarTAGs.PRODUCTION);
 		Grammar g = new Grammar("G");
-		Node grammarNode = doc.getFirstChild();
-		NodeList productionsList = grammarNode.getChildNodes();
 		
-		for (int i = 0; i < productionsList.getLength(); i++) {
-			Node productionNode = productionsList.item(i);
+		for (int i = 1; i < productionList.getLength(); i++) {
+			Node productionNode = productionList.item(i);
+			Element productionElement = (Element) productionNode;
+			NodeList headsList = productionElement.getElementsByTagName(GrammarTAGs.HEAD);
+			Element headElement = (Element) headsList.item(0);
+			Node symbolNode = headElement.getFirstChild();
 			
-			if (productionNode.getNodeType() != Node.)
+			System.out.println(symbolNode.getNodeValue());
+			
+			if (productionNode.getNodeType() != Node.CDATA_SECTION_NODE)
 				System.out.println("" + productionNode.getNodeType() + "," + Node.COMMENT_NODE);
 			
 			Node headNode = productionNode.getFirstChild();
-			Node symbolNode = headNode.getFirstChild();
+			//SNode symbolNode = headNode.getFirstChild();
 			NonTerminal head = new NonTerminal(symbolNode.getNodeValue());
 			
 			ArrayList<Symbol> body = new ArrayList<Symbol>();

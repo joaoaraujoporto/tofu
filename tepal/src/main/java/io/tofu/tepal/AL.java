@@ -12,7 +12,7 @@ import io.tofu.commons.ts.TSEntry;
 import io.tofu.teprl.machines.af.dt.DT;
 import io.tofu.teprl.machines.af.dt.DTState;
 
-public class AL {
+public class AL implements Lexer<Token<Integer>> {
 	private TS ts;
 	private LinkedList<Character> buffer;
 	private BufferedReader bufferedReader;
@@ -23,6 +23,7 @@ public class AL {
 	private String currentLexeme;
 	private ArrayList<DT> dts;
 	private boolean bufferedReaderClosed;
+	private ArrayList<Token<Integer>> readedTokens;
 
 	public AL(TS ts, ArrayList<DT> dts) {
 		this.ts = ts;
@@ -34,6 +35,16 @@ public class AL {
 		bufferedReaderClosed = false;
 	}
 	
+	public AL(TS ts, ArrayList<DT> dts, BufferedReader in) throws IOException {
+		this(ts, dts);
+		setReadedTokens(in);
+	}
+	
+	public void setReadedTokens(BufferedReader in) throws IOException {
+		readedTokens = out(in);
+	}
+
+	// TODO - Refactor to private and rename to readTokens
 	public ArrayList<Token<Integer>> out(BufferedReader in) throws IOException {
 		ArrayList<Token<Integer>> tokens = new ArrayList<Token<Integer>>();
 		setBufferedReader(in);
@@ -178,5 +189,9 @@ public class AL {
 		
 		currentSymbol = c;
 		return c;
+	}
+
+	public Token<Integer> getNextToken() {
+		
 	}
 }
