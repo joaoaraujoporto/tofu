@@ -19,5 +19,5 @@
             <entry path="C:\Program Files (x86)\Java\jre1.8.0_181\lib\endorsed"/>
         </endorsedDirs>
     </libraryInfo>
-    <libraryInfo home="/usr/lib/jvm/java-11-openjdk-amd64" version="11.0.2"/>
+    <libraryInfo home="/usr/lib/jvm/java-11-openjdk-amd64" version="11.0.3"/>
 </libraryInfos>

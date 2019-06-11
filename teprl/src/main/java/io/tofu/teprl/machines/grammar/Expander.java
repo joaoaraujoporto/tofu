@@ -5,7 +5,7 @@ import java.util.Collection;
 import java.util.Stack;
 
 public class Expander {
-	public static void split(Production p, G g) {
+	public static void split(Production p, Grammar g) {
 		removeUnPar(p);
 		ArrayList<Symbol> body = p.getBody();
 		
@@ -36,7 +36,7 @@ public class Expander {
 		}
 	}
 	
-	public static void removeStar(Production p, G g) {
+	public static void removeStar(Production p, Grammar g) {
 		ArrayList<Symbol> body = p.getBody();
 		
 		for (int i = 0; i < body.size(); i++)
@@ -80,7 +80,7 @@ public class Expander {
 			}
 	}
 	
-	public static void removeInterr(Production p, G g) {
+	public static void removeInterr(Production p, Grammar g) {
 		ArrayList<Symbol> body = p.getBody();
 		
 		for (int i = 0; i < body.size(); i++)
@@ -117,7 +117,7 @@ public class Expander {
 			}
 	}
 	
-	public static void removePlus(Production p, G g) {
+	public static void removePlus(Production p, Grammar g) {
 		ArrayList<Symbol> body = p.getBody();
 		
 		for (int i = 0; i < body.size(); i++)
@@ -203,7 +203,7 @@ public class Expander {
 		return false;		
 	}
 	
-	public static void toFactor(G g) {
+	public static void toFactor(Grammar g) {
 		ArrayList<NonTerminal> nts = g.getNonTerminals();
 		ArrayList<ArrayList<Production>> listsSameSym = new ArrayList<ArrayList<Production>>();
 			
@@ -233,7 +233,7 @@ public class Expander {
 		}
 	}
 	
-	private static void toFactor(G g, ArrayList<ArrayList<Production>> listsSameSym) {
+	private static void toFactor(Grammar g, ArrayList<ArrayList<Production>> listsSameSym) {
 		for (ArrayList<Production> l : listsSameSym) {
 			int i;
 			for (i = 0; sameNSymm(l, i+1); i++);
@@ -255,7 +255,7 @@ public class Expander {
 	}
 	
 	public static ArrayList<Symbol> subword(ArrayList<Symbol> word, int beginIndex) {
-		return subword(word, beginIndex, word.size());
+		return subword(word, beginIndex, word.size() - 1);
 	}
 	
 	public static ArrayList<Symbol> subword(ArrayList<Symbol> word, int beginIndex, int endIndex) {

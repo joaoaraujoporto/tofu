@@ -7,7 +7,7 @@ public class FirstTest {
 
 	@Test
 	public void test() {
-		G g = new G();
+		Grammar g = new Grammar("G");
 		
 		ArrayList<Symbol> body = new ArrayList<Symbol>();
 		
@@ -59,9 +59,16 @@ public class FirstTest {
 		
 		body = new ArrayList<Symbol>();
 		
-		body.add(new NonTerminal("&"));
+		body.add(new Terminal("&"));
 		
 		p = new Production(new NonTerminal("A"), body);
+		g.addProduction(p);
+		
+		body = new ArrayList<Symbol>();
+		
+		body.add(new NonTerminal("A"));
+		
+		p = new Production(new NonTerminal("S"), body);
 		g.addProduction(p);
 		
 		System.out.println(g.getFirst(new NonTerminal("S")));

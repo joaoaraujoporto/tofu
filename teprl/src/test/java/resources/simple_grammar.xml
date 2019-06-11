@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<grammar>
+  <production>
+    <head>
+      <non-terminal> PROGRAMLIST </non-terminal>
+    </head>
+    <body>
+      <non-terminal> CLASSLIST </non-terminal>
+    </body>
+  </production>
+  <production>
+    <head>
+      <non-terminal> PROGRAMLIST </non-terminal>
+    </head>
+    <body>
+      <terminal> episilon </terminal>
+    </body>
+  </production>
+  <production>
+    <head>
+      <non-terminal> CLASSLIST </non-terminal>
+    </head>
+    <body>
+      <non-terminal> CLASSDECL </non-terminal>
+      <non-terminal> CLASSLIST' </non-terminal>
+    </body>
+  </production>
+</grammar>

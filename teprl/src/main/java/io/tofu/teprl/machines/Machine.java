@@ -3,8 +3,8 @@ package io.tofu.teprl.machines;
 public abstract class Machine {
 	protected String name;
 	
-	public Machine(String nome) {
-		this.name = nome;
+	public Machine(String name) {
+		this.name = name;
 	}
 	
 	@Override

@@ -3,20 +3,23 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-public class G {
+import io.tofu.teprl.machines.Machine;
+
+public class Grammar extends Machine {
 	ArrayList<Terminal> terminals;
 	ArrayList<NonTerminal> nonTerminals;
 	ArrayList<Production> productions;
 	private Map<NonTerminal,ArrayList<Terminal>> first;
 	private Map<NonTerminal,ArrayList<Terminal>> follow;
 	
-	public G() {
+	public Grammar(String name) {
+		super(name);
+		
 		terminals = new ArrayList<Terminal>();
 		nonTerminals = new ArrayList<NonTerminal>();
 		productions = new ArrayList<Production>();
 		
-		follow = new HashMap<NonTerminal,ArrayList<Terminal>>();
-		
+		follow = new HashMap<NonTerminal,ArrayList<Terminal>>();	
 		setFirst();
 	}
 	
@@ -68,7 +71,6 @@ public class G {
 		}
 		
 		productions.add(p);
-		updateFirst();
 	}
 	
 	public ArrayList<Production> getProductions() {
@@ -103,6 +105,7 @@ public class G {
 	}
 	
 	public ArrayList<Terminal> getFirst(NonTerminal nt) {
+		updateFirst();
 		return (ArrayList<Terminal>) first.get(nt).clone();
 	}
 	
@@ -113,7 +116,6 @@ public class G {
 	
 	private void setFirst() {
 		first = new HashMap<NonTerminal,ArrayList<Terminal>>();
-		updateFirst();	
 	}
 	
 	private void updateFirst() {
@@ -135,16 +137,28 @@ public class G {
 	
 	private ArrayList<Terminal> first(ArrayList<Symbol> sentence) {
 		ArrayList<Terminal> first = new ArrayList<Terminal>();
+		
+		if (sentence.isEmpty())
+			return first;
+		
 		Symbol s = sentence.get(0);
 		
 		if (s instanceof Terminal)
 			first.add((Terminal) s);
 		
 		if (s instanceof NonTerminal) {
-			first.addAll(first((NonTerminal) s));
+			first.addAll(first((NonTerminal) s));		
 			
-			if (first.contains(new Terminal("&")))
-				first.addAll(first(Expander.subword(sentence, 1)));
+			Terminal epsilon = new Terminal("&");
+			
+			if (first.contains(epsilon)) {
+				first.remove(epsilon);
+				ArrayList<Terminal> r = first(Expander.subword(sentence, 1));
+				first.addAll(r);
+				
+				if (r.isEmpty())
+					first.add(epsilon);				
+			}
 		}
 		
 		return first;

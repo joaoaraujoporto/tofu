@@ -7,7 +7,7 @@ import org.junit.Test;
 public class GTest {
 	@Test
 	public void test() {
-		G g = new G();
+		Grammar g = new Grammar("G");
 		
 		ArrayList<Symbol> body = new ArrayList<Symbol>();
 		
