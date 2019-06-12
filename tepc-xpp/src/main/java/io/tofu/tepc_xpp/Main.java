@@ -3,7 +3,7 @@ package io.tofu.tepc_xpp;
 import java.io.BufferedReader;
 import java.io.FileReader;
 
-import io.tofu.commons.symbol.Token;
+import io.tofu.commons.symbol.TofuToken;
 
 public class Main {
 	public static void main(String[] args) {
@@ -21,7 +21,7 @@ public class Main {
     		
     		Compiler c = new Compiler();
     		
-    		for (Token<Integer> token : c.getTokens(bufferedReader))
+    		for (TofuToken<Integer> token : c.getTokens(bufferedReader))
 				System.out.println(token.toString());
     	} catch (Exception e) {
     		System.err.println("Error: " + e.getMessage());

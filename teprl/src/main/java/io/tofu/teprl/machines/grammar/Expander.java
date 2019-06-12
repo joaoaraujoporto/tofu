@@ -5,7 +5,7 @@ import java.util.Collection;
 import java.util.Stack;
 
 public class Expander {
-	public static void split(Production p, Grammar g) {
+	public static void split(Production p, GLC g) {
 		removeUnPar(p);
 		ArrayList<Symbol> body = p.getBody();
 		
@@ -36,7 +36,7 @@ public class Expander {
 		}
 	}
 	
-	public static void removeStar(Production p, Grammar g) {
+	public static void removeStar(Production p, GLC g) {
 		ArrayList<Symbol> body = p.getBody();
 		
 		for (int i = 0; i < body.size(); i++)
@@ -80,7 +80,7 @@ public class Expander {
 			}
 	}
 	
-	public static void removeInterr(Production p, Grammar g) {
+	public static void removeInterr(Production p, GLC g) {
 		ArrayList<Symbol> body = p.getBody();
 		
 		for (int i = 0; i < body.size(); i++)
@@ -117,7 +117,7 @@ public class Expander {
 			}
 	}
 	
-	public static void removePlus(Production p, Grammar g) {
+	public static void removePlus(Production p, GLC g) {
 		ArrayList<Symbol> body = p.getBody();
 		
 		for (int i = 0; i < body.size(); i++)
@@ -203,7 +203,7 @@ public class Expander {
 		return false;		
 	}
 	
-	public static void toFactor(Grammar g) {
+	public static void toFactor(GLC g) {
 		ArrayList<NonTerminal> nts = g.getNonTerminals();
 		ArrayList<ArrayList<Production>> listsSameSym = new ArrayList<ArrayList<Production>>();
 			
@@ -233,7 +233,7 @@ public class Expander {
 		}
 	}
 	
-	private static void toFactor(Grammar g, ArrayList<ArrayList<Production>> listsSameSym) {
+	private static void toFactor(GLC g, ArrayList<ArrayList<Production>> listsSameSym) {
 		for (ArrayList<Production> l : listsSameSym) {
 			int i;
 			for (i = 0; sameNSymm(l, i+1); i++);

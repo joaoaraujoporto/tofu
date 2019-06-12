@@ -7,7 +7,7 @@ public class SympleFactoringTest {
 
 	@Test
 	public void test() {
-		Grammar g = new Grammar("G");
+		GLC g = new GLC("G", new NonTerminal("S"));
 		
 		ArrayList<Symbol> body = new ArrayList<Symbol>();
 		

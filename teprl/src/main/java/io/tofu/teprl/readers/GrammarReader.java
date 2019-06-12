@@ -7,18 +7,18 @@ import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 import org.w3c.dom.Node;
 
-import io.tofu.teprl.machines.grammar.Grammar;
+import io.tofu.teprl.machines.grammar.GLC;
 import io.tofu.teprl.machines.grammar.NonTerminal;
 import io.tofu.teprl.machines.grammar.Production;
 import io.tofu.teprl.machines.grammar.Symbol;
 import io.tofu.teprl.machines.grammar.Terminal;
 
-public class GrammarReader extends MachineReader<Grammar>{
+public class GrammarReader extends MachineReader<GLC>{
 	
 	@Override
-	protected Grammar read(Document doc) {
+	protected GLC read(Document doc) {
 		NodeList productionList = doc.getElementsByTagName(GrammarTAGs.PRODUCTION);
-		Grammar g = new Grammar("G");
+		GLC g = new GLC("G", new NonTerminal("fool"));
 		
 		for (int i = 1; i < productionList.getLength(); i++) {
 			Node productionNode = productionList.item(i);

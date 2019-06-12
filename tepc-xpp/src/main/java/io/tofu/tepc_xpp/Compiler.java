@@ -4,7 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.util.Collection;
 
-import io.tofu.commons.symbol.Token;
+import io.tofu.commons.symbol.TofuToken;
 import io.tofu.commons.ts.TS;
 import io.tofu.tepal.AL;
 
@@ -17,7 +17,7 @@ public class Compiler {
 		al = ALGenerator.getAL(ts);
 	}
 
-	public Collection<Token<Integer>> getTokens(BufferedReader bufferedReader) throws IOException {
+	public Collection<TofuToken<Integer>> getTokens(BufferedReader bufferedReader) throws IOException {
 		return al.out(bufferedReader);
 	}  
 }

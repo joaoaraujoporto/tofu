@@ -1,6 +1,6 @@
 package io.tofu.teprl.machines.grammar;
 
-public class Symbol {
+public class Symbol<T> {
 	String value;
 	
 	public Symbol(String value) {

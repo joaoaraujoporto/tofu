@@ -8,13 +8,13 @@ import javax.xml.parsers.ParserConfigurationException;
 import org.junit.Test;
 import org.xml.sax.SAXException;
 
-import io.tofu.teprl.machines.grammar.Grammar;
+import io.tofu.teprl.machines.grammar.GLC;
 
 public class GrammarReaderTest {
 
 	@Test
 	public void test() {
-		Grammar g;
+		GLC g;
 		GrammarReader mr = new GrammarReader();
 		File xmlFile = new File("src/test/java/resources/simple_grammar.xml");
 		//File xmlFile = new File("src/test/java/resources/employees.xml");

@@ -4,10 +4,10 @@ import java.util.ArrayList;
 
 import org.junit.Test;
 
-public class GTest {
+public class GLCTest {
 	@Test
 	public void test() {
-		Grammar g = new Grammar("G");
+		GLC g = new GLC("G", new NonTerminal("PROGRAM"));
 		
 		ArrayList<Symbol> body = new ArrayList<Symbol>();
 		

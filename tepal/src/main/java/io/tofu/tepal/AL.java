@@ -5,14 +5,14 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.LinkedList;
 
-import io.tofu.commons.symbol.Token;
+import io.tofu.commons.symbol.TofuToken;
 import io.tofu.commons.ts.PositionInCode;
 import io.tofu.commons.ts.TS;
 import io.tofu.commons.ts.TSEntry;
 import io.tofu.teprl.machines.af.dt.DT;
 import io.tofu.teprl.machines.af.dt.DTState;
 
-public class AL implements Lexer<Token<Integer>> {
+public class AL implements Lexer<TofuToken<Integer>> {
 	private TS ts;
 	private LinkedList<Character> buffer;
 	private BufferedReader bufferedReader;
@@ -23,7 +23,8 @@ public class AL implements Lexer<Token<Integer>> {
 	private String currentLexeme;
 	private ArrayList<DT> dts;
 	private boolean bufferedReaderClosed;
-	private ArrayList<Token<Integer>> readedTokens;
+	private ArrayList<TofuToken<Integer>> readedTokens;
+	private int nextTokenIndex;
 
 	public AL(TS ts, ArrayList<DT> dts) {
 		this.ts = ts;
@@ -45,8 +46,8 @@ public class AL implements Lexer<Token<Integer>> {
 	}
 
 	// TODO - Refactor to private and rename to readTokens
-	public ArrayList<Token<Integer>> out(BufferedReader in) throws IOException {
-		ArrayList<Token<Integer>> tokens = new ArrayList<Token<Integer>>();
+	public ArrayList<TofuToken<Integer>> out(BufferedReader in) throws IOException {
+		ArrayList<TofuToken<Integer>> tokens = new ArrayList<TofuToken<Integer>>();
 		setBufferedReader(in);
 		
 		while (!bufferedReaderClosed) {			
@@ -58,7 +59,7 @@ public class AL implements Lexer<Token<Integer>> {
 			
 			dtsReading.addAll(dts);
 			
-			Token<Integer> token = getNextToken(dtsReading);
+			TofuToken<Integer> token = getNextToken(dtsReading);
 			
 			if (token == null) {
 				System.err.println("Error: line " + currentLine + ", column " + currentColumn + ": \"" +
@@ -72,7 +73,7 @@ public class AL implements Lexer<Token<Integer>> {
 		return tokens;
 	}
 	
-	public Token<Integer> getNextToken(ArrayList<DT> dtsReading) throws IOException {
+	public TofuToken<Integer> getNextToken(ArrayList<DT> dtsReading) throws IOException {
 		ArrayList<DT> dtsNotReading = new ArrayList<DT>();
 		
 		while (!dtsReading.isEmpty()) {
@@ -103,7 +104,7 @@ public class AL implements Lexer<Token<Integer>> {
 				back();
 			
 			int minimalLexemeSize = currentLexeme.length();
-			Token<Integer> token = null;
+			TofuToken<Integer> token = null;
 			
 			if (!bufferedReaderClosed)
 				if ((token = getNextToken(dtsReading)) != null)
@@ -118,17 +119,17 @@ public class AL implements Lexer<Token<Integer>> {
 		return null;
 	}
 	
-	private Token<Integer> yieldToken(DT dt) {
+	private TofuToken<Integer> yieldToken(DT dt) {
 		String token = dt.getName();
 		
 		if (token == "ident") // TODO - as fast as possible, change this
 			if (isKeyword(currentLexeme))
-				return new Token<Integer>(currentLexeme, null); // for now, no value is needed
+				return new TofuToken<Integer>(currentLexeme, null); // for now, no value is needed
 		
 		PositionInCode position = new PositionInCode(currentLine, currentColumn);
 		ts.put(ts.size(), new TSEntry(token, currentLexeme, null, position));
 		
-		return new Token<Integer>(token, ts.size());
+		return new TofuToken<Integer>(token, ts.size());
 	}
 
 	private boolean isKeyword(String currentLexeme) {
@@ -191,7 +192,13 @@ public class AL implements Lexer<Token<Integer>> {
 		return c;
 	}
 
-	public Token<Integer> getNextToken() {
+	public TofuToken<Integer> getNextToken() {
+		if (readedTokens == null || readedTokens.isEmpty())
+			throw new TokensNotReadedException();
 		
+		if (nextTokenIndex == readedTokens.size())
+			nextTokenIndex = 0;
+		
+		return readedTokens.get(nextTokenIndex);
 	}
 }

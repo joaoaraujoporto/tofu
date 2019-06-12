@@ -7,7 +7,7 @@ public class FirstTest {
 
 	@Test
 	public void test() {
-		Grammar g = new Grammar("G");
+		GLC g = new GLC("G", new NonTerminal("S"));
 		
 		ArrayList<Symbol> body = new ArrayList<Symbol>();
 		
@@ -44,7 +44,7 @@ public class FirstTest {
 		
 		body = new ArrayList<Symbol>();
 		
-		body.add(new Terminal("&"));
+		body.add(Grammar.EPSILON);
 		
 		p = new Production(new NonTerminal("B"), body);
 		g.addProduction(p);
@@ -59,7 +59,7 @@ public class FirstTest {
 		
 		body = new ArrayList<Symbol>();
 		
-		body.add(new Terminal("&"));
+		body.add(Grammar.EPSILON);
 		
 		p = new Production(new NonTerminal("A"), body);
 		g.addProduction(p);
@@ -71,6 +71,7 @@ public class FirstTest {
 		p = new Production(new NonTerminal("S"), body);
 		g.addProduction(p);
 		
+		g.updateFirst();
 		System.out.println(g.getFirst(new NonTerminal("S")));
 		System.out.println(g.getFirst(new NonTerminal("A")));
 		System.out.println(g.getFirst(new NonTerminal("B")));
