@@ -20,24 +20,4 @@ public class AuxSym extends Symbol<String,String> {
 	private AuxSym(String value) {
 		super(value);
 	}
-	
-	private static AuxSym getOr() {
-		return new AuxSym("tofuAuxSymOr");
-	}
-	
-	private static AuxSym getStar() {
-		return new AuxSym("tofuAuxSymStar");
-	}
-	
-	private static AuxSym getPlus() {
-		return new AuxSym("tofuAuxSymPlus");
-	}
-	
-	private static AuxSym getLeftParenthesis() {
-		return new AuxSym("tofuAuxSymLeftParenthesis");
-	}
-	
-	private static AuxSym getRightParenthesis() {
-		return new AuxSym("tofuAuxSymRightParenthesis");
-	}
 }

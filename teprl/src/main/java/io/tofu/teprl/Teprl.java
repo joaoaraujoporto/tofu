@@ -1,6 +1,6 @@
 package io.tofu.teprl;
 
-import java.util.HashMap;
+// import java.util.HashMap;
 import java.util.LinkedList;
 
 import io.tofu.teprl.machines.Machine;
@@ -8,12 +8,12 @@ import io.tofu.teprl.machines.af.AF;
 
 public class Teprl {
 	private LinkedList<Machine> mecanismos;
-	private HashMap<String,Machine> machines;
+	// private HashMap<String,Machine> machines; - Commented for avoiding warnings
 	private Machine currMachine;
 
 	public Teprl() {
 		mecanismos = new LinkedList<Machine>();
-		machines = new HashMap<String,Machine>();
+		// machines = new HashMap<String,Machine>();
 		currMachine = null;
 	}
 	
