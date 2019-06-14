@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<grammar>
+ <name>G</name>
+ <production>
+   <head>
+   	 <terminal>sos</terminal>
+     <nonterminal>PROGRAMLIST</nonterminal>
+   </head>
+   <body>
+     <nonterminal>CLASSLIST</nonterminal>
+   </body>
+ </production>
+ <production>
+   <head>
+     <nonterminal>PROGRAMLIST</nonterminal>
+   </head>
+   <body>
+     <terminal>epsilon</terminal>
+   </body>
+ </production>
+ <production>
+   <head>
+     <nonterminal>CLASSLIST</nonterminal>
+   </head>
+   <body>
+     <nonterminal>CLASSDECL</nonterminal>
+     <nonterminal>CLASSLIST'</nonterminal>
+   </body>
+ </production>
+</grammar>
