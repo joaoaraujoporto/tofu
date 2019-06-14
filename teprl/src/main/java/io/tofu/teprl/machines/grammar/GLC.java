@@ -29,6 +29,10 @@ public class GLC<T,R> extends Grammar<T,R> {
 		setFirst();
 	}
 	
+	public Terminal<T,R> getEpsilon() {
+		return epsilon;
+	}
+	
 	public void addTerminal(Terminal<T,R> t) {
 		terminals.add(t);
 	}
