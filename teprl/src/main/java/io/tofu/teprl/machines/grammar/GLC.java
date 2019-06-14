@@ -3,86 +3,82 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-import io.tofu.teprl.machines.Machine;
+import io.tofu.commons.symbol.NonTerminal;
+import io.tofu.commons.symbol.Symbol;
+import io.tofu.commons.symbol.Terminal;
 
-public class GLC extends Grammar {
-	private ArrayList<Terminal> terminals;
-	private ArrayList<NonTerminal> nonTerminals;
-	private ArrayList<Production> productions;
-	private NonTerminal startSymbol;
-	private Map<NonTerminal,ArrayList<Terminal>> first;
-	private Map<NonTerminal,ArrayList<Terminal>> follow;
+public class GLC<T,R> extends Grammar<T,R> {
+	private ArrayList<Terminal<T,R>> terminals;
+	private ArrayList<NonTerminal<T,R>> nonTerminals;
+	private ArrayList<Production<T,R>> productions;
+	private NonTerminal<T,R> startSymbol;
+	private Map<NonTerminal<T,R>,ArrayList<Terminal<T,R>>> first;
+	private Map<NonTerminal<T,R>,ArrayList<Terminal<T,R>>> follow;
+	private Terminal<T,R> epsilon;
 	
-	public GLC(String name, NonTerminal startSymbol) {
+	public GLC(String name, NonTerminal<T,R> startSymbol, Terminal<T,R> epsilon) {
 		super(name);
 		
-		terminals = new ArrayList<Terminal>();
-		nonTerminals = new ArrayList<NonTerminal>();
-		productions = new ArrayList<Production>();
-		startSymbol = startSymbol;
+		terminals = new ArrayList<Terminal<T,R>>();
+		nonTerminals = new ArrayList<NonTerminal<T,R>>();
+		productions = new ArrayList<Production<T,R>>();
+		this.startSymbol = startSymbol;
+		this.epsilon = epsilon; // For now, all GLCs have the epsilon symbol
 		
-		follow = new HashMap<NonTerminal,ArrayList<Terminal>>();	
+		follow = new HashMap<NonTerminal<T,R>,ArrayList<Terminal<T,R>>>();	
 		setFirst();
 	}
 	
-	public void addTerminal(Terminal t) {
+	public void addTerminal(Terminal<T,R> t) {
 		terminals.add(t);
 	}
 	
-	public void addNonTerminal(NonTerminal nt) {
+	public void addNonTerminal(NonTerminal<T,R> nt) {
 		nonTerminals.add(nt);
-		first.put(nt, new ArrayList<Terminal>());
-	}
-	
-	public void addTerminal(String t) {
-		addTerminal(new Terminal(t));
-	}
-	
-	public void addNonTerminal(String nt) {
-		addNonTerminal(new NonTerminal(nt));
+		first.put(nt, new ArrayList<Terminal<T,R>>());
 	}
 
-	public ArrayList<Terminal> getTerminals() {
-		ArrayList<Terminal> terminals = new ArrayList<Terminal>(); 
+	public ArrayList<Terminal<T,R>> getTerminals() {
+		ArrayList<Terminal<T,R>> terminals = new ArrayList<Terminal<T,R>>(); 
 		
-		for (Terminal t : this.terminals)
+		for (Terminal<T,R> t : this.terminals)
 			if (!terminals.contains(t))
 				terminals.add(t);
 		
 		return terminals;
 	}
 
-	public ArrayList<NonTerminal> getNonTerminals() {
-		ArrayList<NonTerminal> nonTerminals = new ArrayList<NonTerminal>(); 
+	public ArrayList<NonTerminal<T,R>> getNonTerminals() {
+		ArrayList<NonTerminal<T,R>> nonTerminals = new ArrayList<NonTerminal<T,R>>(); 
 		
-		for (NonTerminal nt : this.nonTerminals)
+		for (NonTerminal<T,R> nt : this.nonTerminals)
 			if (!nonTerminals.contains(nt))
 				nonTerminals.add(nt);
 		
 		return nonTerminals;
 	}
 	
-	public void addProduction(Production p) {
+	public void addProduction(Production<T,R> p) {
 		addNonTerminal(p.getHead());
 		
-		for (Symbol s : p.getBody()) {
+		for (Symbol<T,R> s : p.getBody()) {
 			if (s instanceof NonTerminal)
-				addNonTerminal((NonTerminal) s);
-			else
-				addTerminal((Terminal) s);
+				addNonTerminal((NonTerminal<T,R>) s);
+			else if (s instanceof Terminal)
+				addTerminal((Terminal<T,R>) s);
 		}
 		
 		productions.add(p);
 	}
 	
-	public ArrayList<Production> getProductions() {
+	public ArrayList<Production<T,R>> getProductions() {
 		return productions;
 	}
 	
-	public ArrayList<Production> getProductions(Symbol head) {
-		ArrayList<Production> prods = new ArrayList<Production>();
+	public ArrayList<Production<T,R>> getProductions(Symbol<T,R> head) {
+		ArrayList<Production<T,R>> prods = new ArrayList<Production<T,R>>();
 		
-		for (Production p : productions)
+		for (Production<T,R> p : productions)
 			if (p.getHead().equals(head))
 				prods.add(p);
 		
@@ -93,10 +89,10 @@ public class GLC extends Grammar {
 		removeProduction(productions.get(i));
 	}
 	
-	public void removeProduction(Production p) {
+	public void removeProduction(Production<T,R> p) {
 		nonTerminals.remove(p.getHead());
 		
-		for (Symbol s : p.getBody()) {
+		for (Symbol<T,R> s : p.getBody()) {
 			if (s instanceof NonTerminal)
 				nonTerminals.remove(s);
 			else
@@ -106,92 +102,92 @@ public class GLC extends Grammar {
 		productions.remove(p);
 	}
 	
-	public ArrayList<Terminal> getFirst(NonTerminal nt) {
-		return (ArrayList<Terminal>) first.get(nt).clone();
+	public ArrayList<Terminal<T,R>> getFirst(NonTerminal<T,R> nt) {
+		return (ArrayList<Terminal<T,R>>) first.get(nt).clone();
 	}
 	
-	public ArrayList<Terminal> getFollow(NonTerminal nt) {
+	public ArrayList<Terminal<T,R>> getFollow(NonTerminal<T,R> nt) {
 		// TODO return (ArrayList<Terminal>) follow(nt).clone();
 		return null;
 	}
 	
 	private void setFirst() {
-		first = new HashMap<NonTerminal,ArrayList<Terminal>>();
+		first = new HashMap<NonTerminal<T,R>,ArrayList<Terminal<T,R>>>();
 	}
 	
 	// User decides when his grammar is ready
 	public void updateFirst() {
-		for (NonTerminal nt : nonTerminals)
+		for (NonTerminal<T,R> nt : nonTerminals)
 			first(nt);
 	}
 	
-	private ArrayList<Terminal> first(NonTerminal nt) {
-		ArrayList<Production> productions = getProductions(nt);		
-		ArrayList<Terminal> first = this.first.get(nt);
+	private ArrayList<Terminal<T,R>> first(NonTerminal<T,R> nt) {
+		ArrayList<Production<T,R>> productions = getProductions(nt);		
+		ArrayList<Terminal<T,R>> first = this.first.get(nt);
 		
-		for (Production p : productions)
-			for (Terminal t : first(p.getBody()))
+		for (Production<T,R> p : productions)
+			for (Terminal<T,R> t : first(p.getBody()))
 				if (!first.contains(t))
 					first.add(t);
 		
 		return first;
 	}
 	
-	public ArrayList<Terminal> getFirst(ArrayList<Symbol> sentence) {
-		ArrayList<Terminal> first = new ArrayList<Terminal>();
+	public ArrayList<Terminal<T,R>> getFirst(ArrayList<Symbol<T,R>> sentence) {
+		ArrayList<Terminal<T,R>> first = new ArrayList<Terminal<T,R>>();
 		
 		if (sentence.isEmpty())
 			return first;
 		
-		Symbol s = sentence.get(0);
+		Symbol<T,R> s = sentence.get(0);
 		
 		if (s instanceof Terminal)
-			first.add((Terminal) s);
+			first.add((Terminal<T,R>) s);
 		
 		if (s instanceof NonTerminal) {
-			first.addAll(getFirst((NonTerminal) s));
+			first.addAll(getFirst((NonTerminal<T,R>) s));
 			
-			if (first.contains(Grammar.EPSILON)) {
-				first.remove(Grammar.EPSILON);
-				ArrayList<Terminal> r = getFirst(Expander.subword(sentence, 1));
+			if (first.contains(epsilon)) {
+				first.remove(epsilon);
+				ArrayList<Terminal<T,R>> r = getFirst(Expander.subword(sentence, 1));
 				first.addAll(r);
 				
 				if (r.isEmpty())
-					first.add(Grammar.EPSILON);				
+					first.add(epsilon);			
 			}
 		}
 		
 		return first;
 	}
 	
-	private ArrayList<Terminal> first(ArrayList<Symbol> sentence) {
-		ArrayList<Terminal> first = new ArrayList<Terminal>();
+	private ArrayList<Terminal<T,R>> first(ArrayList<Symbol<T,R>> sentence) {
+		ArrayList<Terminal<T,R>> first = new ArrayList<Terminal<T,R>>();
 		
 		if (sentence.isEmpty())
 			return first;
 		
-		Symbol s = sentence.get(0);
+		Symbol<T,R> s = sentence.get(0);
 		
 		if (s instanceof Terminal)
-			first.add((Terminal) s);
+			first.add((Terminal<T,R>) s);
 		
 		if (s instanceof NonTerminal) {
-			first.addAll(first((NonTerminal) s));
+			first.addAll(first((NonTerminal<T,R>) s));
 			
-			if (first.contains(Grammar.EPSILON)) {
-				first.remove(Grammar.EPSILON);
-				ArrayList<Terminal> r = first(Expander.subword(sentence, 1));
+			if (first.contains(epsilon)) {
+				first.remove(epsilon);
+				ArrayList<Terminal<T,R>> r = first(Expander.subword(sentence, 1));
 				first.addAll(r);
 				
 				if (r.isEmpty())
-					first.add(Grammar.EPSILON);
+					first.add(epsilon);
 			}
 		}
 		
 		return first;
 	}
 
-	public NonTerminal getStartSymbol() {
+	public NonTerminal<T,R> getStartSymbol() {
 		return startSymbol;
 	}
 }
