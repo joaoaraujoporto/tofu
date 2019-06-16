@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 import org.junit.Test;
 
-import io.tofu.commons.symbol.TofuToken;
+import io.tofu.commons.symbol.Token;
 import io.tofu.commons.ts.TS;
 import io.tofu.commons.ts.TSEntry;
 import io.tofu.tepal.AL;
@@ -21,7 +21,7 @@ public class ALGeneratorTest {
 		AL al = ALGenerator.getAL(ts);
 		
 		FileReader sourceCode = new FileReader("./sources/arvore_binaria_de_busca.xpp");
-		ArrayList<TofuToken<Integer>> tokens = al.out(new BufferedReader(sourceCode));
+		ArrayList<Token<Integer>> tokens = al.out(new BufferedReader(sourceCode));
 		
 		System.out.println(tokens.toString());
 		

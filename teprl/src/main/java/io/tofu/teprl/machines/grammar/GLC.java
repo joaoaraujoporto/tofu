@@ -12,9 +12,10 @@ public class GLC<T,R> extends Grammar<T,R> {
 	private ArrayList<NonTerminal<T,R>> nonTerminals;
 	private ArrayList<Production<T,R>> productions;
 	private NonTerminal<T,R> startSymbol;
-	private Map<NonTerminal<T,R>,ArrayList<Terminal<T,R>>> first;
-	private Map<NonTerminal<T,R>,ArrayList<Terminal<T,R>>> follow;
+	private Map<NonTerminal<T,R>,ArrayList<Terminal<T,R>>> firsts;
+	private Map<NonTerminal<T,R>,ArrayList<Terminal<T,R>>> follows;
 	private Terminal<T,R> epsilon;
+	private Map<NonTerminal<T,R>,ArrayList<NonTerminal<T,R>>> dependenciesInFollow;	
 	
 	public GLC(String name, NonTerminal<T,R> startSymbol, Terminal<T,R> epsilon) {
 		super(name);
@@ -22,13 +23,15 @@ public class GLC<T,R> extends Grammar<T,R> {
 		terminals = new ArrayList<Terminal<T,R>>();
 		nonTerminals = new ArrayList<NonTerminal<T,R>>();
 		productions = new ArrayList<Production<T,R>>();
+		
 		this.startSymbol = startSymbol;
 		this.epsilon = epsilon; // For now, all GLCs have the epsilon symbol
 		
-		follow = new HashMap<NonTerminal<T,R>,ArrayList<Terminal<T,R>>>();	
 		setFirst();
+		setFollow();
+		setDependenciesInFollow();
 	}
-	
+
 	public Terminal<T,R> getEpsilon() {
 		return epsilon;
 	}
@@ -39,7 +42,9 @@ public class GLC<T,R> extends Grammar<T,R> {
 	
 	public void addNonTerminal(NonTerminal<T,R> nt) {
 		nonTerminals.add(nt);
-		first.put(nt, new ArrayList<Terminal<T,R>>());
+		firsts.put(nt, new ArrayList<Terminal<T,R>>());
+		follows.put(nt, new ArrayList<Terminal<T,R>>());
+		dependenciesInFollow.put(nt, new ArrayList<NonTerminal<T,R>>());
 	}
 
 	public ArrayList<Terminal<T,R>> getTerminals() {
@@ -107,16 +112,24 @@ public class GLC<T,R> extends Grammar<T,R> {
 	}
 	
 	public ArrayList<Terminal<T,R>> getFirst(NonTerminal<T,R> nt) {
-		return (ArrayList<Terminal<T,R>>) first.get(nt).clone();
+		return (ArrayList<Terminal<T,R>>) firsts.get(nt).clone();
 	}
 	
 	public ArrayList<Terminal<T,R>> getFollow(NonTerminal<T,R> nt) {
-		// TODO return (ArrayList<Terminal>) follow(nt).clone();
-		return null;
+		return (ArrayList<Terminal<T,R>>) follows.get(nt).clone();
 	}
 	
 	private void setFirst() {
-		first = new HashMap<NonTerminal<T,R>,ArrayList<Terminal<T,R>>>();
+		firsts = new HashMap<NonTerminal<T,R>,ArrayList<Terminal<T,R>>>();
+	}
+	
+	private void setFollow() {
+		follows = new HashMap<NonTerminal<T,R>,ArrayList<Terminal<T,R>>>();
+	}
+	
+	private void setDependenciesInFollow() {
+		dependenciesInFollow = new HashMap<NonTerminal<T,R>, 
+				ArrayList<NonTerminal<T,R>>>();
 	}
 	
 	// User decides when his grammar is ready
@@ -125,9 +138,54 @@ public class GLC<T,R> extends Grammar<T,R> {
 			first(nt);
 	}
 	
+	public void updateFollow(Terminal<T,R> endOfSentence) {
+		ArrayList<Terminal<T,R>> follow = 
+				follows.get(startSymbol);
+			
+		follow.add(endOfSentence);
+			
+		for (Production<T,R> p : productions) {
+			ArrayList<Symbol<T,R>> body = p.getBody();
+			
+			for (int i = 0; i < body.size(); i++) {
+				Symbol<T,R> s = body.get(i);
+				
+				if (s instanceof Terminal)
+					continue;
+				
+				NonTerminal<T,R> nt = (NonTerminal<T,R>) s;
+				follow = follows.get(nt);
+				ArrayList<Symbol<T,R>> subBody = Expander.subword(body, i);
+				ArrayList<Terminal<T,R>> firstSub = first(subBody);
+				
+				if (subBody.isEmpty() || firstSub.contains(epsilon)) {
+					follow.addAll(follows.get(p.getHead()));
+					ArrayList<NonTerminal<T,R>> dependencies =
+							dependenciesInFollow.get(p.getHead());
+					dependencies.add(nt);
+				}
+				
+				follow.addAll(firstSub);
+				updateDependencies(nt);
+			}
+		}
+	}
+	
+	private void updateDependencies(NonTerminal<T, R> nt) {
+		ArrayList<NonTerminal<T,R>> dependencies =
+				dependenciesInFollow.get(nt);
+		
+		for (NonTerminal<T,R> d : dependencies) {
+			ArrayList<Terminal<T,R>> follow = 
+					follows.get(d);
+			
+			follow.addAll(follow);
+		}
+	}
+	
 	private ArrayList<Terminal<T,R>> first(NonTerminal<T,R> nt) {
 		ArrayList<Production<T,R>> productions = getProductions(nt);		
-		ArrayList<Terminal<T,R>> first = this.first.get(nt);
+		ArrayList<Terminal<T,R>> first = this.firsts.get(nt);
 		
 		for (Production<T,R> p : productions)
 			for (Terminal<T,R> t : first(p.getBody()))

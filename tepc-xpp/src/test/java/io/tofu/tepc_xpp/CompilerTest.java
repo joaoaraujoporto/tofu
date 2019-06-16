@@ -6,7 +6,7 @@ import java.io.FileReader;
 
 import org.junit.Test;
 
-import io.tofu.commons.symbol.TofuToken;
+import io.tofu.commons.symbol.Token;
 
 public class CompilerTest {
 
@@ -21,7 +21,7 @@ public class CompilerTest {
 			
 			Compiler c = new Compiler();
 			
-			for (TofuToken<Integer> token : c.getTokens(bufferedReader))
+			for (Token<Integer> token : c.getTokens(bufferedReader))
 				System.out.println(token.toString());
 		} catch (Exception e) {
 			e.printStackTrace();
