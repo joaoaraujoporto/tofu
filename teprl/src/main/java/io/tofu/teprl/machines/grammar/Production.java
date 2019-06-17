@@ -26,8 +26,8 @@ public class Production<T,R> {
 		String b = new String();
 		
 		for (Symbol<T,R> s : body)
-			b += s.getMeaning().toString();
+			b += s.getSign().toString();
 		
-		return head.getMeaning().toString() + " -> " + b;
+		return head.getSign().toString() + " -> " + b;
 	}
 }

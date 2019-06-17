@@ -13,43 +13,45 @@ import io.tofu.commons.symbol.Terminal;
 import io.tofu.teprl.machines.grammar.GLC;
 import io.tofu.teprl.machines.grammar.Production;
 
-public class GrammarReader extends MachineReader<GLC>{
+public class GrammarReader {
 	
-	@Override
-	protected GLC read(Document doc) {
+	protected GLC<String,AttribSet> read(Document doc) {
 		NodeList productionList = doc.getElementsByTagName(GrammarTAGs.PRODUCTION);
-		GLC g = new GLC("G", new NonTerminal("fool"));
+		GLC<String,AttribSet> g = null;
 		
-		for (int i = 1; i < productionList.getLength(); i++) {
+		for (int i = 0; i < productionList.getLength(); i++) {
 			Node productionNode = productionList.item(i);
 			Element productionElement = (Element) productionNode;
-			NodeList headsList = productionElement.getElementsByTagName(GrammarTAGs.HEAD);
-			Element headElement = (Element) headsList.item(0);
-			Node symbolNode = headElement.getFirstChild();
+			NodeList headList = productionElement.getElementsByTagName(GrammarTAGs.HEAD);			
+			Element headElement = (Element) headList.item(0);
+			NodeList symbolList = headElement.getElementsByTagName(GrammarTAGs.NONTERMINAL);
+			Node symbolNode = symbolList.item(0);
 			
-			System.out.println(symbolNode.getNodeValue());
+			NonTerminal<String,AttribSet> head = 
+					new NonTerminal<String,AttribSet>(symbolNode.getTextContent());
 			
-			if (productionNode.getNodeType() != Node.CDATA_SECTION_NODE)
-				System.out.println("" + productionNode.getNodeType() + "," + Node.COMMENT_NODE);
+			if (i == 0)
+				g = new GLC<String,AttribSet>("G", head,
+						new Terminal<String,AttribSet>("epsilon"));
 			
-			Node headNode = productionNode.getFirstChild();
-			//SNode symbolNode = headNode.getFirstChild();
-			NonTerminal head = new NonTerminal(symbolNode.getNodeValue());
+			ArrayList<Symbol<String,AttribSet>> body = 
+					new ArrayList<Symbol<String,AttribSet>>();
 			
-			ArrayList<Symbol> body = new ArrayList<Symbol>();
-			Node bodyNode = productionNode.getLastChild();
-			NodeList symbolsOfBodyList = bodyNode.getChildNodes();
+			NodeList bodyList = productionElement.getElementsByTagName(GrammarTAGs.BODY);			
+			Element bodyElement = (Element) bodyList.item(0);
+			symbolList = bodyElement.getChildNodes();
 			
-			for (int j = 0; j < symbolsOfBodyList.getLength(); j++) {
-				symbolNode = symbolsOfBodyList.item(j);
+			for (int j = 0; j < symbolList.getLength(); j++) {
+				symbolNode = symbolList.item(j);
 				
 				if (symbolNode.getNodeName().equals(GrammarTAGs.TERMINAL))
-					body.add(new Terminal(symbolNode.getTextContent()));
+					body.add(new Terminal<String,AttribSet>(symbolNode.getTextContent()));
 				else if (symbolNode.getNodeName().equals(GrammarTAGs.NONTERMINAL))
-					body.add(new NonTerminal(symbolNode.getTextContent()));
+					body.add(new NonTerminal<String,AttribSet>(symbolNode.getTextContent()));
 			}
 			
-			Production p = new Production(head, body);
+			Production<String,AttribSet> p = 
+					new Production<String,AttribSet>(head, body);
 			g.addProduction(p);
 		}
 		

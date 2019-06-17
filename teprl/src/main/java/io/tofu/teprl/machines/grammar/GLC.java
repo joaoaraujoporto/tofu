@@ -146,7 +146,8 @@ public class GLC<T,R> extends Grammar<T,R> {
 			
 		for (Production<T,R> p : productions) {
 			ArrayList<Symbol<T,R>> body = p.getBody();
-			
+
+			//follow.addAll(follows.get(p.getHead()));
 			for (int i = 0; i < body.size(); i++) {
 				Symbol<T,R> s = body.get(i);
 				
@@ -155,31 +156,40 @@ public class GLC<T,R> extends Grammar<T,R> {
 				
 				NonTerminal<T,R> nt = (NonTerminal<T,R>) s;
 				follow = follows.get(nt);
-				ArrayList<Symbol<T,R>> subBody = Expander.subword(body, i);
+				ArrayList<Symbol<T,R>> subBody = Expander.subword(body, i + 1);
 				ArrayList<Terminal<T,R>> firstSub = first(subBody);
 				
 				if (subBody.isEmpty() || firstSub.contains(epsilon)) {
-					follow.addAll(follows.get(p.getHead()));
+					addFreshes(follow, follows.get(p.getHead()));
 					ArrayList<NonTerminal<T,R>> dependencies =
 							dependenciesInFollow.get(p.getHead());
-					dependencies.add(nt);
+					addFresh(dependencies, p.getHead());
 				}
 				
-				follow.addAll(firstSub);
+				addFreshes(follow, firstSub);
 				updateDependencies(nt);
 			}
 		}
 	}
 	
+	private <E,F extends E> void addFreshes(ArrayList<E> forArray,
+			ArrayList<F> fromArray) {
+		for (F element : fromArray)
+			addFresh(forArray, element);
+		
+	}
+	
+	private <E,F extends E> void addFresh(ArrayList<E> forArray, F element) {
+		if (!forArray.contains(element)) forArray.add(element);
+	}
+	
 	private void updateDependencies(NonTerminal<T, R> nt) {
-		ArrayList<NonTerminal<T,R>> dependencies =
-				dependenciesInFollow.get(nt);
+		ArrayList<NonTerminal<T,R>> dependencies = dependenciesInFollow.get(nt);
+		ArrayList<Terminal<T,R>> follow = follows.get(nt);
 		
 		for (NonTerminal<T,R> d : dependencies) {
-			ArrayList<Terminal<T,R>> follow = 
-					follows.get(d);
-			
-			follow.addAll(follow);
+			ArrayList<Terminal<T,R>> dFollow = follows.get(d);
+			addFreshes(follow, dFollow);
 		}
 	}
 	
@@ -188,9 +198,7 @@ public class GLC<T,R> extends Grammar<T,R> {
 		ArrayList<Terminal<T,R>> first = this.firsts.get(nt);
 		
 		for (Production<T,R> p : productions)
-			for (Terminal<T,R> t : first(p.getBody()))
-				if (!first.contains(t))
-					first.add(t);
+			addFreshes(first, first(p.getBody()));
 		
 		return first;
 	}
