@@ -3,23 +3,28 @@ package io.tofu.tepas;
 import java.util.ArrayList;
 import java.util.Stack;
 
+import io.tofu.commons.symbol.EndOfSentence;
 import io.tofu.commons.symbol.NonTerminal;
 import io.tofu.commons.symbol.Symbol;
 import io.tofu.commons.symbol.Terminal;
 import io.tofu.commons.symbol.Token;
+import io.tofu.commons.ts.TS;
 import io.tofu.teprl.machines.grammar.Production;
 
 public class Recognizer {
 	private Stack<Symbol<String,?>> stack;
+	private TS ts;
 	private TAS tas;
 
-	public Recognizer(TAS tas) {
+	public Recognizer(TS ts, TAS tas) {
+		this.ts = ts;
 		this.tas = tas;
+		stack = new Stack<Symbol<String,?>>();
 	}
 
 	public void clearStack() {
-		addToStack(new EndOfSentence());
 		stack.clear();
+		addToStack(new EndOfSentence());
 	}
 
 	public void addToStack(Symbol<String,?> symbol) {
@@ -40,7 +45,7 @@ public class Recognizer {
 			 * non-general?  
 			 */
 			if (!terminalOnTop.equals(token))
-				throw new SyntaxErrorException(token.getName());
+				throw new SyntaxErrorException((Token<Integer>) token, ts);
 			
 			 /* if (terminalOnTop instanceof EndOfSentence)
 				return; // TODO - Sentence accepted */
@@ -50,16 +55,19 @@ public class Recognizer {
 		
 		if (top instanceof NonTerminal) {
 			Production<String,AttribSet> p = tas.getEntries().get(
-					new TASIndex((NonTerminal<String,?>) top,
+					new TASIndex((NonTerminal<String,AttribSet>) top,
 							token));
 			
 			if (p == null)
-				throw new SyntaxErrorException(token.getName());
+				throw new SyntaxErrorException((Token<Integer>) token, ts);
 			
 			ArrayList<Symbol<String,AttribSet>> derived = p.getBody();
 			
 			for (int i = derived.size() - 1; i >= 0; i--)
-				stack.add(derived.get(i));
+				if (!derived.get(i).equals(tas.getGLC().getEpsilon()))
+					stack.add(derived.get(i));
+			
+			input(token);
 		}
 	}
 

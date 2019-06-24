@@ -134,8 +134,14 @@ public class GLC<T,R> extends Grammar<T,R> {
 	
 	// User decides when his grammar is ready
 	public void updateFirst() {
-		for (NonTerminal<T,R> nt : nonTerminals)
-			first(nt);
+		ArrayList<NonTerminal<T,R>> updated = new ArrayList<NonTerminal<T,R>>();
+		
+		for (NonTerminal<T,R> nt : nonTerminals) {
+			if (!updated.contains(nt)) {				
+				first(nt);
+				updated.add(nt);
+			}
+		}
 	}
 	
 	public void updateFollow(Terminal<T,R> endOfSentence) {
@@ -155,16 +161,22 @@ public class GLC<T,R> extends Grammar<T,R> {
 					continue;
 				
 				NonTerminal<T,R> nt = (NonTerminal<T,R>) s;
+				
 				follow = follows.get(nt);
 				ArrayList<Symbol<T,R>> subBody = Expander.subword(body, i + 1);
+				
+				if (!subBody.isEmpty() && subBody.get(0).getSign().equals("FACTOR"))
+					System.out.println("stop in this point of follow");
+				
 				ArrayList<Terminal<T,R>> firstSub = first(subBody);
 				
-				if (subBody.isEmpty() || firstSub.contains(epsilon)) {
-					addFreshes(follow, follows.get(p.getHead()));
-					ArrayList<NonTerminal<T,R>> dependencies =
-							dependenciesInFollow.get(p.getHead());
-					addFresh(dependencies, p.getHead());
-				}
+				if (subBody.isEmpty() || firstSub.contains(epsilon))
+					if (!p.getHead().equals(nt)) {
+						addFreshes(follow, follows.get(p.getHead()));
+						ArrayList<NonTerminal<T,R>> dependencies =
+								dependenciesInFollow.get(p.getHead());
+						addFresh(dependencies, nt);
+					}
 				
 				addFreshes(follow, firstSub);
 				updateDependencies(nt);
@@ -183,14 +195,25 @@ public class GLC<T,R> extends Grammar<T,R> {
 		if (!forArray.contains(element)) forArray.add(element);
 	}
 	
-	private void updateDependencies(NonTerminal<T, R> nt) {
+	private void updateDependencies(NonTerminal<T,R> nt, ArrayList<NonTerminal<T,R>> vis) {
+		if (vis.contains(nt))
+			return;
+		
+		vis.add(nt);
+		
 		ArrayList<NonTerminal<T,R>> dependencies = dependenciesInFollow.get(nt);
 		ArrayList<Terminal<T,R>> follow = follows.get(nt);
 		
 		for (NonTerminal<T,R> d : dependencies) {
 			ArrayList<Terminal<T,R>> dFollow = follows.get(d);
-			addFreshes(follow, dFollow);
+			addFreshes(dFollow, follow);
+			updateDependencies(d, vis);
 		}
+	}
+	
+	private void updateDependencies(NonTerminal<T, R> nt) {
+		ArrayList<NonTerminal<T,R>> vis = new ArrayList<NonTerminal<T,R>>();
+		updateDependencies(nt, vis);
 	}
 	
 	private ArrayList<Terminal<T,R>> first(NonTerminal<T,R> nt) {

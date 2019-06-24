@@ -1,1150 +1,1130 @@
 <?xml version="1.0" encoding="utf-8"?>
 <grammar>
-  <production>
-    <head>
-      <non-terminal> PROGRAMLIST </non-terminal>
-    </head>
-    <body>
-      <non-terminal> CLASSLIST </non-terminal>
-    </body>
-  </production>
-  <production>
-    <head>
-      <non-terminal> PROGRAMLIST </non-terminal>
-    </head>
-    <body>
-      <terminal> episilon </terminal>
-    </body>
-  </production>
-  <production>
-    <head>
-      <non-terminal> CLASSLIST </non-terminal>
-    </head>
-    <body>
-      <non-terminal> CLASSDECL </non-terminal>
-      <non-terminal> CLASSLIST' </non-terminal>
-    </body>
-  </production>
-  <production>
-    <head>
-      <non-terminal> CLASSLIST' </non-terminal>
-    </head>
-    <body>
-      <terminal> epsilon </terminal>
-    </body>
-  </production>
-  <production>
-    <head>
-      <non-terminal> CLASSLIST' </non-terminal>
-    </head>
-    <body>
-      <non-terminal> CLASSDECL </non-terminal>
-      <non-terminal> CLASSLIST' </non-terminal>
-    </body>
-  </production>
-  <production>
-    <head>
-      <non-terminal> CLASSDECL </non-terminal>
-    </head>
-    <body>
-      <terminal> class </terminal>
-      <terminal> ident </terminal>
-      <non-terminal> CLASSDECL' </non-terminal>
-    </body>
-  </production>
-  <production>
-    <head>
-      <non-terminal> CLASSDECL' </non-terminal>
-    </head>
-    <body>
-      <terminal> extends </terminal>
-      <terminal> ident </terminal>
-      <non-terminal> CLASSBODY </non-terminal>
-    </body>
-  </production>
-  <production>
-    <head>
-      <non-terminal> CLASSDECL' </non-terminal>
-    </head>
-    <body>
-      <non-terminal> CLASSBODY </non-terminal>
-    </body>
-  </production>
-  <production>
-    <head>
-      <non-terminal> CLASSBODY </non-terminal>
-    </head>
-    <body>
-      <terminal> { </terminal>
-      <non-terminal> CLASSBODY' </non-terminal>
-    </body>
-  </production>
-  <production>
-    <head>
-      <non-terminal> CLASSBODY' </non-terminal>
-    </head>
-    <body>
-      <terminal> } </terminal>
-    </body>
-  </production>
-  <production>
-    <head>
-      <non-terminal> CLASSBODY' </non-terminal>
-    </head>
-    <body>
-      <non-terminal> CLASSLIST </non-terminal>
-      <non-terminal> CLASSBODY'' </non-terminal>
-      <terminal> } </terminal>
-    </body>
-  </production>
-  <production>
-    <head>
-      <non-terminal> CLASSBODY' </non-terminal>
-    </head>
-    <body>
-      <non-terminal> CLASSBODY'' </non-terminal>
-      <terminal> } </terminal>
-    </body>
-  </production>
-  <production>
-    <head>
-      <non-terminal> CLASSBODY'' </non-terminal>
-    </head>
-    <body>
-      <terminal> int </terminal>
-      <non-terminal> CLASSBODY5 </non-terminal>
-    </body>
-  </production>
-  <production>
-    <head>
-      <non-terminal> CLASSBODY'' </non-terminal>
-    </head>
-    <body>
-      <terminal> string </terminal>
-      <non-terminal> CLASSBODY5 </non-terminal>
-    </body>
-  </production>
-  <production>
-    <head>
-      <non-terminal> CLASSBODY'' </non-terminal>
-    </head>
-    <body>
-      <terminal> ident </terminal>
-      <non-terminal> CLASSBODY5 </non-terminal>
-    </body>
-  </production>
-  <production>
-    <head>
-      <non-terminal> CLASSBODY'' </non-terminal>
-    </head>
-    <body>
-      <non-terminal> CLASSBODY''' </non-terminal>
-    </body>
-  </production>
-  <production>
-    <head>
-      <non-terminal> CLASSBODY''' </non-terminal>
-    </head>
-    <body>
-      <non-terminal> CONTRUCTDECL </non-terminal>
-      <non-terminal> CLASSBODY''' </non-terminal>
-    </body>
-  </production>
-  <production>
-    <head>
-      <non-terminal> CLASSBODY''' </non-terminal>
-    </head>
-    <body>
-      <non-terminal> CLASSBODY4 </non-terminal>
-    </body>
-  </production>
-  <production>
-    <head>
-      <non-terminal> CLASSBODY4 </non-terminal>
-    </head>
-    <body>
-      <non-terminal> METHODDECL </non-terminal>
-      <non-terminal> CLASSBODY4 </non-terminal>
-    </body>
-  </production>
-  <production>
-    <head>
-      <non-terminal> CLASSBODY4 </non-terminal>
-    </head>
-    <body>
-      <non-terminal> epsilon </non-terminal>
-    </body>
-  </production>
-  <production>
-    <head>
-      <non-terminal> CLASSBODY5 </non-terminal>
-    </head>
-    <body>
-      <terminal> ident </terminal>
-      <non-terminal> CLASSBODY6 </non-terminal>
-    </body>
-  </production>
-  <production>
-    <head>
-      <non-terminal> CLASSBODY5 </non-terminal>
-    </head>
-    <body>
-      <terminal> [ </terminal>
-      <terminal> ] </terminal>
-      <non-terminal> COL </non-terminal>
-      <terminal> ident </terminal>
-      <non-terminal> METHODBODY </non-terminal>
-      <non-terminal> CLASSBODY4 </non-terminal>
-    </body>
-  </production>
-  <production>
-    <head>
-      <non-terminal> CLASSBODY6 </non-terminal>
-    </head>
-    <body>
-      <non-terminal> VARDECL' </non-terminal>
-      <terminal> ; </terminal>
-    </body>
-  </production>
-  <production>
-    <head>
-      <non-terminal> CLASSBODY6 </non-terminal>
-    </head>
-    <body>
-      <non-terminal> METHODBODY </non-terminal>
-      <non-terminal> CLASSBODY4 </non-terminal>
-    </body>
-  </production>
-  <production>
-    <head>
-      <non-terminal> VARDECL </non-terminal>
-    </head>
-    <body>
-      <terminal> int </terminal>
-      <terminal> ident </terminal>
-      <non-terminal> VARDECL' </non-terminal>
-    </body>
-  </production>
-  <production>
-    <head>
-      <non-terminal> VARDECL </non-terminal>
-    </head>
-    <body>
-      <terminal> string </terminal>
-      <terminal> ident </terminal>
-      <non-terminal> VARDECL' </non-terminal>
-    </body>
-  </production>
-  <production>
-    <head>
-      <non-terminal> VARDECL </non-terminal>
-    </head>
-    <body>
-      <terminal> ident </terminal>
-      <terminal> ident </terminal>
-      <non-terminal> VARDECL' </non-terminal>
-    </body>
-  </production>
-  <production>
-    <head>
-      <non-terminal> VARDECL' </non-terminal>
-    </head>
-    <body>
-      <terminal> ident </terminal>
-      <non-terminal> VARDECL' </non-terminal>
-    </body>
-  </production>
-  <production>
-    <head>
-      <non-terminal> VARDECL' </non-terminal>
-    </head>
-    <body>
-      <non-terminal> COL </non-terminal>
-      <non-terminal> VARDECL' </non-terminal>
-    </body>
-  </production>
-  <production>
-    <head>
-      <non-terminal> VARDECL' </non-terminal>
-    </head>
-    <body>
-      <terminal> epsilon </terminal>
-    </body>
-  </production>
-  <production>
-    <head>
-      <non-terminal> CONSTRUCTDECL </non-terminal>
-    </head>
-    <body>
-      <terminal> constructor </terminal>
-      <non-terminal> METHODBODY </non-terminal>
-    </body>
-  </production>
-  <production>
-    <head>
-      <non-terminal> METHODDECL </non-terminal>
-    </head>
-    <body>
-      <terminal> int </terminal>
-      <non-terminal> COL </non-terminal>
-      <terminal> ident </terminal>
-      <non-terminal> METHODBODY </non-terminal>
-    </body>
-  </production>
-  <production>
-    <head>
-      <non-terminal> METHODDECL </non-terminal>
-    </head>
-    <body>
-      <terminal> string </terminal>
-      <non-terminal> COL </non-terminal>
-      <terminal> ident </terminal>
-      <non-terminal> METHODBODY </non-terminal>
-    </body>
-  </production>
-  <production>
-    <head>
-      <non-terminal> METHODDECL </non-terminal>
-    </head>
-    <body>
-      <terminal> ident </terminal>
-      <non-terminal> COL </non-terminal>
-      <terminal> ident </terminal>
-      <non-terminal> METHODBODY </non-terminal>
-    </body>
-  </production>
-  <production>
-    <head>
-      <non-terminal> METHODBODY </non-terminal>
-    </head>
-    <body>
-      <terminal> ( </terminal>
-      <non-terminal> PARAMLIST </non-terminal>
-      <terminal> ) > </terminal>
-      <non-terminal> STATEMENT </non-terminal>
-    </body>
-  </production>
-  <production>
-    <head>
-      <non-terminal> PARAMLIST </non-terminal>
-    </head>
-    <body>
-      <terminal> int </terminal>
-      <terminal> ident </terminal>
-      <non-terminal> PARAMLIST' </non-terminal>
-    </body>
-  </production>
-  <production>
-    <head>
-      <non-terminal> PARAMLIST </non-terminal>
-    </head>
-    <body>
-      <terminal> string </terminal>
-      <terminal> ident </terminal>
-      <non-terminal> PARAMLIST' </non-terminal>
-    </body>
-  </production>
-  <production>
-    <head>
-      <non-terminal> PARAMLIST </non-terminal>
-    </head>
-    <body>
-      <terminal> ident </terminal>
-      <terminal> ident </terminal>
-      <non-terminal> PARAMLIST' </non-terminal>
-    </body>
-  </production>
-  <production>
-    <head>
-      <non-terminal> PARAMLIST' </non-terminal>
-    </head>
-    <body>
-      <terminal> epsilon </terminal>
-    </body>
-  </production>
-  <production>
-    <head>
-      <non-terminal> PARAMLIST' </non-terminal>
-    </head>
-    <body>
-      <terminal> , </terminal>
-      <terminal> int </terminal>
-      <terminal> ident </terminal>
-      <non-terminal> PARAMLIST' </non-terminal>
-    </body>
-  </production>
-  <production>
-    <head>
-      <non-terminal> PARAMLIST' </non-terminal>
-    </head>
-    <body>
-      <terminal> , </terminal>
-      <terminal> string </terminal>
-      <terminal> ident </terminal>
-      <non-terminal> PARAMLIST' </non-terminal>
-    </body>
-  </production>
-  <production>
-    <head>
-      <non-terminal> PARAMLIST' </non-terminal>
-    </head>
-    <body>
-      <terminal> , </terminal>
-      <terminal> ident </terminal>
-      <terminal> ident </terminal>
-      <non-terminal> PARAMLIST' </non-terminal>
-    </body>
-  </production>
-  <production>
-    <head>
-      <non-terminal> PARAMLIST' </non-terminal>
-    </head>
-    <body>
-      <non-terminal> COL </non-terminal>
-      <non-terminal> PARAMLIST' </non-terminal>
-    </body>
-  </production>
-  <production>
-    <head>
-      <non-terminal> STATEMENT </non-terminal>
-    </head>
-    <body>
-      <non-terminal> PRINTSTAT </non-terminal>
-      <terminal> ; </terminal>
-    </body>
-  </production>
-  <production>
-    <head>
-      <non-terminal> STATEMENT </non-terminal>
-    </head>
-    <body>
-      <non-terminal> READSTAT </non-terminal>
-      <terminal> ; </terminal>
-    </body>
-  </production>
-  <production>
-    <head>
-      <non-terminal> STATEMENT </non-terminal>
-    </head>
-    <body>
-      <non-terminal> RETURNSTAT </non-terminal>
-      <terminal> ; </terminal>
-    </body>
-  </production>
-  <production>
-    <head>
-      <non-terminal> STATEMENT </non-terminal>
-    </head>
-    <body>
-      <non-terminal> SUPERSTAT </non-terminal>
-      <terminal> ; </terminal>
-    </body>
-  </production>
-  <production>
-    <head>
-      <non-terminal> STATEMENT </non-terminal>
-    </head>
-    <body>
-      <non-terminal> IFSTAT </non-terminal>
-    </body>
-  </production>
-  <production>
-    <head>
-      <non-terminal> STATEMENT </non-terminal>
-    </head>
-    <body>
-      <non-terminal> FORSTAT </non-terminal>
-      <terminal> ; </terminal>
-    </body>
-  </production>
-  <production>
-    <head>
-      <non-terminal> STATEMENT </non-terminal>
-    </head>
-    <body>
-      <terminal> { </terminal>
-      <non-terminal> STATLIST </non-terminal>
-      <terminal> } </terminal>
-    </body>
-  </production>
-  <production>
-    <head>
-      <non-terminal> STATEMENT </non-terminal>
-    </head>
-    <body>
-      <terminal> break </terminal>
-      <terminal> ; </terminal>
-    </body>
-  </production>
-  <production>
-    <head>
-      <non-terminal> STATEMENT </non-terminal>
-    </head>
-    <body>
-      <terminal> ; </terminal>
-    </body>
-  </production>
-  <production>
-    <head>
-      <non-terminal> STATEMENT </non-terminal>
-    </head>
-    <body>
-      <terminal> int </terminal>
-      <terminal> ident </terminal>
-      <non-terminal> VARDECL' </non-terminal>
-      <terminal> ; </terminal>
-    </body>
-  </production>
-  <production>
-    <head>
-      <non-terminal> STATEMENT </non-terminal>
-    </head>
-    <body>
-      <terminal> string </terminal>
-      <terminal> ident </terminal>
-      <non-terminal> VARDECL' </non-terminal>
-      <terminal> ; </terminal>
-    </body>
-  </production>
-  <production>
-    <head>
-      <non-terminal> STATEMENT </non-terminal>
-    </head>
-    <body>
-      <terminal> ident </terminal>
-      <non-terminal> STATEMENT' </non-terminal>
-    </body>
-  </production>
-  <production>
-    <head>
-      <non-terminal> STATEMENT' </non-terminal>
-    </head>
-    <body>
-      <terminal> ident </terminal>
-      <non-terminal> VARDECL' </non-terminal>
-    </body>
-  </production>
-  <production>
-    <head>
-      <non-terminal> STATEMENT' </non-terminal>
-    </head>
-    <body>
-      <non-terminal> LVALUE' </non-terminal>
-    </body>
-  </production>
-  <production>
-    <head>
-      <non-terminal> ATRIBSTAT </non-terminal>
-    </head>
-    <body>
-      <non-terminal> LVALUE </non-terminal>
-      <terminal> = </terminal>
-      <non-terminal> ATRIBSTAT' </non-terminal>
-    </body>
-  </production>
-  <production>
-    <head>
-      <non-terminal> ATRIBSTAT' </non-terminal>
-    </head>
-    <body>
-      <non-terminal> EXPRESSION </non-terminal>
-    </body>
-  </production>
-  <production>
-    <head>
-      <non-terminal> ATRIBSTAT' </non-terminal>
-    </head>
-    <body>
-      <non-terminal> ALOCEXPRESSION </non-terminal>
-    </body>
-  </production>
-  <production>
-    <head>
-      <non-terminal> PRINTSTAT </non-terminal>
-    </head>
-    <body>
-      <terminal> print </terminal>
-      <non-terminal> EXPRESSION </non-terminal>
-    </body>
-  </production>
-  <production>
-    <head>
-      <non-terminal> READSTAT </non-terminal>
-    </head>
-    <body>
-      <terminal> read </terminal>
-      <non-terminal> LVALUE </non-terminal>
-    </body>
-  </production>
-  <production>
-    <head>
-      <non-terminal> RETURNSTAT </non-terminal>
-    </head>
-    <body>
-      <terminal> return </terminal>
-      <non-terminal> RETURNSTAT' </non-terminal>
-    </body>
-  </production>
-  <production>
-    <head>
-      <non-terminal> RETURNSTAT' </non-terminal>
-    </head>
-    <body>
-      <non-terminal> EXPRESSION </non-terminal>
-    </body>
-  </production>
-  <production>
-    <head>
-      <non-terminal> RETURNSTAT' </non-terminal>
-    </head>
-    <body>
-      <terminal> epsilon </terminal>
-    </body>
-  </production>
-  <production>
-    <head>
-      <non-terminal> SUPERSTAT </non-terminal>
-    </head>
-    <body>
-      <terminal> super </terminal>
-      <terminal> ( </terminal>
-      <non-terminal> ARGLIST </non-terminal>
-      <terminal> ) </terminal>
-    </body>
-  </production>
-  <production>
-    <head>
-      <non-terminal> IFSTAT <non-terminal>
-    </head>
-    <body>
-      <terminal> if </terminal>
-      <terminal> ( </terminal>
-      <non-terminal> EXPRESSION </non-terminal>
-      <terminal> ) </terminal>
-      <non-terminal> STATEMENT <non-terminal>
-      <non-terminal> IFSTAT' <non-terminal>
-    </body>
-  </production>
-  <production>
-    <head>
-      <non-terminal> IFSTAT' <non-terminal>
-    </head>
-    <body>
-      <terminal> else </terminal>
-      <non-terminal> STATEMENT </non-terminal>
-    </body>
-  </production>
-  <production>
-    <head>
-      <non-terminal> IFSTAT' <non-terminal>
-    </head>
-    <body>
-      <terminal> epsilon </terminal>
-    </body>
-  </production>
-  <production>
-    <head>
-      <non-terminal> FORSTAT <non-terminal>
-    </head>
-    <body>
-      <terminal> for </terminal>
-      <terminal> ( </terminal>
-      <non-terminal> FORSTAT' </non-terminal>
-    </body>
-  </production>
-  <production>
-    <head>
-      <non-terminal> FORSTAT' </non-terminal>
-    </head>
-    <body>
-      <non-terminal> ATRIBSTAT </non-terminal>
-      <terminal> ; </terminal>
-      <non-terminal> FORSTAT'' </non-terminal>
-    </body>
-  </production>
-  <production>
-    <head>
-      <non-terminal> FORSTAT' </non-terminal>
-    </head>
-    <body>
-      <terminal> ; </terminal>
-      <non-terminal> FORSTAT'' </non-terminal>
-    </body>
-  </production>
-  <production>
-    <head>
-      <non-terminal> FORSTAT'' </non-terminal>
-    </head>
-    <body>
-      <non-terminal> EXPRESSION </non-terminal>
-      <terminal> ; </terminal>
-      <non-terminal> FORSTAT''' </non-terminal>
-    </body>
-  </production>
-  <production>
-    <head>
-      <non-terminal> FORSTAT'' </non-terminal>
-    </head>
-    <body>
-      <terminal> ; </terminal>
-      <non-terminal> FORSTAT''' </non-terminal>
-    </body>
-  </production>
-  <production>
-    <head>
-      <non-terminal> FORSTAT''' </non-terminal>
-    </head>
-    <body>
-      <terminal> ) </terminal>
-      <non-terminal> STATEMENT </non-terminal>
-    </body>
-  </production>
-  <production>
-    <head>
-      <non-terminal> FORSTAT''' </non-terminal>
-    </head>
-    <body>
-      <non-terminal> ATRIBSTAT </non-terminal>
-      <terminal> ) </non-terminal>
-      <non-terminal> STATEMENT </non-terminal>
-    </body>
-  </production>
-  <production>
-    <head>
-      <non-terminal> STATLIST </non-terminal>
-    </head>
-    <body>
-      <non-terminal> STATEMENT </non-terminal>
-      <non-terminal> STATLIST </non-terminal>
-    </body>
-  </production>
-  <production>
-    <head>
-      <non-terminal> STATLIST </non-terminal>
-    </head>
-    <body>
-      <terminal> epsilon </terminal>
-    </body>
-  </production>
-  <production>
-    <head>
-      <non-terminal> LVALUE </non-terminal>
-    </head>
-    <body>
-      <terminal> ident </terminal>
-      <non-terminal> LVALUE' </non-terminal>
-    </body>
-  </production>
-  <production>
-    <head>
-      <non-terminal> LVALUE' </non-terminal>
-    </head>
-    <body>
-      <terminal> epsilon </terminal>
-    </body>
-  </production>
-  <production>
-    <head>
-      <non-terminal> LVALUE' </non-terminal>
-    </head>
-    <body>
-      <terminal> [ </terminal>
-      <non-terminal> EXPRESSION </non-terminal>
-      <terminal> ] </terminal>
-      <non-terminal> LVALUE' </non-terminal>
-    </body>
-  </production>
-  <production>
-    <head>
-      <non-terminal> LVALUE' </non-terminal>
-    </head>
-    <body>
-      <terminal> ident </terminal>
-      <non-terminal> LVALUE'' </non-terminal>
-      <non-terminal> LVALUE' </non-terminal>
-    </body>
-  </production>
-  <production>
-    <head>
-      <non-terminal> LVALUE'' </non-terminal>
-    </head>
-    <body>
-      <terminal> epsilon </terminal>
-    </body>
-  </production>
-  <production>
-    <head>
-      <non-terminal> LVALUE'' </non-terminal>
-    </head>
-    <body>
-      <terminal> ( </terminal>
-      <non-terminal> ARGLIST </non-terminal>
-      <terminal> ) </terminal>
-    </body>
-  </production>
-  <production>
-    <head>
-      <non-terminal> ALOCEXPRESSION <non-terminal>
-    </head>
-    <body>
-      <terminal> new </terminal>
-      <non-terminal> ALOCEXPRESSION' </non-terminal>
-    </body>
-  </production>
-  <production>
-    <head>
-      <non-terminal> ALOCEXPRESSION' </non-terminal>
-    </head>
-    <body>
-      <terminal> ident </terminal>
-      <non-terminal> ALOCEXPRESSION''' </non-terminal>
-    </body>
-  </production>
-  <production>
-    <head>
-      <non-terminal> ALOCEXPRESSION' </non-terminal>
-    </head>
-    <body>
-      <terminal> int </terminal>
-      <terminal> [ </terminal>
-      <non-terminal> EXPRESSION </non-terminal>
-      <terminal> ] </terminal>
-      <non-terminal> ALOCEXPRESSION'' </non-terminal>
-    </body>
-  </production>
-  <production>
-    <head>
-      <non-terminal> ALOCEXPRESSION' </non-terminal>
-    </head>
-    <body>
-      <terminal> string </terminal>
-      <terminal> [ </terminal>
-      <non-terminal> EXPRESSION </non-terminal>
-      <terminal> ] </terminal>
-      <non-terminal> ALOCEXPRESSION'' </non-terminal>
-    </body>
-  </production>
-  <production>
-    <head>
-      <non-terminal> ALOCEXPRESSION'' </non-terminal>
-    </head>
-    <body>
-      <terminal> epsilon </terminal>
-    </body>
-  </production>
-  <production>
-    <head>
-      <non-terminal> ALOCEXPRESSION'' </non-terminal>
-    </head>
-    <body>
-      <terminal> [ </terminal>
-      <non-terminal> EXPRESSION </non-terminal>
-      <terminal> ] </terminal>
-      <non-terminal> ALOCEXPRESSION'' </non-terminal>
-    </body>
-  </production>
-  <production>
-    <head>
-      <non-terminal> ALOCEXPRESSION''' </non-terminal>
-    </head>
-    <body>
-      <terminal> ( </terminal>
-      <non-terminal> ARGLIST </non-terminal>
-      <terminal> ) </terminal>
-    </body>
-  </production>
-  <production>
-    <head>
-      <non-terminal> ALOCEXPRESSION''' </non-terminal>
-    </head>
-    <body>
-      <terminal> [ </terminal>
-      <non-terminal> EXPRESSION </non-terminal>
-      <terminal> ] </terminal>
-      <non-terminal> ALOCEXPRESSION'' </non-terminal>
-    </body>
-  </production>
-  <production>
-    <head>
-      <non-terminal> EXPRESSION </non-terminal>
-    </head>
-    <body>
-      <non-terminal> NUMEEXPRESSION </non-terminal>
-      <non-terminal> EXPRESSION' </non-terminal>
-    </body>
-  </production>
-  <production>
-    <head>
-      <non-terminal> EXPRESSION' </non-terminal>
-    </head>
-    <body>
-      <terminal> epsilon </terminal>
-    </body>
-  </production>
-  <production>
-    <head>
-      <non-terminal> EXPRESSION' </non-terminal>
-    </head>
-    <body>
-      <terminal> < </terminal>
-      <non-terminal> NUMEEXPRESSION </non-terminal>
-    </body>
-  </production>
-  <production>
-    <head>
-      <non-terminal> EXPRESSION' </non-terminal>
-    </head>
-    <body>
-      <terminal> > </terminal>
-      <non-terminal> NUMEEXPRESSION </non-terminal>
-    </body>
-  </production>
-  <production>
-    <head>
-      <non-terminal> EXPRESSION' </non-terminal>
-    </head>
-    <body>
-      <terminal> <= </terminal>
-      <non-terminal> NUMEEXPRESSION </non-terminal>
-    </body>
-  </production>
-  <production>
-    <head>
-      <non-terminal> EXPRESSION' </non-terminal>
-    </head>
-    <body>
-      <terminal> >= </terminal>
-      <non-terminal> NUMEEXPRESSION </non-terminal>
-    </body>
-  </production>
-  <production>
-    <head>
-      <non-terminal> EXPRESSION' </non-terminal>
-    </head>
-    <body>
-      <terminal> == </terminal>
-      <non-terminal> NUMEEXPRESSION </non-terminal>
-    </body>
-  </production>
-  <production>
-    <head>
-      <non-terminal> EXPRESSION' </non-terminal>
-    </head>
-    <body>
-      <terminal> != </terminal>
-      <non-terminal> NUMEEXPRESSION </non-terminal>
-    </body>
-  </production>
-  <production>
-    <head>
-      <non-terminal> NUMEEXPRESSION </non-terminal>
-    </head>
-    <body>
-      <non-terminal> TERM </non-terminal>
-      <non-terminal> NUMEEXPRESSION' </non-terminal>
-    </body>
-  </production>
-  <production>
-    <head>
-      <non-terminal> NUMEEXPRESSION' </non-terminal>
-    </head>
-    <body>
-      <terminal> epsilon </terminal>
-    </body>
-  </production>
-  <production>
-    <head>
-      <non-terminal> NUMEEXPRESSION' </non-terminal>
-    </head>
-    <body>
-      <terminal> + </terminal>
-      <non-terminal> TERM <non-terminal>
-      <non-terminal> NUMEEXPRESSION' </non-terminal>
-    </body>
-  </production>
-  <production>
-    <head>
-      <non-terminal> NUMEEXPRESSION' </non-terminal>
-    </head>
-    <body>
-      <terminal> - </terminal>
-      <non-terminal> TERM <non-terminal>
-      <non-terminal> NUMEEXPRESSION' </non-terminal>
-    </body>
-  </production>
-  <production>
-    <head>
-      <non-terminal> TERM </non-terminal>
-    </head>
-    <body>
-      <non-terminal> UNARYEXPR </non-terminal>
-      <non-terminal> TERM' </non-terminal>
-    </body>
-  </production>
-  <production>
-    <head>
-      <non-terminal> TERM' </non-terminal>
-    </head>
-    <body>
-      <terminal> epsilon </terminal>
-    </body>
-  </production>
-  <production>
-    <head>
-      <non-terminal> TERM' </non-terminal>
-    </head>
-    <body>
-      <terminal> * </terminal>
-      <non-terminal> UNARYEXPR </non-terminal>
-      <non-terminal> TERM' </non-terminal>
-    </body>
-  </production>
-  <production>
-    <head>
-      <non-terminal> TERM' </non-terminal>
-    </head>
-    <body>
-      <terminal> / </terminal>
-      <non-terminal> UNARYEXPR </non-terminal>
-      <non-terminal> TERM' </non-terminal>
-    </body>
-  </production>
-  <production>
-    <head>
-      <non-terminal> TERM' </non-terminal>
-    </head>
-    <body>
-      <terminal> % </terminal>
-      <non-terminal> UNARYEXPR </non-terminal>
-      <non-terminal> TERM' </non-terminal>
-    </body>
-  </production>
-  <production>
-    <head>
-      <non-terminal> UNARYEXPR </non-terminal>
-    </head>
-    <body>
-      <terminal> + </terminal>
-      <non-terminal> FACTOR </non-terminal>
-    </body>
-  </production>
-  <production>
-    <head>
-      <non-terminal> UNARYEXPR </non-terminal>
-    </head>
-    <body>
-      <terminal> - </terminal>
-      <non-terminal> FACTOR </non-terminal>
-    </body>
-  </production>
-  <production>
-    <head>
-      <non-terminal> UNARYEXPR </non-terminal>
-    </head>
-    <body>
-      <non-terminal> FACTOR </non-terminal>
-    </body>
-  </production>
-  <production>
-    <head>
-      <non-terminal> FACTOR </non-terminal>
-    </head>
-    <body>
-      <terminal> int-constant </terminal>
-    </body>
-  </production>
-  <production>
-    <head>
-      <non-terminal> FACTOR </non-terminal>
-    </head>
-    <body>
-      <terminal> string-constant </terminal>
-    </body>
-  </production>
-  <production>
-    <head>
-      <non-terminal> FACTOR </non-terminal>
-    </head>
-    <body>
-      <terminal> null </terminal>
-    </body>
-  </production>
-  <production>
-    <head>
-      <non-terminal> FACTOR </non-terminal>
-    </head>
-    <body>
-      <non-terminal> LVALUE </non-terminal>
-    </body>
-  </production>
-  <production>
-    <head>
-      <non-terminal> FACTOR </non-terminal>
-    </head>
-    <body>
-      <non-terminal> LVALUE </non-terminal>
-    </body>
-  </production>
-  <production>
-    <head>
-      <non-terminal> FACTOR </non-terminal>
-    </head>
-    <body>
-      <terminal> ( </terminal>
-      <non-terminal> EXPRESSION </non-terminal>
-      <terminal> ) </terminal>
-    </body>
-  </production>
-  <production>
-    <head>
-      <non-terminal> ARGLIST </non-terminal>
-    </head>
-    <body>
-      <terminal> epsilon </terminal>
-    </body>
-  </production>
-  <production>
-    <head>
-      <non-terminal> ARGLIST </non-terminal>
-    </head>
-    <body>
-      <non-terminal> EXPRESSION </non-terminal>
-      <non-terminal> ARGLIST' </non-terminal>
-    </body>
-  </production>
-  <production>
-    <head>
-      <non-terminal> ARGLIST' </non-terminal>
-    </head>
-    <body>
-      <terminal> epsilon </terminal>
-    </body>
-  </production>
-  <production>
-    <head>
-      <non-terminal> ARGLIST' </non-terminal>
-    </head>
-    <body>
-      <non-terminal> EXPRESSION </non-terminal>
-      <non-terminal> ARGLIST' </non-terminal>
-    </body>
-  </production>
-  <production>
-    <head>
-      <non-terminal> COL </non-terminal>
-    </head>
-    <body>
-      <terminal> epsilon </terminal>
-    </body>
-  </production>
-  <production>
-    <head>
-      <non-terminal> COL </non-terminal>
-    </head>
-    <body>
-      <terminal> [ </terminal>
-      <non-terminal> COL </non-terminal>
-      <terminal> ] </terminal>
-    </body>
-  </production>
+ <production>
+   <head>
+     <non-terminal>PROGRAMLIST</non-terminal>
+   </head>
+   <body>
+     <non-terminal>CLASSLIST</non-terminal>
+   </body>
+ </production>
+ <production>
+   <head>
+     <non-terminal>PROGRAMLIST</non-terminal>
+   </head>
+   <body>
+     <terminal>epsilon</terminal>
+   </body>
+ </production>
+ <production>
+   <head>
+     <non-terminal>CLASSLIST</non-terminal>
+   </head>
+   <body>
+     <non-terminal>CLASSDECL</non-terminal>
+     <non-terminal>CLASSLIST'</non-terminal>
+   </body>
+ </production>
+ <production>
+   <head>
+     <non-terminal>CLASSLIST'</non-terminal>
+   </head>
+   <body>
+     <terminal>epsilon</terminal>
+   </body>
+ </production>
+ <production>
+   <head>
+     <non-terminal>CLASSLIST'</non-terminal>
+   </head>
+   <body>
+     <non-terminal>CLASSDECL</non-terminal>
+     <non-terminal>CLASSLIST'</non-terminal>
+   </body>
+ </production>
+ <production>
+   <head>
+     <non-terminal>CLASSDECL</non-terminal>
+   </head>
+   <body>
+     <terminal>class</terminal>
+     <terminal>ident</terminal>
+     <non-terminal>CLASSDECL'</non-terminal>
+   </body>
+ </production>
+ <production>
+   <head>
+     <non-terminal>CLASSDECL'</non-terminal>
+   </head>
+   <body>
+     <terminal>extends</terminal>
+     <terminal>ident</terminal>
+     <non-terminal>CLASSBODY</non-terminal>
+   </body>
+ </production>
+ <production>
+   <head>
+     <non-terminal>CLASSDECL'</non-terminal>
+   </head>
+   <body>
+     <non-terminal>CLASSBODY</non-terminal>
+   </body>
+ </production>
+ <production>
+   <head>
+     <non-terminal>CLASSBODY</non-terminal>
+   </head>
+   <body>
+     <terminal>{</terminal>
+     <non-terminal>CLASSBODY'</non-terminal>
+   </body>
+ </production>
+ <production>
+   <head>
+     <non-terminal>CLASSBODY'</non-terminal>
+   </head>
+   <body>
+     <terminal>}</terminal>
+   </body>
+ </production>
+ <production>
+   <head>
+     <non-terminal>CLASSBODY'</non-terminal>
+   </head>
+   <body>
+     <non-terminal>CLASSLIST</non-terminal>
+     <non-terminal>CLASSBODY''</non-terminal>
+     <terminal>}</terminal>
+   </body>
+ </production>
+ <production>
+   <head>
+     <non-terminal>CLASSBODY'</non-terminal>
+   </head>
+   <body>
+     <non-terminal>CLASSBODY''</non-terminal>
+     <terminal>}</terminal>
+   </body>
+ </production>
+ <production>
+   <head>
+     <non-terminal>CLASSBODY''</non-terminal>
+   </head>
+   <body>
+     <terminal>int</terminal>
+     <non-terminal>CLASSBODY5</non-terminal>
+   </body>
+ </production>
+ <production>
+   <head>
+     <non-terminal>CLASSBODY''</non-terminal>
+   </head>
+   <body>
+     <terminal>string</terminal>
+     <non-terminal>CLASSBODY5</non-terminal>
+   </body>
+ </production>
+ <production>
+   <head>
+     <non-terminal>CLASSBODY''</non-terminal>
+   </head>
+   <body>
+     <terminal>ident</terminal>
+     <non-terminal>CLASSBODY5</non-terminal>
+   </body>
+ </production>
+ <production>
+   <head>
+     <non-terminal>CLASSBODY''</non-terminal>
+   </head>
+   <body>
+   	 <non-terminal>CONSTRUCTDECL</non-terminal>
+     <non-terminal>CLASSBODY'''</non-terminal>
+   </body>
+ </production>
+ <production>
+   <head>
+     <non-terminal>CLASSBODY''</non-terminal>
+   </head>
+   <body>
+   	 <terminal>epsilon</terminal>
+   </body>
+ </production>
+ <production>
+   <head>
+     <non-terminal>CLASSBODY'''</non-terminal>
+   </head>
+   <body>
+     <non-terminal>CONSTRUCTDECL</non-terminal>
+     <non-terminal>CLASSBODY'''</non-terminal>
+   </body>
+ </production>
+ <production>
+   <head>
+     <non-terminal>CLASSBODY'''</non-terminal>
+   </head>
+   <body>
+     <non-terminal>CLASSBODY4</non-terminal>
+   </body>
+ </production>
+ <production>
+   <head>
+     <non-terminal>CLASSBODY4</non-terminal>
+   </head>
+   <body>
+     <non-terminal>METHODDECL</non-terminal>
+     <non-terminal>CLASSBODY4</non-terminal>
+   </body>
+ </production>
+ <production>
+   <head>
+     <non-terminal>CLASSBODY4</non-terminal>
+   </head>
+   <body>
+     <terminal>epsilon</terminal>
+   </body>
+ </production>
+ <production>
+   <head>
+     <non-terminal>CLASSBODY5</non-terminal>
+   </head>
+   <body>
+     <terminal>ident</terminal>
+     <non-terminal>COL</non-terminal>
+     <non-terminal>CLASSBODY6</non-terminal>
+   </body>
+ </production>
+ <production>
+   <head>
+     <non-terminal>CLASSBODY5</non-terminal>
+   </head>
+   <body>
+     <terminal>[</terminal>
+     <terminal>]</terminal>
+     <non-terminal>COL</non-terminal>
+     <terminal>ident</terminal>
+     <non-terminal>METHODBODY</non-terminal>
+     <non-terminal>CLASSBODY4</non-terminal>
+   </body>
+ </production>
+ <production>
+   <head>
+     <non-terminal>CLASSBODY6</non-terminal>
+   </head>
+   <body>
+     <non-terminal>VARDECL'</non-terminal>
+     <terminal>;</terminal>
+     <non-terminal>CLASSBODY''</non-terminal>
+   </body>
+ </production>
+ <production>
+   <head>
+     <non-terminal>CLASSBODY6</non-terminal>
+   </head>
+   <body>
+     <non-terminal>METHODBODY</non-terminal>
+     <non-terminal>CLASSBODY4</non-terminal>
+   </body>
+ </production>
+ <production>
+   <head>
+     <non-terminal>VARDECL</non-terminal>
+   </head>
+   <body>
+     <terminal>int</terminal>
+     <terminal>ident</terminal>
+     <non-terminal>COL</non-terminal>
+     <non-terminal>VARDECL'</non-terminal>
+   </body>
+ </production>
+ <production>
+   <head>
+     <non-terminal>VARDECL</non-terminal>
+   </head>
+   <body>
+     <terminal>string</terminal>
+     <terminal>ident</terminal>
+     <non-terminal>COL</non-terminal>
+     <non-terminal>VARDECL'</non-terminal>
+   </body>
+ </production>
+ <production>
+   <head>
+     <non-terminal>VARDECL</non-terminal>
+   </head>
+   <body>
+     <terminal>ident</terminal>
+     <terminal>ident</terminal>
+     <non-terminal>COL</non-terminal>]
+     <non-terminal>VARDECL'</non-terminal>
+   </body>
+ </production>
+ <production>
+   <head>
+     <non-terminal>VARDECL'</non-terminal>
+   </head>
+   <body>
+   	 <terminal>,</terminal>
+     <terminal>ident</terminal>
+     <non-terminal>COL</non-terminal>
+     <non-terminal>VARDECL'</non-terminal>
+   </body>
+ </production>
+ <production>
+   <head>
+     <non-terminal>VARDECL'</non-terminal>
+   </head>
+   <body>
+     <terminal>epsilon</terminal>
+   </body>
+ </production>
+ <production>
+   <head>
+     <non-terminal>CONSTRUCTDECL</non-terminal>
+   </head>
+   <body>
+     <terminal>constructor</terminal>
+     <non-terminal>METHODBODY</non-terminal>
+   </body>
+ </production>
+ <production>
+   <head>
+     <non-terminal>METHODDECL</non-terminal>
+   </head>
+   <body>
+     <terminal>int</terminal>
+     <non-terminal>COL</non-terminal>
+     <terminal>ident</terminal>
+     <non-terminal>METHODBODY</non-terminal>
+   </body>
+ </production>
+ <production>
+   <head>
+     <non-terminal>METHODDECL</non-terminal>
+   </head>
+   <body>
+     <terminal>string</terminal>
+     <non-terminal>COL</non-terminal>
+     <terminal>ident</terminal>
+     <non-terminal>METHODBODY</non-terminal>
+   </body>
+ </production>
+ <production>
+   <head>
+     <non-terminal>METHODDECL</non-terminal>
+   </head>
+   <body>
+     <terminal>ident</terminal>
+     <non-terminal>COL</non-terminal>
+     <terminal>ident</terminal>
+     <non-terminal>METHODBODY</non-terminal>
+   </body>
+ </production>
+ <production>
+   <head>
+     <non-terminal>METHODBODY</non-terminal>
+   </head>
+   <body>
+     <terminal>(</terminal>
+     <non-terminal>PARAMLIST</non-terminal>
+     <terminal>)</terminal>
+     <terminal>{</terminal>
+     <non-terminal>STATLIST</non-terminal>
+     <terminal>}</terminal>
+   </body>
+ </production>
+ <production>
+   <head>
+     <non-terminal>PARAMLIST</non-terminal>
+   </head>
+   <body>
+     <terminal>int</terminal>
+     <terminal>ident</terminal>
+     <non-terminal>COL</non-terminal>
+     <non-terminal>PARAMLIST'</non-terminal>
+   </body>
+ </production>
+ <production>
+   <head>
+     <non-terminal>PARAMLIST</non-terminal>
+   </head>
+   <body>
+     <terminal>string</terminal>
+     <terminal>ident</terminal>
+     <non-terminal>COL</non-terminal>
+     <non-terminal>PARAMLIST'</non-terminal>
+   </body>
+ </production>
+ <production>
+   <head>
+     <non-terminal>PARAMLIST</non-terminal>
+   </head>
+   <body>
+     <terminal>ident</terminal>
+     <terminal>ident</terminal>
+     <non-terminal>COL</non-terminal>
+     <non-terminal>PARAMLIST'</non-terminal>
+   </body>
+ </production>
+ <production>
+   <head>
+     <non-terminal>PARAMLIST</non-terminal>
+   </head>
+   <body>
+     <terminal>epsilon</terminal>
+   </body>
+ </production>
+ <production>
+   <head>
+     <non-terminal>PARAMLIST'</non-terminal>
+   </head>
+   <body>
+     <terminal>epsilon</terminal>
+   </body>
+ </production>
+ <production>
+   <head>
+     <non-terminal>PARAMLIST'</non-terminal>
+   </head>
+   <body>
+     <terminal>,</terminal>
+     <non-terminal>PARAMLIST''</non-terminal>
+   </body>
+ </production>
+ <production>
+   <head>
+     <non-terminal>PARAMLIST''</non-terminal>
+   </head>
+   <body>
+     <terminal>int</terminal>
+     <terminal>ident</terminal>
+     <non-terminal>COL</non-terminal>
+     <non-terminal>PARAMLIST'</non-terminal>
+   </body>
+ </production>
+ <production>
+   <head>
+     <non-terminal>PARAMLIST''</non-terminal>
+   </head>
+   <body>
+     <terminal>string</terminal>
+     <terminal>ident</terminal>
+     <non-terminal>COL</non-terminal>
+     <non-terminal>PARAMLIST'</non-terminal>
+   </body>
+ </production>
+ <production>
+   <head>
+     <non-terminal>PARAMLIST''</non-terminal>
+   </head>
+   <body>
+     <terminal>ident</terminal>
+     <terminal>ident</terminal>
+     <non-terminal>COL</non-terminal>
+     <non-terminal>PARAMLIST'</non-terminal>
+   </body>
+ </production>
+ <production>
+   <head>
+     <non-terminal>STATEMENT</non-terminal>
+   </head>
+   <body>
+     <non-terminal>PRINTSTAT</non-terminal>
+     <terminal>;</terminal>
+   </body>
+ </production>
+ <production>
+   <head>
+     <non-terminal>STATEMENT</non-terminal>
+   </head>
+   <body>
+     <non-terminal>READSTAT</non-terminal>
+     <terminal>;</terminal>
+   </body>
+ </production>
+ <production>
+   <head>
+     <non-terminal>STATEMENT</non-terminal>
+   </head>
+   <body>
+     <non-terminal>RETURNSTAT</non-terminal>
+     <terminal>;</terminal>
+   </body>
+ </production>
+ <production>
+   <head>
+     <non-terminal>STATEMENT</non-terminal>
+   </head>
+   <body>
+     <non-terminal>SUPERSTAT</non-terminal>
+     <terminal>;</terminal>
+   </body>
+ </production>
+ <production>
+   <head>
+     <non-terminal>STATEMENT</non-terminal>
+   </head>
+   <body>
+     <non-terminal>IFSTAT</non-terminal>
+   </body>
+ </production>
+ <production>
+   <head>
+     <non-terminal>STATEMENT</non-terminal>
+   </head>
+   <body>
+     <non-terminal>FORSTAT</non-terminal>
+   </body>
+ </production>
+ <production>
+   <head>
+     <non-terminal>STATEMENT</non-terminal>
+   </head>
+   <body>
+     <terminal>{</terminal>
+     <non-terminal>STATLIST</non-terminal>
+     <terminal>}</terminal>
+   </body>
+ </production>
+ <production>
+   <head>
+     <non-terminal>STATEMENT</non-terminal>
+   </head>
+   <body>
+     <terminal>break</terminal>
+     <terminal>;</terminal>
+   </body>
+ </production>
+ <production>
+   <head>
+     <non-terminal>STATEMENT</non-terminal>
+   </head>
+   <body>
+     <terminal>;</terminal>
+   </body>
+ </production>
+ <production>
+   <head>
+     <non-terminal>STATEMENT</non-terminal>
+   </head>
+   <body>
+     <terminal>int</terminal>
+     <terminal>ident</terminal>
+     <non-terminal>VARDECL'</non-terminal>
+     <terminal>;</terminal>
+   </body>
+ </production>
+ <production>
+   <head>
+     <non-terminal>STATEMENT</non-terminal>
+   </head>
+   <body>
+     <terminal>string</terminal>
+     <terminal>ident</terminal>
+     <non-terminal>VARDECL'</non-terminal>
+     <terminal>;</terminal>
+   </body>
+ </production>
+ <production>
+   <head>
+     <non-terminal>STATEMENT</non-terminal>
+   </head>
+   <body>
+     <terminal>ident</terminal>
+     <non-terminal>STATEMENT'</non-terminal>
+   </body>
+ </production>
+ <production>
+   <head>
+     <non-terminal>STATEMENT'</non-terminal>
+   </head>
+   <body>
+     <terminal>ident</terminal>
+     <non-terminal>VARDECL'</non-terminal>
+     <terminal>;</terminal>
+   </body>
+ </production>
+ <production>
+   <head>
+     <non-terminal>STATEMENT'</non-terminal>
+   </head>
+   <body>
+     <non-terminal>LVALUE'</non-terminal>
+     <terminal>assign</terminal>
+     <non-terminal>ATRIBSTAT'</non-terminal>
+     <terminal>;</terminal>
+   </body>
+ </production>
+ <production>
+   <head>
+     <non-terminal>ATRIBSTAT</non-terminal>
+   </head>
+   <body>
+     <non-terminal>LVALUE</non-terminal>
+     <terminal>assign</terminal>
+     <non-terminal>ATRIBSTAT'</non-terminal>
+   </body>
+ </production>
+ <production>
+   <head>
+     <non-terminal>ATRIBSTAT'</non-terminal>
+   </head>
+   <body>
+     <non-terminal>EXPRESSION</non-terminal>
+   </body>
+ </production>
+ <production>
+   <head>
+     <non-terminal>ATRIBSTAT'</non-terminal>
+   </head>
+   <body>
+     <non-terminal>ALOCEXPRESSION</non-terminal>
+   </body>
+ </production>
+ <production>
+   <head>
+     <non-terminal>PRINTSTAT</non-terminal>
+   </head>
+   <body>
+     <terminal>print</terminal>
+     <non-terminal>EXPRESSION</non-terminal>
+   </body>
+ </production>
+ <production>
+   <head>
+     <non-terminal>READSTAT</non-terminal>
+   </head>
+   <body>
+     <terminal>read</terminal>
+     <non-terminal>LVALUE</non-terminal>
+   </body>
+ </production>
+ <production>
+   <head>
+     <non-terminal>RETURNSTAT</non-terminal>
+   </head>
+   <body>
+     <terminal>return</terminal>
+     <non-terminal>RETURNSTAT'</non-terminal>
+   </body>
+ </production>
+ <production>
+   <head>
+     <non-terminal>RETURNSTAT'</non-terminal>
+   </head>
+   <body>
+     <non-terminal>EXPRESSION</non-terminal>
+   </body>
+ </production>
+ <production>
+   <head>
+     <non-terminal>RETURNSTAT'</non-terminal>
+   </head>
+   <body>
+     <terminal>epsilon</terminal>
+   </body>
+ </production>
+ <production>
+   <head>
+     <non-terminal>SUPERSTAT</non-terminal>
+   </head>
+   <body>
+     <terminal>super</terminal>
+     <terminal>(</terminal>
+     <non-terminal>ARGLIST</non-terminal>
+     <terminal>)</terminal>
+   </body>
+ </production>
+ <production>
+   <head>
+     <non-terminal>IFSTAT</non-terminal>
+   </head>
+   <body>
+     <terminal>if</terminal>
+     <terminal>(</terminal>
+     <non-terminal>EXPRESSION</non-terminal>
+     <terminal>)</terminal>
+     <terminal>{</terminal>
+     <non-terminal>STATLIST</non-terminal>
+     <terminal>}</terminal>
+     <non-terminal>IFSTAT'</non-terminal>
+   </body>
+ </production>
+ <production>
+   <head>
+     <non-terminal>IFSTAT'</non-terminal>
+   </head>
+   <body>
+     <terminal>else</terminal>
+     <terminal>{</terminal>
+     <non-terminal>STATLIST</non-terminal>
+     <terminal>}</terminal>
+   </body>
+ </production>
+ <production>
+   <head>
+     <non-terminal>IFSTAT'</non-terminal>
+   </head>
+   <body>
+     <terminal>epsilon</terminal>
+   </body>
+ </production>
+ <production>
+   <head>
+     <non-terminal>FORSTAT</non-terminal>
+   </head>
+   <body>
+     <terminal>for</terminal>
+     <terminal>(</terminal>
+     <non-terminal>FORSTAT'</non-terminal>
+   </body>
+ </production>
+ <production>
+   <head>
+     <non-terminal>FORSTAT'</non-terminal>
+   </head>
+   <body>
+     <non-terminal>ATRIBSTAT</non-terminal>
+     <terminal>;</terminal>
+     <non-terminal>FORSTAT''</non-terminal>
+   </body>
+ </production>
+ <production>
+   <head>
+     <non-terminal>FORSTAT'</non-terminal>
+   </head>
+   <body>
+     <terminal>;</terminal>
+     <non-terminal>FORSTAT''</non-terminal>
+   </body>
+ </production>
+ <production>
+   <head>
+     <non-terminal>FORSTAT''</non-terminal>
+   </head>
+   <body>
+     <non-terminal>EXPRESSION</non-terminal>
+     <terminal>;</terminal>
+     <non-terminal>FORSTAT'''</non-terminal>
+   </body>
+ </production>
+ <production>
+   <head>
+     <non-terminal>FORSTAT''</non-terminal>
+   </head>
+   <body>
+     <terminal>;</terminal>
+     <non-terminal>FORSTAT'''</non-terminal>
+   </body>
+ </production>
+ <production>
+   <head>
+     <non-terminal>FORSTAT'''</non-terminal>
+   </head>
+   <body>
+     <terminal>)</terminal>
+     <terminal>{</terminal>
+     <non-terminal>STATLIST</non-terminal>
+     <terminal>}</terminal>
+   </body>
+ </production>
+ <production>
+   <head>
+     <non-terminal>FORSTAT'''</non-terminal>
+   </head>
+   <body>
+     <non-terminal>ATRIBSTAT</non-terminal>
+     <terminal>)</terminal>
+     <terminal>{</terminal>
+     <non-terminal>STATLIST</non-terminal>
+     <terminal>}</terminal>
+   </body>
+ </production>
+ <production>
+   <head>
+     <non-terminal>STATLIST</non-terminal>
+   </head>
+   <body>
+     <non-terminal>STATEMENT</non-terminal>
+     <non-terminal>STATLIST</non-terminal>
+   </body>
+ </production>
+ <production>
+   <head>
+     <non-terminal>STATLIST</non-terminal>
+   </head>
+   <body>
+     <terminal>epsilon</terminal>
+   </body>
+ </production>
+ <production>
+   <head>
+     <non-terminal>LVALUE</non-terminal>
+   </head>
+   <body>
+     <terminal>ident</terminal>
+     <non-terminal>LVALUE'</non-terminal>
+   </body>
+ </production>
+ <production>
+   <head>
+     <non-terminal>LVALUE'</non-terminal>
+   </head>
+   <body>
+     <terminal>epsilon</terminal>
+   </body>
+ </production>
+ <production>
+   <head>
+     <non-terminal>LVALUE'</non-terminal>
+   </head>
+   <body>
+     <terminal>[</terminal>
+     <non-terminal>EXPRESSION</non-terminal>
+     <terminal>]</terminal>
+     <non-terminal>LVALUE'</non-terminal>
+   </body>
+ </production>
+ <production>
+   <head>
+     <non-terminal>LVALUE'</non-terminal>
+   </head>
+   <body>
+     <terminal>.</terminal>
+     <terminal>ident</terminal>
+     <non-terminal>LVALUE''</non-terminal>
+     <non-terminal>LVALUE'</non-terminal>
+   </body>
+ </production>
+ <production>
+   <head>
+     <non-terminal>LVALUE''</non-terminal>
+   </head>
+   <body>
+     <terminal>epsilon</terminal>
+   </body>
+ </production>
+ <production>
+   <head>
+     <non-terminal>LVALUE''</non-terminal>
+   </head>
+   <body>
+     <terminal>(</terminal>
+     <non-terminal>ARGLIST</non-terminal>
+     <terminal>)</terminal>
+   </body>
+ </production>
+ <production>
+   <head>
+     <non-terminal>ALOCEXPRESSION</non-terminal>
+   </head>
+   <body>
+     <terminal>new</terminal>
+     <non-terminal>ALOCEXPRESSION'</non-terminal>
+   </body>
+ </production>
+ <production>
+   <head>
+     <non-terminal>ALOCEXPRESSION'</non-terminal>
+   </head>
+   <body>
+     <terminal>ident</terminal>
+     <non-terminal>ALOCEXPRESSION'''</non-terminal>
+   </body>
+ </production>
+ <production>
+   <head>
+     <non-terminal>ALOCEXPRESSION'</non-terminal>
+   </head>
+   <body>
+     <terminal>int</terminal>
+     <terminal>[</terminal>
+     <non-terminal>EXPRESSION</non-terminal>
+     <terminal>]</terminal>
+     <non-terminal>ALOCEXPRESSION''</non-terminal>
+   </body>
+ </production>
+ <production>
+   <head>
+     <non-terminal>ALOCEXPRESSION'</non-terminal>
+   </head>
+   <body>
+     <terminal>string</terminal>
+     <terminal>[</terminal>
+     <non-terminal>EXPRESSION</non-terminal>
+     <terminal>]</terminal>
+     <non-terminal>ALOCEXPRESSION''</non-terminal>
+   </body>
+ </production>
+ <production>
+   <head>
+     <non-terminal>ALOCEXPRESSION''</non-terminal>
+   </head>
+   <body>
+     <terminal>epsilon</terminal>
+   </body>
+ </production>
+ <production>
+   <head>
+     <non-terminal>ALOCEXPRESSION''</non-terminal>
+   </head>
+   <body>
+     <terminal>[</terminal>
+     <non-terminal>EXPRESSION</non-terminal>
+     <terminal>]</terminal>
+     <non-terminal>ALOCEXPRESSION''</non-terminal>
+   </body>
+ </production>
+ <production>
+   <head>
+     <non-terminal>ALOCEXPRESSION'''</non-terminal>
+   </head>
+   <body>
+     <terminal>(</terminal>
+     <non-terminal>ARGLIST</non-terminal>
+     <terminal>)</terminal>
+   </body>
+ </production>
+ <production>
+   <head>
+     <non-terminal>ALOCEXPRESSION'''</non-terminal>
+   </head>
+   <body>
+     <terminal>[</terminal>
+     <non-terminal>EXPRESSION</non-terminal>
+     <terminal>]</terminal>
+     <non-terminal>ALOCEXPRESSION''</non-terminal>
+   </body>
+ </production>
+ <production>
+   <head>
+     <non-terminal>EXPRESSION</non-terminal>
+   </head>
+   <body>
+     <non-terminal>NUMEEXPRESSION</non-terminal>
+     <non-terminal>EXPRESSION'</non-terminal>
+   </body>
+ </production>
+ <production>
+   <head>
+     <non-terminal>EXPRESSION'</non-terminal>
+   </head>
+   <body>
+     <terminal>epsilon</terminal>
+   </body>
+ </production>
+ <production>
+   <head>
+     <non-terminal>EXPRESSION'</non-terminal>
+   </head>
+   <body>
+     <terminal>opr</terminal>
+     <non-terminal>NUMEEXPRESSION</non-terminal>
+   </body>
+ </production>
+ <production>
+   <head>
+     <non-terminal>NUMEEXPRESSION</non-terminal>
+   </head>
+   <body>
+     <non-terminal>TERM</non-terminal>
+     <non-terminal>NUMEEXPRESSION'</non-terminal>
+   </body>
+ </production>
+ <production>
+   <head>
+     <non-terminal>NUMEEXPRESSION'</non-terminal>
+   </head>
+   <body>
+     <terminal>epsilon</terminal>
+   </body>
+ </production>
+ <production>
+   <head>
+     <non-terminal>NUMEEXPRESSION'</non-terminal>
+   </head>
+   <body>
+     <terminal>opa</terminal>
+     <non-terminal>TERM</non-terminal>
+     <non-terminal>NUMEEXPRESSION'</non-terminal>
+   </body>
+ </production>
+ <production>
+   <head>
+     <non-terminal>NUMEEXPRESSION'</non-terminal>
+   </head>
+   <body>
+     <terminal>opa</terminal>
+     <non-terminal>TERM</non-terminal>
+     <non-terminal>NUMEEXPRESSION'</non-terminal>
+   </body>
+ </production>
+ <production>
+   <head>
+     <non-terminal>TERM</non-terminal>
+   </head>
+   <body>
+     <non-terminal>UNARYEXPR</non-terminal>
+     <non-terminal>TERM'</non-terminal>
+   </body>
+ </production>
+ <production>
+   <head>
+     <non-terminal>TERM'</non-terminal>
+   </head>
+   <body>
+     <terminal>epsilon</terminal>
+   </body>
+ </production>
+ <production>
+   <head>
+     <non-terminal>TERM'</non-terminal>
+   </head>
+   <body>
+     <terminal>*</terminal>
+     <non-terminal>UNARYEXPR</non-terminal>
+     <non-terminal>TERM'</non-terminal>
+   </body>
+ </production>
+ <production>
+   <head>
+     <non-terminal>TERM'</non-terminal>
+   </head>
+   <body>
+     <terminal>/</terminal>
+     <non-terminal>UNARYEXPR</non-terminal>
+     <non-terminal>TERM'</non-terminal>
+   </body>
+ </production>
+ <production>
+   <head>
+     <non-terminal>TERM'</non-terminal>
+   </head>
+   <body>
+     <terminal>%</terminal>
+     <non-terminal>UNARYEXPR</non-terminal>
+     <non-terminal>TERM'</non-terminal>
+   </body>
+ </production>
+ <production>
+   <head>
+     <non-terminal>UNARYEXPR</non-terminal>
+   </head>
+   <body>
+     <terminal>opa</terminal>
+     <non-terminal>FACTOR</non-terminal>
+   </body>
+ </production>
+ <production>
+   <head>
+     <non-terminal>UNARYEXPR</non-terminal>
+   </head>
+   <body>
+     <terminal>opa</terminal>
+     <non-terminal>FACTOR</non-terminal>
+   </body>
+ </production>
+ <production>
+   <head>
+     <non-terminal>UNARYEXPR</non-terminal>
+   </head>
+   <body>
+     <non-terminal>FACTOR</non-terminal>
+   </body>
+ </production>
+ <production>
+   <head>
+     <non-terminal>FACTOR</non-terminal>
+   </head>
+   <body>
+     <terminal>int-constant</terminal>
+   </body>
+ </production>
+ <production>
+   <head>
+     <non-terminal>FACTOR</non-terminal>
+   </head>
+   <body>
+     <terminal>string-constant</terminal>
+   </body>
+ </production>
+ <production>
+   <head>
+     <non-terminal>FACTOR</non-terminal>
+   </head>
+   <body>
+     <terminal>null</terminal>
+   </body>
+ </production>
+ <production>
+   <head>
+     <non-terminal>FACTOR</non-terminal>
+   </head>
+   <body>
+     <non-terminal>LVALUE</non-terminal>
+   </body>
+ </production>
+ <production>
+   <head>
+     <non-terminal>FACTOR</non-terminal>
+   </head>
+   <body>
+     <terminal>(</terminal>
+     <non-terminal>EXPRESSION</non-terminal>
+     <terminal>)</terminal>
+   </body>
+ </production>
+ <production>
+   <head>
+     <non-terminal>ARGLIST</non-terminal>
+   </head>
+   <body>
+     <terminal>epsilon</terminal>
+   </body>
+ </production>
+ <production>
+   <head>
+     <non-terminal>ARGLIST</non-terminal>
+   </head>
+   <body>
+     <non-terminal>EXPRESSION</non-terminal>
+     <non-terminal>ARGLIST'</non-terminal>
+   </body>
+ </production>
+ <production>
+   <head>
+     <non-terminal>ARGLIST'</non-terminal>
+   </head>
+   <body>
+     <terminal>epsilon</terminal>
+   </body>
+ </production>
+ <production>
+   <head>
+     <non-terminal>ARGLIST'</non-terminal>
+   </head>
+   <body>
+   	 <terminal>,</terminal>
+     <non-terminal>EXPRESSION</non-terminal>
+     <non-terminal>ARGLIST'</non-terminal>
+   </body>
+ </production>
+ <production>
+   <head>
+     <non-terminal>COL</non-terminal>
+   </head>
+   <body>
+     <terminal>epsilon</terminal>
+   </body>
+ </production>
+ <production>
+   <head>
+     <non-terminal>COL</non-terminal>
+   </head>
+   <body>
+     <terminal>[</terminal>
+     <terminal>]</terminal>
+     <non-terminal>COL</non-terminal>
+   </body>
+ </production>
 </grammar>

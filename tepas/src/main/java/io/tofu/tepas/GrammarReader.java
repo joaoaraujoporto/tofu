@@ -1,10 +1,17 @@
 package io.tofu.tepas;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
+
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
+import org.xml.sax.SAXException;
 import org.w3c.dom.Node;
 
 import io.tofu.commons.symbol.NonTerminal;
@@ -15,7 +22,7 @@ import io.tofu.teprl.machines.grammar.Production;
 
 public class GrammarReader {
 	
-	protected GLC<String,AttribSet> read(Document doc) {
+	public static GLC<String,AttribSet> read(Document doc) {
 		NodeList productionList = doc.getElementsByTagName(GrammarTAGs.PRODUCTION);
 		GLC<String,AttribSet> g = null;
 		
@@ -56,5 +63,16 @@ public class GrammarReader {
 		}
 		
 		return g;
+	}
+	
+	public static GLC<String,AttribSet> read (File xmlFile) throws ParserConfigurationException, SAXException, IOException {
+		DocumentBuilderFactory docBuilderFactory = DocumentBuilderFactory.newInstance();
+		DocumentBuilder docBuilder;
+		
+		docBuilder = docBuilderFactory.newDocumentBuilder();
+        Document doc = docBuilder.parse(xmlFile);
+        doc.getDocumentElement().normalize();
+        
+        return read(doc);
 	}
 }

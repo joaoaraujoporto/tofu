@@ -79,7 +79,7 @@ public class ALTest {
 		
 		AL al2 = new AL(ts, dts);
 		
-		sourceCode = new FileReader("./sources/source_test_2.xpp");
+		sourceCode = new FileReader("./sources/arvore_binaria_de_busca.xpp");
 		tokens = al2.out(new BufferedReader(sourceCode));
 		
 		System.out.println(tokens.toString());

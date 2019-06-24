@@ -6,13 +6,14 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 
 import io.tofu.commons.symbol.Token;
+import io.tofu.commons.symbol.EndOfSentence;
 import io.tofu.commons.ts.PositionInCode;
 import io.tofu.commons.ts.TS;
 import io.tofu.commons.ts.TSEntry;
 import io.tofu.teprl.machines.af.dt.DT;
 import io.tofu.teprl.machines.af.dt.DTState;
 
-public class AL implements Lexer<Token<Integer>> {
+public class AL implements Lexer<Token<?>> {
 	private TS ts;
 	private LinkedList<Character> buffer;
 	private BufferedReader bufferedReader;
@@ -23,6 +24,7 @@ public class AL implements Lexer<Token<Integer>> {
 	private String currentLexeme;
 	private ArrayList<DT> dts;
 	private boolean bufferedReaderClosed;
+	private boolean stopReading;
 	private ArrayList<Token<Integer>> readedTokens;
 	private int nextTokenIndex;
 
@@ -34,6 +36,7 @@ public class AL implements Lexer<Token<Integer>> {
 		currentLine = 1;
 		currentColumn = 0;
 		bufferedReaderClosed = false;
+		stopReading = false;
 	}
 	
 	public AL(TS ts, ArrayList<DT> dts, BufferedReader in) throws IOException {
@@ -70,6 +73,7 @@ public class AL implements Lexer<Token<Integer>> {
 			tokens.add(token);
 		}
 		
+		tokens.add(new EndOfSentence());
 		return tokens;
 	}
 	
@@ -199,6 +203,6 @@ public class AL implements Lexer<Token<Integer>> {
 		if (nextTokenIndex == readedTokens.size())
 			nextTokenIndex = 0;
 		
-		return readedTokens.get(nextTokenIndex);
+		return readedTokens.get(nextTokenIndex++);
 	}
 }

@@ -206,22 +206,23 @@ public class ALGenerator {
 	}
 	
 	private static void setKeywords(TS ts) {
-		String[] keywords = new String[14];
+		String[] keywords = new String[15];
 		
 		keywords[0] = "class";
 		keywords[1] = "extends";
 		keywords[2] = "int";
 		keywords[3] = "string";
-		keywords[4] = "break";
-		keywords[5] = "print";
-		keywords[6] = "return";
-		keywords[7] = "super";
-		keywords[8] = "if";
-		keywords[9] = "else";
-		keywords[10] = "for";
-		keywords[11] = "new";
-		keywords[12] = "null";
-		keywords[13] = "read";
+		keywords[4] = "constructor";
+		keywords[5] = "break";
+		keywords[6] = "print";
+		keywords[7] = "read";
+		keywords[8] = "return";
+		keywords[9] = "super";
+		keywords[10] = "if";
+		keywords[11] = "else";
+		keywords[12] = "for";
+		keywords[13] = "new";
+		keywords[14] = "null";
 		
 		for (String k : keywords)
 			ts.put(ts.size(), new TSEntry(k, k, null, null));

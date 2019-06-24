@@ -9,13 +9,18 @@ import io.tofu.teprl.machines.grammar.Production;
 
 public class TAS {
 	private Map<TASIndex,Production<String,AttribSet>> entries;
+	private GLC<String,AttribSet> glc;
 	
 	public TAS(GLC<String,AttribSet> glc) {
+		this.glc = glc;
 		entries = new HashMap<TASIndex,Production<String,AttribSet>>();
 		setEntries(glc);
 	}
 
 	private void setEntries(GLC<String,AttribSet> glc) {
+		glc.updateFirst();
+		glc.updateFollow(new Terminal<String,AttribSet>("endOfSentence"));
+		
 		/*
 		 * When the first of alfa contains epsilon, I just put the
 		 * production p for the terminals of follow p in M/TAS and
@@ -27,7 +32,7 @@ public class TAS {
 				if (a.equals(glc.getEpsilon())) {
 					for (Terminal<String,AttribSet> b : glc.getFollow(p.getHead()))
 						entries.put(new TASIndex(p.getHead(), b), p);
-						
+					
 					continue;
 				}
 
@@ -37,6 +42,10 @@ public class TAS {
 
 	public Map<TASIndex,Production<String,AttribSet>> getEntries() {
 		return entries;
+	}
+	
+	public GLC<String,AttribSet> getGLC() {
+		return glc;
 	}
 }
 

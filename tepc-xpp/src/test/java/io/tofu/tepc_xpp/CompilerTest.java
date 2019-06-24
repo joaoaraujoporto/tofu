@@ -2,6 +2,7 @@ package io.tofu.tepc_xpp;
 
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 
 import org.junit.Test;
@@ -17,14 +18,12 @@ public class CompilerTest {
 		
 		try {
 			fileReader = new FileReader("./sources/arvore_binaria_de_busca.xpp");
-			bufferedReader = new BufferedReader(fileReader);
+			Compiler c = new Compiler(new File("resources/xpp_grammar.xml"));
 			
-			Compiler c = new Compiler();
-			
-			for (Token<Integer> token : c.getTokens(bufferedReader))
-				System.out.println(token.toString());
+			c.compile(new BufferedReader(fileReader));
+    		System.out.println("The syntax analysis have been successfully finished");
 		} catch (Exception e) {
-			e.printStackTrace();
+			System.err.println("Error: " + e.getMessage());
 		}
 	}
 }
