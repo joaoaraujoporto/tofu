@@ -53,7 +53,7 @@ public class AL implements Lexer<Token<?>> {
 		ArrayList<Token<Integer>> tokens = new ArrayList<Token<Integer>>();
 		setBufferedReader(in);
 		
-		while (!bufferedReaderClosed) {			
+		while (!stopReading) {			
 			ArrayList<DT> dtsReading = new ArrayList<DT>();
 			currentLexeme = new String();
 			
@@ -110,7 +110,7 @@ public class AL implements Lexer<Token<?>> {
 			int minimalLexemeSize = currentLexeme.length();
 			Token<Integer> token = null;
 			
-			if (!bufferedReaderClosed)
+			if (!stopReading)
 				if ((token = getNextToken(dtsReading)) != null)
 					return token;
 			
@@ -191,6 +191,9 @@ public class AL implements Lexer<Token<?>> {
 			currentColumn = 0;
 			currentLine++;
 		}
+		
+		if (buffer.isEmpty() && bufferedReaderClosed)
+			stopReading = true;
 		
 		currentSymbol = c;
 		return c;
