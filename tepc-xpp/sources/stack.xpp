@@ -1,0 +1,47 @@
+
+class Stack {
+
+	int index;
+	int maxsize;
+	int elements[];
+
+	
+	constructor(int maxsize) {
+		elements = new int[maxsize];
+		index = -1;
+	}	
+
+	int push(int e) {
+		if (index + 1 == maxsize) {
+			return -1;
+		} 
+		
+		index = index + 1;
+		elements[index] = e;
+		return e;
+	}
+	
+	int pop() {
+		if (index + 1 == 0) {
+			return -1;
+		}
+	
+		int aux;
+		aux = elements[index];
+		index = index - 1;
+		return aux;
+	}
+	
+	int top() {
+		if (index + 1 == 0) {
+			return -1;
+		}
+		
+		return elements[index];
+	} 
+	
+	int size() {
+		return index + 1;
+	}
+	
+}

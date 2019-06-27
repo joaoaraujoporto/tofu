@@ -17,18 +17,18 @@ public class Main {
     	BufferedReader bufferedReader;
     	
     	try {
+    		///tepc-xpp/resources/xpp_grammar.xml
     		File grammarFile = new File("resources/xpp_grammar.xml");
-    		Compiler c = new Compiler(grammarFile);
-    		
+    		Compiler c = new Compiler(new File("resources/xpp_grammar.xml"));
     		fileReader = new FileReader(args[0]);
     		bufferedReader = new BufferedReader(fileReader);
+    		
     		
     		for (Token<Integer> token : c.getTokens(bufferedReader))
 				System.out.println(token.toString());
     		
     		c.compile(bufferedReader);
     		System.out.println("The syntax analysis have been successfully finished");
-    		
     	} catch (Exception e) {
     		System.err.println("Error: " + e.getMessage());
     	} finally {

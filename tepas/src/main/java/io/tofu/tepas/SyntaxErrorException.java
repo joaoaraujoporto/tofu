@@ -16,7 +16,7 @@ public class SyntaxErrorException extends RuntimeException {
 	SyntaxErrorException(Token<Integer> token, TS ts) {
 		super("line " + ts.get(token.getValue()).getPosition().getLineNumber() + 
 				", column " + ts.get(token.getValue()).getPosition().getColNumberBegin() + 
-				": \"" + ts.get(token.getValue()).getLexeme() + "\"" + " syntax error.");
+				": \"" + ts.get(token.getValue() - 1).getLexeme() + "\"" + " syntax error.");
 	}
 	
 	SyntaxErrorException(Token<?> token) {

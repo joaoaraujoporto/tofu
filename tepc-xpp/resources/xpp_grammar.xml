@@ -6,6 +6,7 @@
    </head>
    <body>
      <non-terminal>CLASSLIST</non-terminal>
+     <terminal>EndOfSentece</terminal>
    </body>
  </production>
  <production>

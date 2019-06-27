@@ -1,0 +1,19 @@
+
+class Util {
+	
+	int fatorial(int n) {
+		
+		int result;
+		result = 1;
+		
+		if (n > 1) {
+			int i;		
+			for (i = 1; i <= n; i = i - 1) {
+				result = i * result;
+			}
+		}
+		
+		return result;
+	}
+	
+}

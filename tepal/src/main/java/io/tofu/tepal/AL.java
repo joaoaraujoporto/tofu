@@ -124,16 +124,16 @@ public class AL implements Lexer<Token<?>> {
 	}
 	
 	private Token<Integer> yieldToken(DT dt) {
-		String token = dt.getName();
-		
-		if (token == "ident") // TODO - as fast as possible, change this
-			if (isKeyword(currentLexeme))
-				return new Token<Integer>(currentLexeme, null); // for now, no value is needed
-		
+		String tokenName = dt.getName();
 		PositionInCode position = new PositionInCode(currentLine, currentColumn);
-		ts.put(ts.size(), new TSEntry(token, currentLexeme, null, position));
 		
-		return new Token<Integer>(token, ts.size());
+		ts.put(ts.size(), new TSEntry(tokenName, currentLexeme, null, position));
+		
+		if (tokenName == "ident") // TODO - as fast as possible, change this
+			if (isKeyword(currentLexeme))
+				return new Token<Integer>(currentLexeme, ts.size()); // for now, no value is needed
+		
+		return new Token<Integer>(tokenName, ts.size());
 	}
 
 	private boolean isKeyword(String currentLexeme) {

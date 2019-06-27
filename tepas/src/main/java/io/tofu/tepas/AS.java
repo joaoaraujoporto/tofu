@@ -3,7 +3,6 @@ package io.tofu.tepas;
 import io.tofu.commons.ts.TS;
 import io.tofu.commons.symbol.EndOfSentence;
 import io.tofu.commons.symbol.Token;
-import io.tofu.tepal.AL;
 import io.tofu.tepal.Lexer;
 import io.tofu.teprl.machines.grammar.GLC;
 

@@ -24,7 +24,6 @@ public class Recognizer {
 
 	public void clearStack() {
 		stack.clear();
-		addToStack(new EndOfSentence());
 	}
 
 	public void addToStack(Symbol<String,?> symbol) {
