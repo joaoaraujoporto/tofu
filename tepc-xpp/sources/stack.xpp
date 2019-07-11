@@ -3,7 +3,7 @@ class Stack {
 
 	int index;
 	int maxsize;
-	int elements[];
+	int elements[10];
 
 	constructor(int maxsize) {
 		elements = new int[maxsize];

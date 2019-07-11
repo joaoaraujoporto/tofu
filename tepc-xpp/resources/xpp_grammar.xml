@@ -191,7 +191,7 @@
    </head>
    <body>
      <terminal>ident</terminal>
-     <non-terminal>COL</non-terminal>
+     <non-terminal>VARDECL'</non-terminal>
      <non-terminal>CLASSBODY6</non-terminal>
    </body>
  </production>
@@ -213,7 +213,7 @@
      <non-terminal>CLASSBODY6</non-terminal>
    </head>
    <body>
-     <non-terminal>VARDECL'</non-terminal>
+     <non-terminal>VARDECL''</non-terminal>
      <terminal>;</terminal>
      <non-terminal>CLASSBODY''</non-terminal>
    </body>
@@ -234,8 +234,8 @@
    <body>
      <terminal>int</terminal>
      <terminal>ident</terminal>
-     <non-terminal>COL</non-terminal>
      <non-terminal>VARDECL'</non-terminal>
+     <non-terminal>VARDECL''</non-terminal>
    </body>
  </production>
  <production>
@@ -245,8 +245,8 @@
    <body>
      <terminal>string</terminal>
      <terminal>ident</terminal>
-     <non-terminal>COL</non-terminal>
      <non-terminal>VARDECL'</non-terminal>
+     <non-terminal>VARDECL''</non-terminal>
    </body>
  </production>
  <production>
@@ -256,7 +256,18 @@
    <body>
      <terminal>ident</terminal>
      <terminal>ident</terminal>
-     <non-terminal>COL</non-terminal>]
+     <non-terminal>VARDECL'</non-terminal>]
+     <non-terminal>VARDECL''</non-terminal>
+   </body>
+ </production>
+ <production>
+   <head>
+     <non-terminal>VARDECL'</non-terminal>
+   </head>
+   <body>
+     <terminal>[</terminal>
+     <terminal>int-constant</terminal>
+     <terminal>]</terminal>
      <non-terminal>VARDECL'</non-terminal>
    </body>
  </production>
@@ -265,15 +276,23 @@
      <non-terminal>VARDECL'</non-terminal>
    </head>
    <body>
-   	 <terminal>,</terminal>
-     <terminal>ident</terminal>
-     <non-terminal>COL</non-terminal>
-     <non-terminal>VARDECL'</non-terminal>
+     <terminal>epsilon</terminal>
    </body>
  </production>
  <production>
    <head>
+     <non-terminal>VARDECL''</non-terminal>
+   </head>
+   <body>
+   	 <terminal>,</terminal>
+     <terminal>ident</terminal>
      <non-terminal>VARDECL'</non-terminal>
+     <non-terminal>VARDECL''</non-terminal>
+   </body>
+ </production>
+ <production>
+   <head>
+     <non-terminal>VARDECL''</non-terminal>
    </head>
    <body>
      <terminal>epsilon</terminal>
@@ -511,8 +530,8 @@
    <body>
      <terminal>int</terminal>
      <terminal>ident</terminal>
-     <non-terminal>COL</non-terminal>
      <non-terminal>VARDECL'</non-terminal>
+     <non-terminal>VARDECL''</non-terminal>
      <terminal>;</terminal>
    </body>
  </production>
@@ -523,8 +542,8 @@
    <body>
      <terminal>string</terminal>
      <terminal>ident</terminal>
-     <non-terminal>COL</non-terminal>
      <non-terminal>VARDECL'</non-terminal>
+     <non-terminal>VARDECL''</non-terminal>
      <terminal>;</terminal>
    </body>
  </production>
@@ -535,6 +554,7 @@
    <body>
      <terminal>ident</terminal>
      <non-terminal>STATEMENT'</non-terminal>
+     <terminal>;</terminal>
    </body>
  </production>
  <production>
@@ -543,9 +563,8 @@
    </head>
    <body>
      <terminal>ident</terminal>
-     <non-terminal>COL</non-terminal>
      <non-terminal>VARDECL'</non-terminal>
-     <terminal>;</terminal>
+     <non-terminal>VARDECL''</non-terminal>
    </body>
  </production>
  <production>
@@ -556,7 +575,6 @@
      <non-terminal>LVALUE'</non-terminal>
      <terminal>assign</terminal>
      <non-terminal>ATRIBSTAT'</non-terminal>
-     <terminal>;</terminal>
    </body>
  </production>
  <production>
@@ -567,7 +585,6 @@
      <non-terminal>LVALUE</non-terminal>
      <terminal>assign</terminal>
      <non-terminal>ATRIBSTAT'</non-terminal>
-     <terminal>;</terminal>
    </body>
  </production>
  <production>
