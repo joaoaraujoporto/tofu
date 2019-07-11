@@ -1092,7 +1092,7 @@
    </head>
    <body>
      <terminal>(</terminal>
-     <non-terminal>EXPRESSION</non-terminal>
+     <non-terminal>NUMEEXPRESSION</non-terminal>
      <terminal>)</terminal>
    </body>
  </production>
