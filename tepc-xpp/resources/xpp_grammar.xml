@@ -1040,7 +1040,7 @@
      <non-terminal>ARGLIST</non-terminal>
    </head>
    <body>
-     <non-terminal>EXPRESSION</non-terminal>
+     <non-terminal>NUMEEXPRESSION</non-terminal>
      <non-terminal>ARGLIST'</non-terminal>
    </body>
  </production>
@@ -1058,7 +1058,7 @@
    </head>
    <body>
    	 <terminal>,</terminal>
-     <non-terminal>EXPRESSION</non-terminal>
+     <non-terminal>NUMEEXPRESSION</non-terminal>
      <non-terminal>ARGLIST'</non-terminal>
    </body>
  </production>
