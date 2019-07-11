@@ -511,6 +511,7 @@
    <body>
      <terminal>int</terminal>
      <terminal>ident</terminal>
+     <non-terminal>COL</non-terminal>
      <non-terminal>VARDECL'</non-terminal>
      <terminal>;</terminal>
    </body>
@@ -522,6 +523,7 @@
    <body>
      <terminal>string</terminal>
      <terminal>ident</terminal>
+     <non-terminal>COL</non-terminal>
      <non-terminal>VARDECL'</non-terminal>
      <terminal>;</terminal>
    </body>
@@ -541,6 +543,7 @@
    </head>
    <body>
      <terminal>ident</terminal>
+     <non-terminal>COL</non-terminal>
      <non-terminal>VARDECL'</non-terminal>
      <terminal>;</terminal>
    </body>
