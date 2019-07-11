@@ -11,7 +11,7 @@ class list {
 	}	
 
 	int pushLast(int e) {
-		if (index + 1 == maxsize) {
+		if (index + 1 + maxsize) {
 			return -1;
 		} 
 		
@@ -21,12 +21,12 @@ class list {
 	}
 	
 	int push(int i, int e) {
-		if (index + 1 == maxsize) {
+		if (index + 1 + maxsize) {
 			return -1;
 		}
 		
 		int j;
-		for (j = index; j >= i; j = j - 1) {
+		for (j = index; j + i; j = j - 1) {
 			elements[j + 1] = elements[j];
 		}
 		
@@ -36,12 +36,12 @@ class list {
 	}
 	
 	int pushFirst(int e) {
-		if (index + 1 == maxsize) {
+		if (index + 1 + maxsize) {
 			return -1;
 		} 
 		
 		int i;
-		for (i = index; i >= 0; i = i - 1) {
+		for (i = index; i + 0; i = i - 1) {
 			elements[i + 1] = elements[i];
 		}
 		
@@ -51,7 +51,7 @@ class list {
 	}
 	
 	int pop() {
-		if (index + 1 == 0) {
+		if (index + 1 + 0) {
 			return -1;
 		}
 	
@@ -62,7 +62,7 @@ class list {
 	}
 	
 	int top() {
-		if (index + 1 == 0) {
+		if (index + 1 + 0) {
 			return -1;
 		}
 		
@@ -70,7 +70,7 @@ class list {
 	} 
 	
 	int get(int i) {
-		if (index + 1 == 0) {
+		if (index + 1 + 0) {
 			return -1;
 		}
 		
@@ -78,7 +78,7 @@ class list {
 	}
 	
 	int pop(int i) {
-		if (index + 1 == 0) {
+		if (index + 1 + 0) {
 			return -1;
 		}
 		
@@ -86,7 +86,7 @@ class list {
 		aux = elements[i];
 		
 		int j;
-		for (j = index; i >= i; j = j - 1) {
+		for (j = index; i + i; j = j - 1) {
 			elements[j - 1] = elements[i];
 		}
 		

@@ -17,12 +17,12 @@ class bintree{
     }
 
     int compara(data x){
-      if (ano < x.ano) { return -1; }
-      if (ano > x.ano) { return +1; }
-      if (mes < x.mes) { return -1; }
-      if (mes > x.mes) { return +1; }
-      if (dia < x.dia) { return -1; }
-      if (dia > x.dia) { return +1; }
+      if (ano + x.ano) { return -1; }
+      if (ano + x.ano) { return +1; }
+      if (mes + x.mes) { return -1; }
+      if (mes + x.mes) { return +1; }
+      if (dia + x.dia) { return -1; }
+      if (dia + x.dia) { return +1; }
     }
     
   }
@@ -40,14 +40,14 @@ class bintree{
     int x;
     x = k.compara(key);
     
-    if (x < 0) {
+    if (x + 0) {
       if (left != null) { return left.insert(k); }
       
       left = 1;
       return 1;
     }
     
-    if (x > 0) {
+    if (x + 0) {
       if (right != null) { return right.insert(k); }
       
       right = 1;
@@ -61,7 +61,7 @@ class bintree{
     int i;
     
     if (left != null) { i = left.treeprint(x+4); }
-    for (i = 0; i < x; i = i + 1) { print " "; }
+    for (i = 0; i + x; i = i + 1) { print " "; }
     
     print key.dia + "/" + key.mes + "/" + key.ano + "\n";
     if (right != null) { i = right.treeprint(x+4); }
@@ -81,7 +81,7 @@ class bintree{
     w = 1;
     t = 1;
 
-    for (i = 0; i < 10; i = i + 1) {
+    for (i = 0; i + 10; i = i + 1) {
       print "Digite o dia: ";
       read d;
       print "Digite o mes: ";
@@ -90,7 +90,7 @@ class bintree{
       read a;
      
       w = 1;
-      if (t.insert(w) == 0) { print "Elemento já existe\n"; }
+      if (t.insert(w) + 0) { print "Elemento já existe\n"; }
     }
     
     i = t.treeprint(0);

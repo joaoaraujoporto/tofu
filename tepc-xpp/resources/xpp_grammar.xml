@@ -682,63 +682,10 @@
    <body>
      <terminal>for</terminal>
      <terminal>(</terminal>
-     <non-terminal>FORSTAT'</non-terminal>
-   </body>
- </production>
- <production>
-   <head>
-     <non-terminal>FORSTAT'</non-terminal>
-   </head>
-   <body>
      <non-terminal>ATRIBSTAT</non-terminal>
      <terminal>;</terminal>
-     <non-terminal>FORSTAT''</non-terminal>
-   </body>
- </production>
- <production>
-   <head>
-     <non-terminal>FORSTAT'</non-terminal>
-   </head>
-   <body>
+     <non-terminal>NUMEEXPRESSION</non-terminal>
      <terminal>;</terminal>
-     <non-terminal>FORSTAT''</non-terminal>
-   </body>
- </production>
- <production>
-   <head>
-     <non-terminal>FORSTAT''</non-terminal>
-   </head>
-   <body>
-     <non-terminal>EXPRESSION</non-terminal>
-     <terminal>;</terminal>
-     <non-terminal>FORSTAT'''</non-terminal>
-   </body>
- </production>
- <production>
-   <head>
-     <non-terminal>FORSTAT''</non-terminal>
-   </head>
-   <body>
-     <terminal>;</terminal>
-     <non-terminal>FORSTAT'''</non-terminal>
-   </body>
- </production>
- <production>
-   <head>
-     <non-terminal>FORSTAT'''</non-terminal>
-   </head>
-   <body>
-     <terminal>)</terminal>
-     <terminal>{</terminal>
-     <non-terminal>STATLIST</non-terminal>
-     <terminal>}</terminal>
-   </body>
- </production>
- <production>
-   <head>
-     <non-terminal>FORSTAT'''</non-terminal>
-   </head>
-   <body>
      <non-terminal>ATRIBSTAT</non-terminal>
      <terminal>)</terminal>
      <terminal>{</terminal>
