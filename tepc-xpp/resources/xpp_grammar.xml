@@ -574,7 +574,7 @@
    <body>
      <non-terminal>LVALUE'</non-terminal>
      <terminal>assign</terminal>
-     <non-terminal>ATRIBSTAT'</non-terminal>
+     <non-terminal>NUMEEXPRESSION</non-terminal>
    </body>
  </production>
  <production>
@@ -584,23 +584,7 @@
    <body>
      <non-terminal>LVALUE</non-terminal>
      <terminal>assign</terminal>
-     <non-terminal>ATRIBSTAT'</non-terminal>
-   </body>
- </production>
- <production>
-   <head>
-     <non-terminal>ATRIBSTAT'</non-terminal>
-   </head>
-   <body>
-     <non-terminal>EXPRESSION</non-terminal>
-   </body>
- </production>
- <production>
-   <head>
-     <non-terminal>ATRIBSTAT'</non-terminal>
-   </head>
-   <body>
-     <non-terminal>ALOCEXPRESSION</non-terminal>
+     <non-terminal>NUMEEXPRESSION</non-terminal>
    </body>
  </production>
  <production>

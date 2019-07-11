@@ -6,7 +6,7 @@ class list {
 	int elements[10];
 
 	constructor(int maxsize) {
-		elements = new int[maxsize];
+		elements = 1;
 		index = -1;
 	}	
 

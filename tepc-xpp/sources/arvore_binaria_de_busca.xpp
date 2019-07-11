@@ -43,14 +43,14 @@ class bintree{
     if (x < 0) {
       if (left != null) { return left.insert(k); }
       
-      left = new bintree(k);
+      left = 1;
       return 1;
     }
     
     if (x > 0) {
       if (right != null) { return right.insert(k); }
       
-      right = new bintree(k);
+      right = 1;
       return 1;
     }
     
@@ -78,8 +78,8 @@ class bintree{
     print "Digite o ano: ";
     read a;
     
-    w = new data (d, m, a);
-    t = new bintree(w);
+    w = 1;
+    t = 1;
 
     for (i = 0; i < 10; i = i + 1) {
       print "Digite o dia: ";
@@ -89,7 +89,7 @@ class bintree{
       print "Digite o ano: ";
       read a;
      
-      w = new data (d, m, a);
+      w = 1;
       if (t.insert(w) == 0) { print "Elemento já existe\n"; }
     }
     
