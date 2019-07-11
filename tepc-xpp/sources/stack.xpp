@@ -5,7 +5,6 @@ class Stack {
 	int maxsize;
 	int elements[];
 
-	
 	constructor(int maxsize) {
 		elements = new int[maxsize];
 		index = -1;

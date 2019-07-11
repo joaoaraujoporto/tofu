@@ -1,0 +1,22 @@
+
+class linked_list {
+
+	int index;
+	
+	class Node {
+		int element;
+		Node next;
+		
+		Node next() {
+			return next;
+		}
+		
+		int element(int e) {
+			element = e;
+		}
+	}
+	
+	
+	
+	
+	

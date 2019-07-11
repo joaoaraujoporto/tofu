@@ -63,4 +63,22 @@ public class CompilerTest {
 			System.err.println("Error: " + e.getMessage());
 		}
 	}
+	
+	@Test
+	public void test4() {
+		System.out.println(" ------- Teste 4 ------- ");
+		
+		FileReader fileReader;
+		BufferedReader bufferedReader;
+		
+		try {
+			fileReader = new FileReader("sources/list.xpp");
+			Compiler c = new Compiler(new File("resources/xpp_grammar.xml"));
+			
+			c.compile(new BufferedReader(fileReader));
+    		System.out.println("The syntax analysis have been successfully finished");
+		} catch (Exception e) {
+			System.err.println("Error: " + e.getMessage());
+		}
+	}
 }
