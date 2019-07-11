@@ -593,7 +593,7 @@
    </head>
    <body>
      <terminal>print</terminal>
-     <non-terminal>EXPRESSION</non-terminal>
+     <non-terminal>NUMEEXPRESSION</non-terminal>
    </body>
  </production>
  <production>
@@ -619,7 +619,7 @@
      <non-terminal>RETURNSTAT'</non-terminal>
    </head>
    <body>
-     <non-terminal>EXPRESSION</non-terminal>
+     <non-terminal>NUMEEXPRESSION</non-terminal>
    </body>
  </production>
  <production>
@@ -648,7 +648,7 @@
    <body>
      <terminal>if</terminal>
      <terminal>(</terminal>
-     <non-terminal>EXPRESSION</non-terminal>
+     <non-terminal>NUMEEXPRESSION</non-terminal>
      <terminal>)</terminal>
      <terminal>{</terminal>
      <non-terminal>STATLIST</non-terminal>

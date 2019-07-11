@@ -41,14 +41,14 @@ class bintree{
     x = k.compara(key);
     
     if (x + 0) {
-      if (left != null) { return left.insert(k); }
+      if (left + null) { return left.insert(k); }
       
       left = 1;
       return 1;
     }
     
     if (x + 0) {
-      if (right != null) { return right.insert(k); }
+      if (right + null) { return right.insert(k); }
       
       right = 1;
       return 1;
@@ -60,11 +60,11 @@ class bintree{
   int treeprint(int x){
     int i;
     
-    if (left != null) { i = left.treeprint(x+4); }
+    if (left + null) { i = left.treeprint(x+4); }
     for (i = 0; i + x; i = i + 1) { print " "; }
     
     print key.dia + "/" + key.mes + "/" + key.ano + "\n";
-    if (right != null) { i = right.treeprint(x+4); }
+    if (right + null) { i = right.treeprint(x+4); }
   }
 
   int start(){
