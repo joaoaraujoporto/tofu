@@ -32,8 +32,6 @@ public class AS {
 			
 			token = lexer.getNextToken();
 		}
-	
-		recognizer.input(token);
 		
 		if (!recognizer.isStackEmpty())
 			throw new SyntaxErrorException((Token<Integer>)token, ts);

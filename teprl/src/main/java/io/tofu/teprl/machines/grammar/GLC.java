@@ -165,9 +165,6 @@ public class GLC<T,R> extends Grammar<T,R> {
 				follow = follows.get(nt);
 				ArrayList<Symbol<T,R>> subBody = Expander.subword(body, i + 1);
 				
-				if (!subBody.isEmpty() && subBody.get(0).getSign().equals("FACTOR"))
-					System.out.println("stop in this point of follow");
-				
 				ArrayList<Terminal<T,R>> firstSub = first(subBody);
 				
 				if (subBody.isEmpty() || firstSub.contains(epsilon))

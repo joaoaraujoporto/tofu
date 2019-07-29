@@ -27,10 +27,12 @@ public class GrammarReaderTest {
 				System.out.println("SOmeth wornf");
 			
 			NonTerminal<String,AttribSet> nt = 
-					new NonTerminal<String,AttribSet>("LVALUE");
+					new NonTerminal<String,AttribSet>("STATEMENT");
 			
 			g.updateFirst();
 			g.updateFollow(new Terminal<String,AttribSet>("endOfSentence"));
+			System.out.println("Start symbol = " + g.getStartSymbol());
+			System.out.println("First(" + nt.toString() + ") = " + g.getFirst(nt));
 			System.out.println("Follow(" + nt.toString() + ") = " + g.getFollow(nt));
 			System.out.println(g.getProductions());
 		} catch (ParserConfigurationException | SAXException | IOException e) {

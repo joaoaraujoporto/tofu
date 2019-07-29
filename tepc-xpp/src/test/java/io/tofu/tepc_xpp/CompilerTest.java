@@ -18,7 +18,7 @@ public class CompilerTest {
 		BufferedReader bufferedReader;
 		
 		try {
-			fileReader = new FileReader("sources/arvore_binaria_de_busca.xpp");
+			fileReader = new FileReader("sources/stat_test_1.xpp");
 			Compiler c = new Compiler(new File("resources/xpp_grammar.xml"));
 			
 			c.compile(new BufferedReader(fileReader));
@@ -36,7 +36,7 @@ public class CompilerTest {
 		BufferedReader bufferedReader;
 		
 		try {
-			fileReader = new FileReader("sources/util.xpp");
+			fileReader = new FileReader("sources/stat_test_2.xpp");
 			Compiler c = new Compiler(new File("resources/xpp_grammar.xml"));
 			
 			c.compile(new BufferedReader(fileReader));
@@ -54,7 +54,7 @@ public class CompilerTest {
 		BufferedReader bufferedReader;
 		
 		try {
-			fileReader = new FileReader("sources/stack.xpp");
+			fileReader = new FileReader("sources/stat_test_3.xpp");
 			Compiler c = new Compiler(new File("resources/xpp_grammar.xml"));
 			
 			c.compile(new BufferedReader(fileReader));
@@ -72,7 +72,7 @@ public class CompilerTest {
 		BufferedReader bufferedReader;
 		
 		try {
-			fileReader = new FileReader("sources/list.xpp");
+			fileReader = new FileReader("sources/stat_test_4.xpp");
 			Compiler c = new Compiler(new File("resources/xpp_grammar.xml"));
 			
 			c.compile(new BufferedReader(fileReader));
