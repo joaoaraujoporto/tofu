@@ -18,7 +18,11 @@ public class ALGenerator {
 		dts.add(getDTIntConstant());
 		dts.add(getDTStringConstant());
 		dts.add(getDTOpr());
-		dts.add(getDTOpa());
+		dts.add(getDTPlus());
+		dts.add(getDTMinus());
+		dts.add(getDTMult());
+		dts.add(getDTDiv());
+		dts.add(getDTPercent());
 		dts.add(getDTWhiteSpace());
 		dts.add(getDTAssign());
 		dts.addAll(getDTsPunctuation());
@@ -123,22 +127,6 @@ public class ALGenerator {
 		return dt;
 	}
 	
-	private static DT getDTOpa() {
-		DT dt = new DT("opa");
-		Alphabet opa = Alphabet.getOpa();
-		
-		try {
-			dt.addSymbols(opa);
-			
-			dt.createState("0", DTConstants.START, !DTConstants.ACCEPT, !DTConstants.DEAD, !DTConstants.BACKABLE);
-			dt.createState("1", !DTConstants.START, DTConstants.ACCEPT, !DTConstants.DEAD, !DTConstants.BACKABLE);
-			
-			dt.addTransition("0", opa, "1");
-		} catch (EditarMecanismoException e) { e.printStackTrace(); }
-		
-		return dt;
-	}
-	
 	private static DT getDTWhiteSpace() {
 		DT dt = new DT("white-space");
 		Alphabet whiteSpace = Alphabet.getWhiteSpace();
@@ -200,6 +188,81 @@ public class ALGenerator {
 			dt.createState("23", !DTConstants.START, DTConstants.ACCEPT, !DTConstants.DEAD, !DTConstants.BACKABLE);
 			
 			dt.addTransition("22", "=", "23");
+		} catch (EditarMecanismoException e) { e.printStackTrace(); }
+		
+		return dt;
+	}
+	
+	private static DT getDTPlus() {
+		DT dt = new DT("plus");
+		
+		try {
+			dt.addSymbol("+");
+			
+			dt.createState("22", DTConstants.START, !DTConstants.ACCEPT, !DTConstants.DEAD, !DTConstants.BACKABLE);
+			dt.createState("23", !DTConstants.START, DTConstants.ACCEPT, !DTConstants.DEAD, !DTConstants.BACKABLE);
+			
+			dt.addTransition("22", "+", "23");
+		} catch (EditarMecanismoException e) { e.printStackTrace(); }
+		
+		return dt;
+	}
+	
+	private static DT getDTMinus() {
+		DT dt = new DT("minus");
+		
+		try {
+			dt.addSymbol("-");
+			
+			dt.createState("22", DTConstants.START, !DTConstants.ACCEPT, !DTConstants.DEAD, !DTConstants.BACKABLE);
+			dt.createState("23", !DTConstants.START, DTConstants.ACCEPT, !DTConstants.DEAD, !DTConstants.BACKABLE);
+			
+			dt.addTransition("22", "-", "23");
+		} catch (EditarMecanismoException e) { e.printStackTrace(); }
+		
+		return dt;
+	}
+	
+	private static DT getDTMult() {
+		DT dt = new DT("mult");
+		
+		try {
+			dt.addSymbol("*");
+			
+			dt.createState("22", DTConstants.START, !DTConstants.ACCEPT, !DTConstants.DEAD, !DTConstants.BACKABLE);
+			dt.createState("23", !DTConstants.START, DTConstants.ACCEPT, !DTConstants.DEAD, !DTConstants.BACKABLE);
+			
+			dt.addTransition("22", "*", "23");
+		} catch (EditarMecanismoException e) { e.printStackTrace(); }
+		
+		return dt;
+	}
+	
+	private static DT getDTDiv() {
+		DT dt = new DT("div");
+		
+		try {
+			dt.addSymbol("/");
+			
+			dt.createState("22", DTConstants.START, !DTConstants.ACCEPT, !DTConstants.DEAD, !DTConstants.BACKABLE);
+			dt.createState("23", !DTConstants.START, DTConstants.ACCEPT, !DTConstants.DEAD, !DTConstants.BACKABLE);
+			
+			dt.addTransition("22", "/", "23");
+		} catch (EditarMecanismoException e) { e.printStackTrace(); }
+		
+		return dt;
+	}
+	
+	private static DT getDTPercent() {
+		DT dt = new DT("percent");
+		
+		try {
+			dt.addSymbol("%");
+			
+			dt.createState("22", DTConstants.START, !DTConstants.ACCEPT, !DTConstants.DEAD, !DTConstants.BACKABLE);
+			dt.createState("23", !DTConstants.START, DTConstants.ACCEPT, !DTConstants.DEAD, !DTConstants.BACKABLE);
+			
+			dt.addTransition("22", "%", "23");
 		} catch (EditarMecanismoException e) { e.printStackTrace(); }
 		
 		return dt;
