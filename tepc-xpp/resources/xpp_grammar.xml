@@ -567,7 +567,6 @@
      <non-terminal>LVALUE</non-terminal>
      <terminal>assign</terminal>
      <non-terminal>ATRIBSTAT'</non-terminal>
-     <terminal>;</terminal>
    </body>
  </production>
  <production>
