@@ -10,6 +10,7 @@
    </body>
    <semantic-rule>
    	<name>assignment</name>
+   	<type>sin</type>
    	<args>
    		<function>
    			<name>getAttrib</name>
@@ -19,7 +20,7 @@
    			</args>
    		</function>
    		<function>
-   			<name>getAttrib</name>
+   			<name>getAttribValue</name>
    			<args>
    				<string>PRINTSTAT</string>
    				<string>code</string>
@@ -38,6 +39,7 @@
    </body>
    <semantic-rule>
    	<name>assignment</name>
+   	<type>sin</type>
    	<args>
    		<function>
    			<name>getAttrib</name>
@@ -47,7 +49,7 @@
    			</args>
    		</function>
    		<function>
-   			<name>getAttrib</name>
+   			<name>getAttribValue</name>
    			<args>
    				<string>READSTAT</string>
    				<string>code</string>
@@ -66,6 +68,7 @@
    </body>
    <semantic-rule>
    	<name>assignment</name>
+   	<type>sin</type>
    	<args>
    		<function>
    			<name>getAttrib</name>
@@ -75,7 +78,7 @@
    			</args>
    		</function>
    		<function>
-   			<name>getAttrib</name>
+   			<name>getAttribValue</name>
    			<args>
    				<string>RUTURNSTAT</string>
    				<string>code</string>
@@ -93,6 +96,7 @@
    </body>
    <semantic-rule>
    	<name>assignment</name>
+   	<type>her</type>
    	<args>
    		<function>
    			<name>getAttrib</name>
@@ -102,7 +106,7 @@
    			</args>
    		</function>
    		<function>
-   			<name>getAttrib</name>
+   			<name>getAttribValue</name>
    			<args>
    				<string>STATEMENT</string>
    				<string>next</string>
@@ -112,6 +116,7 @@
    </semantic-rule>
    <semantic-rule>
    	<name>assignment</name>
+   	<type>sin</type>
    	<args>
    		<function>
    			<name>getAttrib</name>
@@ -121,7 +126,7 @@
    			</args>
    		</function>
    		<function>
-   			<name>getAttrib</name>
+   			<name>getAttribValue</name>
    			<args>
    				<string>IFSTAT</string>
    				<string>code</string>
@@ -139,6 +144,7 @@
    </body>
    <semantic-rule>
    	<name>assignment</name>
+   	<type>her</type>
    	<args>
    		<function>
    			<name>getAttrib</name>
@@ -148,7 +154,7 @@
    			</args>
    		</function>
    		<function>
-   			<name>getAttrib</name>
+   			<name>getAttribValue</name>
    			<args>
    				<string>STATEMENT</string>
    				<string>next</string>
@@ -158,6 +164,7 @@
    </semantic-rule>
    <semantic-rule>
    	<name>assignment</name>
+   	<type>sin</type>
    	<args>
    		<function>
    			<name>getAttrib</name>
@@ -167,7 +174,7 @@
    			</args>
    		</function>
    		<function>
-   			<name>getAttrib</name>
+   			<name>getAttribValue</name>
    			<args>
    				<string>FORSTAT</string>
    				<string>code</string>
@@ -187,6 +194,7 @@
    </body>
    <semantic-rule>
    	<name>assignment</name>
+   	<type>her</type>
    	<args>
    		<function>
    			<name>getAttrib</name>
@@ -196,7 +204,7 @@
    			</args>
    		</function>
    		<function>
-   			<name>getAttrib</name>
+   			<name>getAttribValue</name>
    			<args>
    				<string>STATEMENT</string>
    				<string>next</string>
@@ -206,6 +214,7 @@
    </semantic-rule>
    <semantic-rule>
    	<name>assignment</name>
+   	<type>sin</type>
    	<args>
    		<function>
    			<name>getAttrib</name>
@@ -215,7 +224,7 @@
    			</args>
    		</function>
    		<function>
-   			<name>getAttrib</name>
+   			<name>getAttribValue</name>
    			<args>
    				<string>STATLIST</string>
    				<string>code</string>
@@ -234,6 +243,7 @@
    </body>
    <semantic-rule>
    	<name>assignment</name>
+   	<type>sin</type>
    	<args>
    		<function>
    			<name>getAttrib</name>
@@ -279,6 +289,7 @@
    </body>
    <semantic-rule>
    	<name>assignment</name>
+   	<type>her</type>
    	<args>
    		<function>
    			<name>getAttrib</name>
@@ -292,6 +303,38 @@
    </semantic-rule>
    <semantic-rule>
    	<name>storeInTS</name>
+   	<type>sin</type>
+   	<args>
+   		<function>
+   			<name>getAttribValue</name>
+   			<args>
+   				<string>ident</string>
+   				<string>value</string>
+   			</args>
+   		</function>
+   		<string>int</string>
+   		<function>
+   			<name>getAttribValue</name>
+   			<args>
+   				<string>VARDECL'</string>
+   				<string>offset</string>
+   			</args>
+   		</function>
+   	</args>
+   </semantic-rule>
+   <semantic-rule>
+   	<name>assignment</name>
+   	<type>sin</type>
+   	<args>
+   		<function>
+   			<name>getAttrib</name>
+   			<args>
+   				<string>STATEMENT</string>
+   				<string>code</string>
+   			</args>
+   		</function>
+   		<string>ws</string>
+   	</args>
    </semantic-rule>
  </production>
  <production>
@@ -307,6 +350,7 @@
    </body>
    <semantic-rule>
    	<name>assignment</name>
+   	<type>her</type>
    	<args>
    		<function>
    			<name>getAttrib</name>
@@ -320,6 +364,38 @@
    </semantic-rule>
    <semantic-rule>
    	<name>storeInTS</name>
+   	<type>sin</type>
+   	<args>
+   		<function>
+   			<name>getAttribValue</name>
+   			<args>
+   				<string>ident</string>
+   				<string>value</string>
+   			</args>
+   		</function>
+   		<string>string</string>
+   		<function>
+   			<name>getAttribValue</name>
+   			<args>
+   				<string>VARDECL'</string>
+   				<string>offset</string>
+   			</args>
+   		</function>
+   	</args>
+   </semantic-rule>
+   <semantic-rule>
+   	<name>assignment</name>
+   	<type>sin</type>
+   	<args>
+   		<function>
+   			<name>getAttrib</name>
+   			<args>
+   				<string>STATEMENT</string>
+   				<string>code</string>
+   			</args>
+   		</function>
+   		<string>ws</string>
+   	</args>
    </semantic-rule>
  </production>
  <production>
@@ -333,6 +409,7 @@
    </body>
    <semantic-rule>
    	<name>assignment</name>
+   	<type>her</type>
    	<args>
    		<function>
    			<name>getAttrib</name>
@@ -342,7 +419,31 @@
    			</args>
    		</function>
    		<function>
-   			<name>getValue</name>
+   			<name>getAttribValue</name>
+   			<args>
+   				<string>ident</string>
+   				<string>value</string>
+   			</args>
+   		</function>
+   	</args>
+   </semantic-rule>
+   <semantic-rule>
+   	<name>assignment</name>
+   	<type>sin</type>
+   	<args>
+   		<function>
+   			<name>getAttrib</name>
+   			<args>
+   				<string>STATEMENT</string>
+   				<string>code</string>
+   			</args>
+   		</function>
+   		<function>
+   			<name>getAttribValue</name>
+   			<args>
+   				<string>STATEMENT'</string>
+   				<string>code</string>
+   			</args>
    		</function>
    	</args>
    </semantic-rule>
@@ -358,6 +459,7 @@
    </body>
    <semantic-rule>
    	<name>assignment</name>
+   	<type>her</type>
    	<args>
    		<function>
    			<name>getAttrib</name>
@@ -367,7 +469,7 @@
    			</args>
    		</function>
    		<function>
-   			<name>getAttrib</name>
+   			<name>getAttribValue</name>
    			<args>
    				<string>STATEMENT'</string>
    				<string>id</string>
@@ -377,6 +479,44 @@
    </semantic-rule>
    <semantic-rule>
    	<name>storeInTS</name>
+   	<type>sin</type>
+   	<args>
+   		<function>
+   			<name>getAttribValue</name>
+   			<args>
+   				<string>ident</string>
+   				<string>value</string>
+   			</args>
+   		</function>
+   		<function>
+   			<name>getAttribValue</name>
+   			<args>
+   				<string>STATEMENT'</string>
+   				<string>id</string>
+   			</args>
+   		</function>
+   		<function>
+   			<name>getAttribValue</name>
+   			<args>
+   				<string>VARDECL'</string>
+   				<string>offset</string>
+   			</args>
+   		</function>
+   	</args>
+   </semantic-rule>
+   <semantic-rule>
+   	<name>assignment</name>
+   	<type>sin</type>
+   	<args>
+   		<function>
+   			<name>getAttrib</name>
+   			<args>
+   				<string>STATEMENT'</string>
+   				<string>code</string>
+   			</args>
+   		</function>
+   		<string>ws</string>
+   	</args>
    </semantic-rule>
  </production>
  <production>
@@ -389,26 +529,63 @@
      <non-terminal>NUMEEXPRESSION</non-terminal>
    </body>
    <semantic-rule>
-   	<name>assignment</name>
+   	<name>assignValue</name>
+   	<type>sin</type>
    	<args>
    		<function>
-   			<name>getAttrib</name>
+   			<name>getAttribValue</name>
    			<args>
    				<string>LVALUE'</string>
-   				<string>base</string>
+   				<string>addr</string>
    			</args>
    		</function>
    		<function>
-   			<name>getAttrib</name>
+   			<name>getAttribValue</name>
    			<args>
-   				<string>STATEMENT'</string>
-   				<string>id</string>
+   				<string>NUMEEXPRESSION</string>
+   				<string>value</string>
+   			</args>
+   		</function>
+   		<function>
+   			<name>getAttribValue</name>
+   			<args>
+   				<string>NUMEEXPRESSION</string>
+   				<string>type</string>
    			</args>
    		</function>
    	</args>
    </semantic-rule>
    <semantic-rule>
-   	<name>assignValue</name>
+   	<name>assignment</name>
+   	<args>
+   		<function>
+   			<name>getAttrib</name>
+   			<args>
+   				<string>STATEMENT'</string>
+   				<string>code</string>
+   			</args>
+   		</function>
+   		<function>
+   			<name>concat</name>
+   			<args>
+   				<function>
+		   			<name>getAttribValue</name>
+		   			<args>
+		   				<string>LVALUE'</string>
+		   				<string>code</string>
+		   			</args>
+		   		</function>
+		   		<string>=</string>
+		   		<function>
+		   			<name>getAttribValue</name>
+		   			<args>
+		   				<string>NUMEEXPRESSION</string>
+		   				<string>value</string>
+		   			</args>
+		   		</function>
+   			</args>
+   		</function>
+   	</args>
    </semantic-rule>
  </production>
  <production>
@@ -420,6 +597,7 @@
    </body>
    <semantic-rule>
    	<name>assignment</name>
+   	<type>sin</type>
    	<args>
    		<function>
    			<name>getAttrib</name>
@@ -444,6 +622,7 @@
    </body>
    <semantic-rule>
    	<name>assignment</name>
+   	<type>sin</type>
    	<args>
    		<function>
    			<name>getAttrib</name>
@@ -456,10 +635,14 @@
    			<name>mult</name>
    			<args>
    				<function>
-   					<name>getValue</name>
+   					<name>getAttribValue</name>
+   					<args>
+   						<string>int-constant</string>
+   						<string>value</string>
+   					</args>
    				</function>
    				<function>
-   					<name>getAttrib</name>
+   					<name>getAttribValue</name>
    					<args>
    						<string>VARDECL'</string>
    						<string>offset</string>
@@ -470,6 +653,14 @@
    		</function>
    	</args>
    </semantic-rule>
+ </production>
+  <production>
+   <head>
+     <non-terminal>VARDECL''</non-terminal>
+   </head>
+   <body>
+     <terminal>epsilon</terminal>
+   </body>
  </production>
  <production>
    <head>
@@ -483,6 +674,7 @@
    </body>
    <semantic-rule>
    	<name>assignment</name>
+   	<type>her</type>
    	<args>
    		<function>
    			<name>getAttrib</name>
@@ -493,7 +685,7 @@
    			</args>
    		</function>
    		<function>
-   			<name>getAttrib</name>
+   			<name>getAttribValue</name>
    			<args>
    				<string>VARDECL''</string>
    				<string>type</string>
@@ -503,15 +695,45 @@
    </semantic-rule>
    <semantic-rule>
    	<name>storeInTS</name>
+   	<type>sin</type>
+   	<args>
+   		<function>
+   			<name>getAttribValue</name>
+   			<args>
+   				<string>ident</string>
+   				<string>value</string>
+   			</args>
+   		</function>
+   		<function>
+   			<name>getAttribValue</name>
+   			<args>
+   				<string>VARDECL''</string>
+   				<string>type</string>
+   			</args>
+   		</function>
+   		<function>
+   			<name>getAttribValue</name>
+   			<args>
+   				<string>VARDECL'</string>
+   				<string>offset</string>
+   			</args>
+   		</function>
+   	</args>
    </semantic-rule>
- </production>
- <production>
-   <head>
-     <non-terminal>VARDECL''</non-terminal>
-   </head>
-   <body>
-     <terminal>epsilon</terminal>
-   </body>
+   <semantic-rule>
+   	<name>assignment</name>
+   	<type>sin</type>
+   	<args>
+   		<function>
+   			<name>getAttrib</name>
+   			<args>
+   				<string>VARDECL''</string>
+   				<string>code</string>
+   			</args>
+   		</function>
+   		<string>ws</string>
+   	</args>
+   </semantic-rule>
  </production>
  <production>
    <head>
@@ -524,6 +746,30 @@
    </body>
    <semantic-rule>
    	<name>assignValue</name>
+   	<type>sin</type>
+   	<args>
+   		<function>
+   			<name>getAttribValue</name>
+   			<args>
+   				<string>LVALUE</string>
+   				<string>addr</string>
+   			</args>
+   		</function>
+   		<function>
+   			<name>getAttribValue</name>
+   			<args>
+   				<string>NUMEEXPRESSION</string>
+   				<string>value</string>
+   			</args>
+   		</function>
+   		<function>
+   			<name>getAttribValue</name>
+   			<args>
+   				<string>NUMEEXPRESSION</string>
+   				<string>type</string>
+   			</args>
+   		</function>
+   	</args>
    </semantic-rule>
  </production>
  <production>
@@ -536,6 +782,7 @@
    </body>
    <semantic-rule>
    	<name>assignment</name>
+   	<type>sin</type>
    	<args>
    		<function>
    			<name>getAttrib</name>
@@ -549,7 +796,7 @@
    			<args>
    				<string>out</string>
    				<function>
-		   			<name>getAttrib</name>
+		   			<name>getAttribValue</name>
 		   			<args>
 		   				<string>NUMEEXPRESSION</string>
 		   				<string>value</string>
@@ -570,6 +817,7 @@
    </body>
    <semantic-rule>
    	<name>assignment</name>
+   	<type>sin</type>
    	<args>
    		<function>
    			<name>getAttrib</name>
@@ -583,10 +831,10 @@
    			<args>
    				<string>in</string>
    				<function>
-		   			<name>getAttrib</name>
+		   			<name>getAttribValue</name>
 		   			<args>
 		   				<string>LVALUE</string>
-		   				<string>addr</string>
+		   				<string>code</string>
 		   			</args>
 		   		</function>
    			</args>
@@ -604,6 +852,7 @@
    </body>
    <semantic-rule>
    	<name>assignment</name>
+   	<type>sin</type>
    	<args>
    		<function>
    			<name>getAttrib</name>
@@ -617,7 +866,7 @@
    			<args>
    				<string>return</string>
    				<function>
-		   			<name>getAttrib</name>
+		   			<name>getAttribValue</name>
 		   			<args>
 		   				<string>RETURNSTAT'</string>
 		   				<string>value</string>
@@ -637,6 +886,7 @@
    </body>
    <semantic-rule>
    	<name>assignment</name>
+   	<type>sin</type>
    	<args>
    		<function>
    			<name>getAttrib</name>
@@ -658,6 +908,7 @@
    </body>
    <semantic-rule>
    	<name>assignment</name>
+   	<type>sin</type>
    	<args>
    		<function>
    			<name>getAttrib</name>
@@ -667,7 +918,7 @@
    			</args>
    		</function>
    		<function>
-   			<name>getAttrib</name>
+   			<name>getAttribValue</name>
    			<args>
    				<string>NUMEEXPRESSION</string>
    				<string>value</string>
@@ -692,6 +943,7 @@
    </body>
    <semantic-rule>
    	<name>assignment</name>
+   	<type>her</type>
    	<args>
    		<function>
    			<name>getAttrib</name>
@@ -707,6 +959,7 @@
    </semantic-rule>
    <semantic-rule>
    	<name>assignment</name>
+   	<type>her</type>
    	<args>
    		<function>
    			<name>getAttrib</name>
@@ -716,7 +969,7 @@
    			</args>
    		</function>
    		<function>
-   			<name>getAttrib</name>
+   			<name>getAttribValue</name>
    			<args>
    				<string>IFSTAT</string>
    				<string>next</string>
@@ -726,6 +979,7 @@
    </semantic-rule>
    <semantic-rule>
    	<name>assignment</name>
+   	<type>her</type>
    	<args>
    		<function>
    			<name>getAttrib</name>
@@ -735,7 +989,7 @@
    			</args>
    		</function>
    		<function>
-   			<name>getAttrib</name>
+   			<name>getAttribValue</name>
    			<args>
    				<string>IFSTAT</string>
    				<string>next</string>
@@ -745,6 +999,7 @@
    </semantic-rule>
    <semantic-rule>
    	<name>assignment</name>
+   	<type>sin</type>
    	<args>
    		<function>
    			<name>getAttrib</name>
@@ -759,7 +1014,7 @@
    				<string>if</string>
    				<string>False</string>
    				<function>
-	   				<name>getAttrib</name>
+	   				<name>getAttribValue</name>
 	   				<args>
 	   					<string>NUMEEXPRESSION</string>
 	   					<string>value</string>
@@ -767,7 +1022,7 @@
 	   			</function>
 	   			<string>goto</string>
 	   			<function>
-	   				<name>getAttrib</name>
+	   				<name>getAttribValue</name>
 	   				<args>
 	   					<string>IFSTAT</string>
 	   					<string>else</string>
@@ -775,7 +1030,7 @@
 	   			</function>
 	   			<string>\n</string>
 	   			<function>
-	   				<name>getAttrib</name>
+	   				<name>getAttribValue</name>
 	   				<args>
 	   					<string>STATLIST</string>
 	   					<string>code</string>
@@ -784,7 +1039,7 @@
 	   			<string>\n</string>
 	   			<string>goto</string>
 	   			<function>
-	   				<name>getAttrib</name>
+	   				<name>getAttribValue</name>
 	   				<args>
 	   					<string>IFSTAT</string>
 	   					<string>next</string>
@@ -795,7 +1050,7 @@
 	   				<name>putLabel</name>
 	   				<args>
 	   					<function>
-		   					<name>getAttrib</name>
+		   					<name>getAttribValue</name>
 		   					<args>
 		   						<string>IFSTAT</string>
 		   						<string>else</string>
@@ -805,7 +1060,7 @@
 	   			</function>
 	   			<string>\n</string>
 	   			<function>
-		   			<name>getAttrib</name>
+		   			<name>getAttribValue</name>
 		   			<args>
 		   				<string>IFSTAT'</string>
 		   				<string>code</string>
@@ -825,6 +1080,7 @@
    </body>
    <semantic-rule>
    	<name>assignment</name>
+   	<type>sin</type>
    	<args>
    		<function>
    			<name>getAttrib</name>
@@ -833,7 +1089,7 @@
    				<string>code</string>
    			</args>
    		</function>
-		<string>\n</string>
+		<string>ws</string>
    	</args>
    </semantic-rule>
  </production>
@@ -849,6 +1105,7 @@
    </body>
    <semantic-rule>
    	<name>assignment</name>
+   	<type>her</type>
    	<args>
    		<function>
    			<name>getAttrib</name>
@@ -868,6 +1125,7 @@
    </semantic-rule>
    <semantic-rule>
    	<name>assignment</name>
+   	<type>sin</type>
    	<args>
    		<function>
    			<name>getAttrib</name>
@@ -905,6 +1163,7 @@
    </body>
    <semantic-rule>
    	<name>assignment</name>
+   	<type>her</type>
    	<args>
    		<function>
    			<name>getAttrib</name>
@@ -914,7 +1173,7 @@
    			</args>
    		</function>
    		<function>
-   			<name>getAttrib</name>
+   			<name>getAttribValue</name>
    			<args>
    				<string>FORSTAT</string>
    				<string>next</string>
@@ -924,6 +1183,7 @@
    </semantic-rule>
    <semantic-rule>
    	<name>assignment</name>
+   	<type>her</type>
    	<args>
    		<function>
    			<name>getAttrib</name>
@@ -939,6 +1199,7 @@
    </semantic-rule>
    <semantic-rule>
    	<name>assignment</name>
+   	<type>sin</type>
    	<args>
    		<function>
    			<name>getAttrib</name>
@@ -962,7 +1223,7 @@
 	   				<name>putLabel</name>
 	   				<args>
 	   					<function>
-		   					<name>getAttrib</name>
+		   					<name>getAttribValue</name>
 		   					<args>
 		   						<string>FORSTAT</string>
 		   						<string>begin</string>
@@ -974,7 +1235,7 @@
    				<string>if</string>
    				<string>False</string>
    				<function>
-	   				<name>getAttrib</name>
+	   				<name>getAttribValue</name>
 	   				<args>
 	   					<string>NUMEEXPRESSION</string>
 	   					<string>value</string>
@@ -982,7 +1243,7 @@
 	   			</function>
 	   			<string>goto</string>
 	   			<function>
-	   				<name>getAttrib</name>
+	   				<name>getAttribValue</name>
 	   				<args>
 	   					<string>FORSTAT</string>
 	   					<string>next</string>
@@ -990,7 +1251,7 @@
 	   			</function>
 	   			<string>\n</string>
 	   			<function>
-	   				<name>getAttrib</name>
+	   				<name>getAttribValue</name>
 	   				<args>
 	   					<string>STATLIST</string>
 	   					<string>code</string>
@@ -998,7 +1259,7 @@
 	   			</function>
 	   			<string>\n</string>
 	   			<function>
-	   				<name>getAttrib</name>
+	   				<name>getAttribValue</name>
 	   				<args>
 	   					<string>ATRIBSTAT</string>
 	   					<string>code</string>
@@ -1008,7 +1269,7 @@
 	   			<string>\n</string>
 	   			<string>goto</string>
 	   			<function>
-	   				<name>getAttrib</name>
+	   				<name>getAttribValue</name>
 	   				<args>
 	   					<string>FORSTAT</string>
 	   					<string>begin</string>
@@ -1028,6 +1289,7 @@
    </body>
    <semantic-rule>
    	<name>assignment</name>
+   	<type>sin</type>
    	<args>
    		<function>
    			<name>getAttrib</name>
@@ -1036,7 +1298,7 @@
    				<string>code</string>
    			</args>
    		</function>
-		<string>\n</string>
+		<string>ws</string>
    	</args>
    </semantic-rule>
  </production>
@@ -1050,42 +1312,7 @@
    </body>
    <semantic-rule>
    	<name>assignment</name>
-   	<args>
-   		<function>
-   			<name>getAttrib</name>
-   			<args>
-   				<string>STATLIST</string>
-   				<string>bind</string>
-   				<int>1</int>
-   			</args>
-   		</function>
-   		<function>
-   			<name>newLabel</name>
-   		</function>
-   	</args>
-   </semantic-rule>
-   <semantic-rule>
-   	<name>assignment</name>
-   	<args>
-   		<function>
-   			<name>getAttrib</name>
-   			<args>
-   				<string>STATLIST</string>
-   				<string>next</string>
-   				<int>1</int>
-   			</args>
-   		</function>
-   		<function>
-   			<name>getAttrib</name>
-   			<args>
-   				<string>STATLIST</string>
-   				<string>next</string>
-   			</args>
-   		</function>
-   	</args>
-   </semantic-rule>
-   <semantic-rule>
-   	<name>assignment</name>
+   	<type>her</type>
    	<args>
    		<function>
    			<name>getAttrib</name>
@@ -1095,17 +1322,34 @@
    			</args>
    		</function>
    		<function>
+   			<name>newLabel</name>
+   		</function>
+   	</args>
+   </semantic-rule>
+   <semantic-rule>
+   	<name>assignment</name>
+   	<type>her</type>
+   	<args>
+   		<function>
    			<name>getAttrib</name>
    			<args>
    				<string>STATLIST</string>
-   				<string>begin</string>
+   				<string>next</string>
    				<int>1</int>
+   			</args>
+   		</function>
+   		<function>
+   			<name>getAttrib</name>
+   			<args>
+   				<string>STATLIST</string>
+   				<string>next</string>
    			</args>
    		</function>
    	</args>
    </semantic-rule>
    <semantic-rule>
    	<name>assignment</name>
+   	<type>sin</type>
    	<args>
    		<function>
    			<name>getAttrib</name>
@@ -1118,7 +1362,7 @@
    			<name>concat</name>
    			<args>
    				<function>
-	   				<name>getAttrib</name>
+	   				<name>getAttribValue</name>
 	   				<args>
 	   					<string>STATEMENT</string>
 	   					<string>code</string>
@@ -1129,18 +1373,17 @@
 	   				<name>putLabel</name>
 	   				<args>
 	   					<function>
-		   					<name>getAttrib</name>
+		   					<name>getAttribValue</name>
 		   					<args>
-		   						<string>STATLIST</string>
-		   						<string>bind</string>
-		   						<int>1</int>
+		   						<string>STATEMENT</string>
+		   						<string>next</string>
 		   					</args>
 		   				</function>
 	   				</args>
 	   			</function>
 	   			<string>\n</string>
    				<function>
-	   				<name>getAttrib</name>
+	   				<name>getAttribValue</name>
 	   				<args>
 	   					<string>STATLIST</string>
 	   					<string>code</string>
@@ -1161,6 +1404,7 @@
    </body>
    <semantic-rule>
    	<name>assignment</name>
+   	<type>sin</type>
    	<args>
    		<function>
    			<name>getAttrib</name>
@@ -1170,10 +1414,54 @@
    			</args>
    		</function>
    		<function>
+   			<name>getAddr</name>
+   			<args>
+   				<function>
+		   			<name>getAttribValue</name>
+		   			<args>
+		   				<string>ident</string>
+		   				<string>value</string>
+		   			</args>
+		   		</function>
+   				<function>
+		   			<name>getAttribValue</name>
+		   			<args>
+		   				<string>LVALUE'</string>
+		   				<string>offset</string>
+		   			</args>
+		   		</function>
+   			</args>
+   		</function>
+   	</args>
+   </semantic-rule>
+   <semantic-rule>
+   	<name>assignment</name>
+   	<type>sin</type>
+   	<args>
+   		<function>
    			<name>getAttrib</name>
    			<args>
-   				<string>LVALUE'</string>
-   				<string>addr</string>
+   				<string>LVALUE</string>
+   				<string>code</string>
+   			</args>
+   		</function>
+   		<function>
+   			<name>concat</name>
+   			<args>
+		   		<function>
+		   			<name>getAttribValue</name>
+		   			<args>
+		   				<string>ident</string>
+		   				<string>value</string>
+		   			</args>
+		   		</function>
+		   		<function>
+		   			<name>getAttribValue</name>
+		   			<args>
+		   				<string>LVALUE'</string>
+		   				<string>code</string>
+		   			</args>
+		   		</function>
    			</args>
    		</function>
    	</args>
@@ -1188,21 +1476,30 @@
    </body>
    <semantic-rule>
    	<name>assignment</name>
+   	<type>sin</type>
    	<args>
    		<function>
    			<name>getAttrib</name>
    			<args>
    				<string>LVALUE'</string>
-   				<string>addr</string>
+   				<string>code</string>
    			</args>
    		</function>
+   		<string>ws</string>
+   	</args>
+   </semantic-rule>
+   <semantic-rule>
+   	<name>assignment</name>
+   	<type>sin</type>
+   	<args>
    		<function>
    			<name>getAttrib</name>
    			<args>
    				<string>LVALUE'</string>
-   				<string>base</string>
+   				<string>offset</string>
    			</args>
    		</function>
+   		<int>1</int>
    	</args>
    </semantic-rule>
  </production>
@@ -1218,20 +1515,53 @@
    </body>
    <semantic-rule>
    	<name>assignment</name>
+   	<type>sin</type>
    	<args>
    		<function>
    			<name>getAttrib</name>
    			<args>
    				<string>LVALUE'</string>
-   				<string>addr</string>
+   				<string>offset</string>
    			</args>
    		</function>
+   		<function>
+   			<name>mult</name>
+   			<args>
+   				<function>
+   					<name>getAttribValue</name>
+   					<args>
+   						<string>NUMEEXPRESSION</string>
+   						<string>value</string>
+   					</args>
+   				</function>
+   				<function>
+   					<name>getAttribValue</name>
+   					<args>
+   						<string>LVALUE</string>
+   						<string>offset</string>
+   						<int>1</int>
+   					</args>
+   				</function>
+   			</args>
+   		</function>
+   	</args>
+   </semantic-rule>
+   <semantic-rule>
+   	<name>assignment</name>
+   	<type>sin</type>
+   	<args>
    		<function>
    			<name>getAttrib</name>
    			<args>
    				<string>LVALUE'</string>
-   				<string>addr</string>
-   				<int>1</int>
+   				<string>code</string>
+   			</args>
+   		</function>
+   		<function>
+   			<name>concat</name>
+   			<args>
+   				<string>[</string>
+   				<string>]</string>
    			</args>
    		</function>
    	</args>
@@ -1247,6 +1577,27 @@
    </body>
    <semantic-rule>
    	<name>assignment</name>
+   	<type>her</type>
+   	<args>
+   		<function>
+   			<name>getAttrib</name>
+   			<args>
+   				<string>NUMEEXPRESSION'</string>
+   				<string>type</string>
+   			</args>
+   		</function>
+   		<function>
+   			<name>getAttribValue</name>
+   			<args>
+   				<string>TERM</string>
+   				<string>type</string>
+   			</args>
+   		</function>
+   	</args>
+   </semantic-rule>
+   <semantic-rule>
+   	<name>assignment</name>
+   	<type>her</type>
    	<args>
    		<function>
    			<name>getAttrib</name>
@@ -1256,7 +1607,7 @@
    			</args>
    		</function>
    		<function>
-   			<name>getAttrib</name>
+   			<name>getAttribValue</name>
    			<args>
    				<string>TERM</string>
    				<string>value</string>
@@ -1266,6 +1617,27 @@
    </semantic-rule>
    <semantic-rule>
    	<name>assignment</name>
+   	<type>sin</type>
+   	<args>
+   		<function>
+   			<name>getAttrib</name>
+   			<args>
+   				<string>NUMEEXPRESSION</string>
+   				<string>type</string>
+   			</args>
+   		</function>
+   		<function>
+   			<name>getAttribValue</name>
+   			<args>
+   				<string>TERM</string>
+   				<string>type</string>
+   			</args>
+   		</function>
+   	</args>
+   </semantic-rule>
+   <semantic-rule>
+   	<name>assignment</name>
+   	<type>sin</type>
    	<args>
    		<function>
    			<name>getAttrib</name>
@@ -1275,7 +1647,7 @@
    			</args>
    		</function>
    		<function>
-   			<name>getAttrib</name>
+   			<name>getAttribValue</name>
    			<args>
    				<string>NUMEEXPRESSION'</string>
    				<string>value</string>
@@ -1293,6 +1665,7 @@
    </body>
    <semantic-rule>
    	<name>assignment</name>
+   	<type>sin</type>
    	<args>
    		<function>
    			<name>getAttrib</name>
@@ -1302,7 +1675,7 @@
    			</args>
    		</function>
    		<function>
-   			<name>getAttrib</name>
+   			<name>getAttribValue</name>
    			<args>
    				<string>NUMEEXPRESSION'</string>
    				<string>lterm</string>
@@ -1316,22 +1689,192 @@
      <non-terminal>NUMEEXPRESSION'</non-terminal>
    </head>
    <body>
-     <terminal>opa</terminal>
+     <terminal>plus</terminal>
      <non-terminal>TERM</non-terminal>
      <non-terminal>NUMEEXPRESSION'</non-terminal>
    </body>
    <semantic-rule>
    	<name>assignment</name>
+   	<type>her</type>
+   	<args>
+   		<function>
+   			<name>getAttrib</name>
+   			<args>
+   				<string>NUMEEXPRESSION'</string>
+   				<string>type</string>
+   				<int>1</int>
+   			</args>
+   		</function>
+   		<function>
+   			<name>getAttribValue</name>
+   			<args>
+   				<string>NUMEEXPRESSION'</string>
+   				<string>type</string>
+   			</args>
+   		</function>
+   	</args>
+   </semantic-rule>
+   <semantic-rule>
+   	<name>assignment</name>
+   	<type>her</type>
+   	<args>
+   		<function>
+   			<name>getAttrib</name>
+   			<args>
+   				<string>NUMEEXPRESSION'</string>
+   				<string>lterm</string>
+   				<int>1</int>
+   			</args>
+   		</function>
+   		<function>
+   			<name>plus</name>
+   			<args>
+   				<function>
+		   			<name>getAttribValue</name>
+		   			<args>
+		   				<string>NUMEEXPRESSION'</string>
+		   				<string>lterm</string>
+		   			</args>
+		   		</function>
+		   		<function>
+		   			<name>getAttribValue</name>
+		   			<args>
+		   				<string>TERM</string>
+		   				<string>value</string>
+		   			</args>
+		   		</function>
+		   		<function>
+		   			<name>getAttribValue</name>
+		   			<args>
+		   				<string>NUMEEXPRESSION'</string>
+		   				<string>type</string>
+		   			</args>
+		   		</function>
+		   		<function>
+		   			<name>getAttribValue</name>
+		   			<args>
+		   				<string>TERM</string>
+		   				<string>type</string>
+		   			</args>
+		   		</function>
+   			</args>
+   		</function>
+   	</args>
+   </semantic-rule>
+   <semantic-rule>
+   	<name>assignment</name>
+   	<type>sin</type>
    	<args>
    		<function>
    			<name>getAttrib</name>
    			<args>
    				<string>NUMEEXPRESSION'</string>
    				<string>value</string>
+   				<int>1</int>
    			</args>
    		</function>
    		<function>
+   			<name>getAttribValue</name>
+   			<args>
+   				<string>NUMEEXPRESSION'</string>
+   				<string>value</string>
+   				<int>1</int>
+   			</args>
+   		</function>
+   	</args>
+   </semantic-rule>
+ </production>
+ <production>
+   <head>
+     <non-terminal>NUMEEXPRESSION'</non-terminal>
+   </head>
+   <body>
+     <terminal>minus</terminal>
+     <non-terminal>TERM</non-terminal>
+     <non-terminal>NUMEEXPRESSION'</non-terminal>
+   </body>
+   <semantic-rule>
+   	<name>assignment</name>
+   	<type>her</type>
+   	<args>
+   		<function>
    			<name>getAttrib</name>
+   			<args>
+   				<string>NUMEEXPRESSION'</string>
+   				<string>type</string>
+   				<int>1</int>
+   			</args>
+   		</function>
+   		<function>
+   			<name>getAttribValue</name>
+   			<args>
+   				<string>NUMEEXPRESSION'</string>
+   				<string>type</string>
+   			</args>
+   		</function>
+   	</args>
+   </semantic-rule>
+   <semantic-rule>
+   	<name>assignment</name>
+   	<type>her</type>
+   	<args>
+   		<function>
+   			<name>getAttrib</name>
+   			<args>
+   				<string>NUMEEXPRESSION'</string>
+   				<string>lterm</string>
+   				<int>1</int>
+   			</args>
+   		</function>
+   		<function>
+   			<name>minus</name>
+   			<args>
+   				<function>
+		   			<name>getAttribValue</name>
+		   			<args>
+		   				<string>NUMEEXPRESSION'</string>
+		   				<string>lterm</string>
+		   			</args>
+		   		</function>
+		   		<function>
+		   			<name>getAttribValue</name>
+		   			<args>
+		   				<string>TERM</string>
+		   				<string>value</string>
+		   			</args>
+		   		</function>
+		   		<function>
+		   			<name>getAttribValue</name>
+		   			<args>
+		   				<string>NUMEEXPRESSION'</string>
+		   				<string>type</string>
+		   			</args>
+		   		</function>
+		   		<function>
+		   			<name>getAttribValue</name>
+		   			<args>
+		   				<string>TERM</string>
+		   				<string>type</string>
+		   			</args>
+		   		</function>
+   			</args>
+   		</function>
+   	</args>
+   </semantic-rule>
+   <semantic-rule>
+   	<name>assignment</name>
+   	<type>sin</type>
+   	<args>
+   		<function>
+   			<name>getAttrib</name>
+   			<args>
+   				<string>NUMEEXPRESSION'</string>
+   				<string>value</string>
+   				<int>1</int>
+   			</args>
+   		</function>
+   		<function>
+   			<name>getAttribValue</name>
    			<args>
    				<string>NUMEEXPRESSION'</string>
    				<string>value</string>
@@ -1351,6 +1894,27 @@
    </body>
    <semantic-rule>
    	<name>assignment</name>
+   	<type>her</type>
+   	<args>
+   		<function>
+   			<name>getAttrib</name>
+   			<args>
+   				<string>TERM'</string>
+   				<string>type</string>
+   			</args>
+   		</function>
+   		<function>
+   			<name>getAttribValue</name>
+   			<args>
+   				<string>UNARYEXPR</string>
+   				<string>type</string>
+   			</args>
+   		</function>
+   	</args>
+   </semantic-rule>
+   <semantic-rule>
+   	<name>assignment</name>
+   	<type>her</type>
    	<args>
    		<function>
    			<name>getAttrib</name>
@@ -1360,7 +1924,7 @@
    			</args>
    		</function>
    		<function>
-   			<name>getAttrib</name>
+   			<name>getAttribValue</name>
    			<args>
    				<string>UNARYEXPR</string>
    				<string>value</string>
@@ -1370,6 +1934,27 @@
    </semantic-rule>
    <semantic-rule>
    	<name>assignment</name>
+   	<type>sin</type>
+   	<args>
+   		<function>
+   			<name>getAttrib</name>
+   			<args>
+   				<string>TERM</string>
+   				<string>type</string>
+   			</args>
+   		</function>
+   		<function>
+   			<name>getAttribValue</name>
+   			<args>
+   				<string>UNARYEXPR</string>
+   				<string>type</string>
+   			</args>
+   		</function>
+   	</args>
+   </semantic-rule>
+   <semantic-rule>
+   	<name>assignment</name>
+   	<type>sin</type>
    	<args>
    		<function>
    			<name>getAttrib</name>
@@ -1379,7 +1964,7 @@
    			</args>
    		</function>
    		<function>
-   			<name>getAttrib</name>
+   			<name>getAttribValue</name>
    			<args>
    				<string>TERM'</string>
    				<string>value</string>
@@ -1397,6 +1982,7 @@
    </body>
    <semantic-rule>
    	<name>assignment</name>
+   	<type>sin</type>
    	<args>
    		<function>
    			<name>getAttrib</name>
@@ -1406,7 +1992,7 @@
    			</args>
    		</function>
    		<function>
-   			<name>getAttrib</name>
+   			<name>getAttribValue</name>
    			<args>
    				<string>TERM'</string>
    				<string>lunary</string>
@@ -1420,12 +2006,81 @@
      <non-terminal>TERM'</non-terminal>
    </head>
    <body>
-     <terminal>opa</terminal>
+     <terminal>mult</terminal>
      <non-terminal>UNARYEXPR</non-terminal>
      <non-terminal>TERM'</non-terminal>
    </body>
    <semantic-rule>
    	<name>assignment</name>
+   	<type>her</type>
+   	<args>
+   		<function>
+   			<name>getAttrib</name>
+   			<args>
+   				<string>TERM'</string>
+   				<string>type</string>
+   				<int>1</int>
+   			</args>
+   		</function>
+   		<function>
+   			<name>getAttribValue</name>
+   			<args>
+   				<string>TERM'</string>
+   				<string>type</string>
+   			</args>
+   		</function>
+   	</args>
+   </semantic-rule>
+   <semantic-rule>
+   	<name>assignment</name>
+   	<type>her</type>
+   	<args>
+   		<function>
+   			<name>getAttrib</name>
+   			<args>
+   				<string>TERM'</string>
+   				<string>lunary</string>
+   				<int>1</int>
+   			</args>
+   		</function>
+   		<function>
+   			<name>mult</name>
+   			<args>
+   				<function>
+   					<name>getAttribValue</name>
+   					<args>
+   						<string>TERM'</string>
+   						<string>lunary</string>
+   					</args>
+   				</function>
+   				<function>
+   					<name>getAttribValue</name>
+   					<args>
+   						<string>UNARYEXPR</string>
+   						<string>value</string>
+   					</args>
+   				</function>
+   				<function>
+   					<name>getAttribValue</name>
+   					<args>
+   						<string>TERM'</string>
+   						<string>type</string>
+   					</args>
+   				</function>
+   				<function>
+   					<name>getAttribValue</name>
+   					<args>
+   						<string>UNARYEXPR</string>
+   						<string>type</string>
+   					</args>
+   				</function>
+   			</args>
+   		</function>
+   	</args>
+   </semantic-rule>
+   <semantic-rule>
+   	<name>assignment</name>
+   	<type>sin</type>
    	<args>
    		<function>
    			<name>getAttrib</name>
@@ -1435,7 +2090,205 @@
    			</args>
    		</function>
    		<function>
+   			<name>getAttribValue</name>
+   			<args>
+   				<string>TERM'</string>
+   				<string>value</string>
+   				<int>1</int>
+   			</args>
+   		</function>
+   	</args>
+   </semantic-rule>
+ </production>
+ <production>
+   <head>
+     <non-terminal>TERM'</non-terminal>
+   </head>
+   <body>
+     <terminal>div</terminal>
+     <non-terminal>UNARYEXPR</non-terminal>
+     <non-terminal>TERM'</non-terminal>
+   </body>
+   <semantic-rule>
+   	<name>assignment</name>
+   	<type>her</type>
+   	<args>
+   		<function>
    			<name>getAttrib</name>
+   			<args>
+   				<string>TERM'</string>
+   				<string>type</string>
+   				<int>1</int>
+   			</args>
+   		</function>
+   		<function>
+   			<name>getAttribValue</name>
+   			<args>
+   				<string>TERM'</string>
+   				<string>type</string>
+   			</args>
+   		</function>
+   	</args>
+   </semantic-rule>
+   <semantic-rule>
+   	<name>assignment</name>
+   	<type>her</type>
+   	<args>
+   		<function>
+   			<name>getAttrib</name>
+   			<args>
+   				<string>TERM'</string>
+   				<string>lunary</string>
+   				<int>1</int>
+   			</args>
+   		</function>
+   		<function>
+   			<name>div</name>
+   			<args>
+   				<function>
+   					<name>getAttribValue</name>
+   					<args>
+   						<string>TERM'</string>
+   						<string>lunary</string>
+   					</args>
+   				</function>
+   				<function>
+   					<name>getAttribValue</name>
+   					<args>
+   						<string>UNARYEXPR</string>
+   						<string>value</string>
+   					</args>
+   				</function>
+   				<function>
+   					<name>getAttribValue</name>
+   					<args>
+   						<string>TERM'</string>
+   						<string>type</string>
+   					</args>
+   				</function>
+   				<function>
+   					<name>getAttribValue</name>
+   					<args>
+   						<string>UNARYEXPR</string>
+   						<string>type</string>
+   					</args>
+   				</function>
+   			</args>
+   		</function>
+   	</args>
+   </semantic-rule>
+   <semantic-rule>
+   	<name>assignment</name>
+   	<type>sin</type>
+   	<args>
+   		<function>
+   			<name>getAttrib</name>
+   			<args>
+   				<string>TERM'</string>
+   				<string>value</string>
+   			</args>
+   		</function>
+   		<function>
+   			<name>getAttribValue</name>
+   			<args>
+   				<string>TERM'</string>
+   				<string>value</string>
+   				<int>1</int>
+   			</args>
+   		</function>
+   	</args>
+   </semantic-rule>
+ </production>
+ <production>
+   <head>
+     <non-terminal>TERM'</non-terminal>
+   </head>
+   <body>
+     <terminal>percent</terminal>
+     <non-terminal>UNARYEXPR</non-terminal>
+     <non-terminal>TERM'</non-terminal>
+   </body>
+   <semantic-rule>
+   	<name>assignment</name>
+   	<type>her</type>
+   	<args>
+   		<function>
+   			<name>getAttrib</name>
+   			<args>
+   				<string>TERM'</string>
+   				<string>type</string>
+   				<int>1</int>
+   			</args>
+   		</function>
+   		<function>
+   			<name>getAttribValue</name>
+   			<args>
+   				<string>TERM'</string>
+   				<string>type</string>
+   			</args>
+   		</function>
+   	</args>
+   </semantic-rule>
+   <semantic-rule>
+   	<name>assignment</name>
+   	<type>her</type>
+   	<args>
+   		<function>
+   			<name>getAttrib</name>
+   			<args>
+   				<string>TERM'</string>
+   				<string>lunary</string>
+   				<int>1</int>
+   			</args>
+   		</function>
+   		<function>
+   			<name>percent</name>
+   			<args>
+   				<function>
+   					<name>getAttribValue</name>
+   					<args>
+   						<string>TERM'</string>
+   						<string>lunary</string>
+   					</args>
+   				</function>
+   				<function>
+   					<name>getAttribValue</name>
+   					<args>
+   						<string>UNARYEXPR</string>
+   						<string>value</string>
+   					</args>
+   				</function>
+   				<function>
+   					<name>getAttribValue</name>
+   					<args>
+   						<string>TERM'</string>
+   						<string>type</string>
+   					</args>
+   				</function>
+   				<function>
+   					<name>getAttribValue</name>
+   					<args>
+   						<string>UNARYEXPR</string>
+   						<string>type</string>
+   					</args>
+   				</function>
+   			</args>
+   		</function>
+   	</args>
+   </semantic-rule>
+   <semantic-rule>
+   	<name>assignment</name>
+   	<type>sin</type>
+   	<args>
+   		<function>
+   			<name>getAttrib</name>
+   			<args>
+   				<string>TERM'</string>
+   				<string>value</string>
+   			</args>
+   		</function>
+   		<function>
+   			<name>getAttribValue</name>
    			<args>
    				<string>TERM'</string>
    				<string>value</string>
@@ -1450,9 +2303,122 @@
      <non-terminal>UNARYEXPR</non-terminal>
    </head>
    <body>
-     <terminal>opa</terminal>
+     <terminal>plus</terminal>
      <non-terminal>FACTOR</non-terminal>
    </body>
+   <semantic-rule>
+   	<name>assignment</name>
+   	<type>sin</type>
+   	<args>
+   		<function>
+   			<name>getAttrib</name>
+   			<args>
+   				<string>UNARYEXPR</string>
+   				<string>type</string>
+   			</args>
+   		</function>
+   		<function>
+   			<name>getAttribValue</name>
+   			<args>
+   				<string>FACTOR</string>
+   				<string>type</string>
+   			</args>
+   		</function>
+   	</args>
+   </semantic-rule>
+   <semantic-rule>
+   	<name>assignment</name>
+   	<type>sin</type>
+   	<args>
+   		<function>
+   			<name>getAttrib</name>
+   			<args>
+   				<string>UNARYEXPR</string>
+   				<string>value</string>
+   			</args>
+   		</function>
+   		<function>
+   			<name>plus</name>
+   			<args>
+   				<function>
+   					<name>getAttribValue</name>
+   					<args>
+   						<string>FACTOR</string>
+   						<string>value</string>
+   					</args>
+   				</function>
+   				<function>
+   					<name>getAttribValue</name>
+   					<args>
+   						<string>FACTOR</string>
+   						<string>type</string>
+   					</args>
+   				</function>
+   			</args>
+   		</function>
+   	</args>
+   </semantic-rule>
+ </production>
+ <production>
+   <head>
+     <non-terminal>UNARYEXPR</non-terminal>
+   </head>
+   <body>
+     <terminal>minus</terminal>
+     <non-terminal>FACTOR</non-terminal>
+   </body>
+   <semantic-rule>
+   	<name>assignment</name>
+   	<type>sin</type>
+   	<args>
+   		<function>
+   			<name>getAttrib</name>
+   			<args>
+   				<string>UNARYEXPR</string>
+   				<string>type</string>
+   			</args>
+   		</function>
+   		<function>
+   			<name>getAttribValue</name>
+   			<args>
+   				<string>FACTOR</string>
+   				<string>type</string>
+   			</args>
+   		</function>
+   	</args>
+   </semantic-rule>
+   <semantic-rule>
+   	<name>assignment</name>
+   	<type>sin</type>
+   	<args>
+   		<function>
+   			<name>getAttrib</name>
+   			<args>
+   				<string>UNARYEXPR</string>
+   				<string>value</string>
+   			</args>
+   		</function>
+   		<function>
+   			<name>minus</name>
+   			<args>
+   				<function>
+   					<name>getAttribValue</name>
+   					<args>
+   						<string>FACTOR</string>
+   						<string>value</string>
+   					</args>
+   				</function>
+   				<function>
+   					<name>getAttribValue</name>
+   					<args>
+   						<string>FACTOR</string>
+   						<string>type</string>
+   					</args>
+   				</function>
+   			</args>
+   		</function>
+   	</args>
+   </semantic-rule>
  </production>
  <production>
    <head>
@@ -1463,6 +2429,27 @@
    </body>
    <semantic-rule>
    	<name>assignment</name>
+   	<type>sin</type>
+   	<args>
+   		<function>
+   			<name>getAttrib</name>
+   			<args>
+   				<string>UNARYEXPR</string>
+   				<string>type</string>
+   			</args>
+   		</function>
+   		<function>
+   			<name>getAttribValue</name>
+   			<args>
+   				<string>FACTOR</string>
+   				<string>type</string>
+   			</args>
+   		</function>
+   	</args>
+   </semantic-rule>
+   <semantic-rule>
+   	<name>assignment</name>
+   	<type>sin</type>
    	<args>
    		<function>
    			<name>getAttrib</name>
@@ -1472,7 +2459,7 @@
    			</args>
    		</function>
    		<function>
-   			<name>getAttrib</name>
+   			<name>getAttribValue</name>
    			<args>
    				<string>FACTOR</string>
    				<string>value</string>
@@ -1488,6 +2475,40 @@
    <body>
      <terminal>int-constant</terminal>
    </body>
+   <semantic-rule>
+   	<name>assignment</name>
+   	<type>sin</type>
+   	<args>
+   		<function>
+   			<name>getAttrib</name>
+   			<args>
+   				<string>FACTOR</string>
+   				<string>type</string>
+   			</args>
+   		</function>
+   		<string>int</string>
+   	</args>
+   </semantic-rule>
+   <semantic-rule>
+   	<name>assignment</name>
+   	<type>sin</type>
+   	<args>
+   		<function>
+   			<name>getAttrib</name>
+   			<args>
+   				<string>FACTOR</string>
+   				<string>value</string>
+   			</args>
+   		</function>
+   		<function>
+   			<name>getAttribValue</name>
+   			<args>
+   				<string>int-constant</string>
+   				<string>value</string>
+   			</args>
+   		</function>
+   	</args>
+   </semantic-rule>
  </production>
  <production>
    <head>
@@ -1496,6 +2517,40 @@
    <body>
      <terminal>string-constant</terminal>
    </body>
+   <semantic-rule>
+   	<name>assignment</name>
+   	<type>sin</type>
+   	<args>
+   		<function>
+   			<name>getAttrib</name>
+   			<args>
+   				<string>FACTOR</string>
+   				<string>type</string>
+   			</args>
+   		</function>
+   		<string>string</string>
+   	</args>
+   </semantic-rule>
+   <semantic-rule>
+   	<name>assignment</name>
+   	<type>sin</type>
+   	<args>
+   		<function>
+   			<name>getAttrib</name>
+   			<args>
+   				<string>FACTOR</string>
+   				<string>value</string>
+   			</args>
+   		</function>
+   		<function>
+   			<name>getAttribValue</name>
+   			<args>
+   				<string>string-constant</string>
+   				<string>value</string>
+   			</args>
+   		</function>
+   	</args>
+   </semantic-rule>
  </production>
  <production>
    <head>
@@ -1506,6 +2561,21 @@
    </body>
    <semantic-rule>
    	<name>assignment</name>
+   	<type>sin</type>
+   	<args>
+   		<function>
+   			<name>getAttrib</name>
+   			<args>
+   				<string>FACTOR</string>
+   				<string>type</string>
+   			</args>
+   		</function>
+   		<string>null</string>
+   	</args>
+   </semantic-rule>
+   <semantic-rule>
+   	<name>assignment</name>
+   	<type>sin</type>
    	<args>
    		<function>
    			<name>getAttrib</name>
@@ -1525,6 +2595,56 @@
    <body>
      <non-terminal>LVALUE</non-terminal>
    </body>
+   <semantic-rule>
+   	<name>assignment</name>
+   	<type>sin</type>
+   	<args>
+   		<function>
+   			<name>getAttrib</name>
+   			<args>
+   				<string>FACTOR</string>
+   				<string>type</string>
+   			</args>
+   		</function>
+   		<function>
+   			<name>getType</name>
+   			<args>
+   				<function>
+		   			<name>getAttribValue</name>
+		   			<args>
+		   				<string>LVALUE</string>
+		   				<string>addr</string>
+		   			</args>
+		   		</function>		
+   			</args>
+   		</function>
+   	</args>
+   </semantic-rule>
+   <semantic-rule>
+   	<name>assignment</name>
+   	<type>sin</type>
+   	<args>
+   		<function>
+   			<name>getAttrib</name>
+   			<args>
+   				<string>FACTOR</string>
+   				<string>type</string>
+   			</args>
+   		</function>
+   		<function>
+   			<name>getValue</name>
+   			<args>
+   				<function>
+		   			<name>getAttribValue</name>
+		   			<args>
+		   				<string>LVALUE</string>
+		   				<string>addr</string>
+		   			</args>
+		   		</function>		
+   			</args>
+   		</function>
+   	</args>
+   </semantic-rule>
  </production>
  <production>
    <head>
@@ -1537,6 +2657,27 @@
    </body>
    <semantic-rule>
    	<name>assignment</name>
+   	<type>sin</type>
+   	<args>
+   		<function>
+   			<name>getAttrib</name>
+   			<args>
+   				<string>FACTOR</string>
+   				<string>type</string>
+   			</args>
+   		</function>
+   		<function>
+   			<name>getAttribValue</name>
+   			<args>
+   				<string>NUMEEXPRESSION</string>
+   				<string>type</string>
+   			</args>
+   		</function>
+   	</args>
+   </semantic-rule>
+   <semantic-rule>
+   	<name>assignment</name>
+   	<type>sin</type>
    	<args>
    		<function>
    			<name>getAttrib</name>
@@ -1546,7 +2687,7 @@
    			</args>
    		</function>
    		<function>
-   			<name>getAttrib</name>
+   			<name>getAttribValue</name>
    			<args>
    				<string>NUMEEXPRESSION</string>
    				<string>value</string>
