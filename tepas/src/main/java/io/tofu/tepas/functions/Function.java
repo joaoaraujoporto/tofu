@@ -1,11 +1,11 @@
-package io.tofu.tepas;
+package io.tofu.tepas.functions;
 
 public abstract class Function<T> {
-	Function<?> args[];
+	Object args[];
 	
 	public Function() {}
 	
-	public Function(Function<?> ... args) {
+	public Function(Object ... args) {
 		this.args = args;
 	}
 	

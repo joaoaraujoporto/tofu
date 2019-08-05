@@ -13,6 +13,7 @@ public class ProcedureTest {
 		StringBuilder s = new StringBuilder();
 		P p = new P(s);
 		p.apply();
+		s.append("t");
 		
 		System.out.println(p.getName());
 		System.out.println(s.toString());

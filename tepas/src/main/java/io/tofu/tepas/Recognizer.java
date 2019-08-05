@@ -36,8 +36,8 @@ public class Recognizer {
 		Symbol<String,?> top = stack.pop();
 		
 		if (top instanceof Terminal) {
-			Terminal<String,?> terminalOnTop = 
-					(Terminal<String,?>) top;
+			Terminal<String,AttribSet> terminalOnTop = 
+					(Terminal<String,AttribSet>) top;
 			
 			/*
 			 * Assumption: Each token always has a terminal
@@ -48,8 +48,7 @@ public class Recognizer {
 			if (!terminalOnTop.equals(token))
 				throw new SyntaxErrorException((Token<Integer>) token, ts);
 			
-			 /* if (terminalOnTop instanceof EndOfSentence)
-				return; // TODO - Sentence accepted */
+			terminalOnTop.getMeaning().get("value").append(token.getValue());
 			
 			return;
 		}
