@@ -1,10 +1,14 @@
 package io.tofu.tepas;
 
-public abstract class SemanticRule extends Procedure {
+import io.tofu.tepas.procedures.Procedure;
+
+public class SemanticRule {
 	
+	Procedure procedure;
 	String type;
 	
-	SemanticRule(String type) {
+	SemanticRule(Procedure procedure, String type) {
+		this.procedure = procedure;
 		this.type = type;
 	}
 
@@ -12,4 +16,7 @@ public abstract class SemanticRule extends Procedure {
 		return type;
 	}
 	
+	public void apply() {
+		procedure.apply();
+	}
 }

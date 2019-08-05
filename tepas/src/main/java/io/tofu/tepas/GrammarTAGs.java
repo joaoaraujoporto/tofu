@@ -6,4 +6,7 @@ public class GrammarTAGs {
 	public static final String BODY = "body";
 	public static final String NONTERMINAL = "non-terminal";
 	public static final String TERMINAL = "terminal";
+	public static final String SEMANTICRULE = "semantic-rule";
+	public static final String NAME = "name";
+	public static final String TYPE = "type";
 }

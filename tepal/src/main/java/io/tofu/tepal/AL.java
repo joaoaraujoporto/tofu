@@ -10,6 +10,7 @@ import io.tofu.commons.symbol.EndOfSentence;
 import io.tofu.commons.ts.PositionInCode;
 import io.tofu.commons.ts.TS;
 import io.tofu.commons.ts.TSEntry;
+import io.tofu.commons.ts.TSEntryToken;
 import io.tofu.teprl.machines.af.dt.DT;
 import io.tofu.teprl.machines.af.dt.DTState;
 
@@ -127,7 +128,7 @@ public class AL implements Lexer<Token<?>> {
 		String tokenName = dt.getName();
 		PositionInCode position = new PositionInCode(currentLine, currentColumn);
 		
-		ts.put(ts.size(), new TSEntry(tokenName, currentLexeme, null, position));
+		ts.put(ts.size(), new TSEntryToken(tokenName, currentLexeme, null, position));
 		
 		if (tokenName == "ident") // TODO - as fast as possible, change this
 			if (isKeyword(currentLexeme))
@@ -138,8 +139,13 @@ public class AL implements Lexer<Token<?>> {
 
 	private boolean isKeyword(String currentLexeme) {
 		for (TSEntry tse : ts.values())
-			if (tse.getToken().equals(currentLexeme))
-				return true;
+			if (tse instanceof TSEntryToken) {
+				TSEntryToken tsek = (TSEntryToken) tse;
+				
+				if (tsek.getToken().equals(currentLexeme))
+					return true;
+			}
+			
 		
 		return false;
 	}

@@ -1,5 +1,7 @@
 package io.tofu.tepas;
 
-public class AttribSet {
+import java.util.HashMap;
+
+public class AttribSet extends HashMap<String,StringBuilder> {
 	
 }

@@ -10,11 +10,15 @@ import io.tofu.teprl.machines.grammar.GLC;
 import io.tofu.teprl.machines.grammar.Production;
 
 public class SDT<T,R> extends GLC<T,R> {
-	Map<Production<T,R>,ArrayList<SemanticRule>> rules;
-	
+	private Map<Production<T,R>,ArrayList<SemanticRule>> rules;
+
 	public SDT(String name, NonTerminal<T,R> startSymbol, Terminal<T,R> epsilon) {
 		super(name, startSymbol, epsilon);
 		rules = new HashMap<Production<T,R>, ArrayList<SemanticRule>>();
+	}
+	
+	public Map<Production<T, R>, ArrayList<SemanticRule>> getRules() {
+		return rules;
 	}
 	
 	@Override

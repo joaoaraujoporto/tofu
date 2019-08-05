@@ -15,10 +15,12 @@ public class Recognizer {
 	private Stack<Symbol<String,?>> stack;
 	private TS ts;
 	private TAS tas;
+	private SDT sdt;
 
-	public Recognizer(TS ts, TAS tas) {
+	public Recognizer(TS ts, TAS tas, SDT sdt) {
 		this.ts = ts;
 		this.tas = tas;
+		this.sdt = sdt;
 		stack = new Stack<Symbol<String,?>>();
 	}
 
@@ -66,7 +68,15 @@ public class Recognizer {
 				if (!derived.get(i).equals(tas.getGLC().getEpsilon()))
 					stack.add(derived.get(i));
 			
+			for (SemanticRule sr : (ArrayList<SemanticRule>) sdt.getRules().get(p))
+				if (sr.getType().equals("her"))
+					sr.apply();
+			
 			input(token);
+			
+			for (SemanticRule sr : (ArrayList<SemanticRule>) sdt.getRules().get(p))
+				if (sr.getType().equals("sin"))
+					sr.apply();
 		}
 	}
 

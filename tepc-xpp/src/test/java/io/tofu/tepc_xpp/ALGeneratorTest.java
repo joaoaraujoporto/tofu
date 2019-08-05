@@ -25,9 +25,11 @@ public class ALGeneratorTest {
 		
 		System.out.println(tokens.toString());
 		
+		/*
 		for (TSEntry tse : ts.values()) {
 			System.out.println(tse.getToken() + "," + tse.getLexeme() + ","
 					+ tse.getType() + "," + tse.getPosition());
 		}
+		*/
 	}
 }

@@ -9,21 +9,21 @@ import io.tofu.teprl.machines.grammar.GLC;
 public class AS {
 	private TS ts;
 	private Lexer<Token<?>> lexer;
-	private GLC<String,AttribSet> glc;
+	private GLC<String,AttribSet> sdt;
 	private TAS tas;
 	private Recognizer recognizer;
 
-	public AS(TS ts, Lexer<Token<?>> lexer, GLC<String,AttribSet> glc) {
+	public AS(TS ts, Lexer<Token<?>> lexer, SDT<String,AttribSet> sdt) {
 		this.ts = ts;
 		this.lexer = lexer;
-		this.glc = glc;
-		this.tas = new TAS(glc);
-		this.recognizer = new Recognizer(ts, tas);
+		this.sdt = sdt;
+		this.tas = new TAS(sdt);
+		this.recognizer = new Recognizer(ts, tas, sdt);
 	}
 
 	public void analyze() throws Exception {
 		recognizer.clearStack();
-		recognizer.addToStack(glc.getStartSymbol());
+		recognizer.addToStack(sdt.getStartSymbol());
 		Token<?> token = lexer.getNextToken();
 		
 		while (!(token instanceof EndOfSentence)) {

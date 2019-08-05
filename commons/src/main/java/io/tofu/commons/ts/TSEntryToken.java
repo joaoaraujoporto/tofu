@@ -1,0 +1,42 @@
+package io.tofu.commons.ts;
+
+public class TSEntryToken extends TSEntry {
+	private String token; // is it really needed?
+	private String lexeme;
+	private String type;
+	private PositionInCode position;
+	
+	public TSEntryToken(String token, String lexeme, String type, PositionInCode position) {
+		this.token = token;
+		this.lexeme = lexeme;
+		this.type = type;
+		this.position = position;
+	}
+
+	public String getToken() {
+		return token;
+	}
+
+	public String getLexeme() {
+		return lexeme;
+	}
+	
+	@Override
+	public String toString() {
+		return "tokenName: " + token +
+				"lexeme: " + lexeme;
+	}
+
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
+
+	public PositionInCode getPosition() {
+		return position;
+	}
+}
+

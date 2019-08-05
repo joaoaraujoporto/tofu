@@ -19,10 +19,9 @@ public class CompilerTest {
 		
 		try {
 			fileReader = new FileReader("sources/stat_test_1.xpp");
-			Compiler c = new Compiler(new File("resources/xpp_grammar.xml"));
+			Compiler c = new Compiler(new File("resources/stat_sdt.xml"));
 			
-			c.compile(new BufferedReader(fileReader));
-    		System.out.println("The syntax analysis have been successfully finished");
+			System.out.println(c.compile(new BufferedReader(fileReader)));
 		} catch (Exception e) {
 			System.err.println("Error: " + e.getMessage());
 		}
@@ -37,10 +36,9 @@ public class CompilerTest {
 		
 		try {
 			fileReader = new FileReader("sources/stat_test_2.xpp");
-			Compiler c = new Compiler(new File("resources/xpp_grammar.xml"));
+			Compiler c = new Compiler(new File("resources/stat_sdt.xml"));
 			
-			c.compile(new BufferedReader(fileReader));
-    		System.out.println("The syntax analysis have been successfully finished");
+			System.out.println(c.compile(new BufferedReader(fileReader)));
 		} catch (Exception e) {
 			System.err.println("Error: " + e.getMessage());
 		}
@@ -55,10 +53,9 @@ public class CompilerTest {
 		
 		try {
 			fileReader = new FileReader("sources/stat_test_3.xpp");
-			Compiler c = new Compiler(new File("resources/xpp_grammar.xml"));
+			Compiler c = new Compiler(new File("resources/stat_sdt.xml"));
 			
-			c.compile(new BufferedReader(fileReader));
-    		System.out.println("The syntax analysis have been successfully finished");
+			System.out.println(c.compile(new BufferedReader(fileReader)));
 		} catch (Exception e) {
 			System.err.println("Error: " + e.getMessage());
 		}
@@ -73,10 +70,9 @@ public class CompilerTest {
 		
 		try {
 			fileReader = new FileReader("sources/stat_test_4.xpp");
-			Compiler c = new Compiler(new File("resources/xpp_grammar.xml"));
+			Compiler c = new Compiler(new File("resources/stat_sdt.xml"));
 			
-			c.compile(new BufferedReader(fileReader));
-    		System.out.println("The syntax analysis have been successfully finished");
+			System.out.println(c.compile(new BufferedReader(fileReader)));
 		} catch (Exception e) {
 			System.err.println("Error: " + e.getMessage());
 		}

@@ -1,9 +1,8 @@
 package io.tofu.tepas;
 
 import io.tofu.commons.symbol.Token;
-import io.tofu.commons.ts.PositionInCode;
 import io.tofu.commons.ts.TS;
-import io.tofu.commons.ts.TSEntry;
+import io.tofu.commons.ts.TSEntryToken;
 
 public class SyntaxErrorException extends RuntimeException {
 	
@@ -14,9 +13,9 @@ public class SyntaxErrorException extends RuntimeException {
 
 	// TODO - Improve syntax error message
 	SyntaxErrorException(Token<Integer> token, TS ts) {
-		super("line " + ts.get(token.getValue()).getPosition().getLineNumber() + 
-				", column " + ts.get(token.getValue()).getPosition().getColNumberBegin() + 
-				": \"" + ts.get(token.getValue() - 1).getLexeme() + "\"" + " syntax error.");
+		super("line " + ((TSEntryToken) ts.get(token.getValue())).getPosition().getLineNumber() + 
+				", column " + ((TSEntryToken) ts.get(token.getValue())).getPosition().getColNumberBegin() + 
+				": \"" + ((TSEntryToken) ts.get(token.getValue() - 1)).getLexeme() + "\"" + " syntax error.");
 	}
 	
 	SyntaxErrorException(Token<?> token) {

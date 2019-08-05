@@ -70,10 +70,12 @@ public class ALTest {
 		
 		System.out.println(tokens.toString());
 		
+		/*
 		for (TSEntry tse : ts.values()) {
 			System.out.println(tse.getToken() + "," + tse.getLexeme() + ","
 					+ tse.getType() + "," + tse.getPosition());
 		}
+		*/
 		
 		System.out.println("finges");
 		
@@ -84,10 +86,12 @@ public class ALTest {
 		
 		System.out.println(tokens.toString());
 		
+		/*
 		for (TSEntry tse : ts.values()) {
 			System.out.println(tse.getToken() + "," + tse.getLexeme() + ","
 					+ tse.getType() + "," + tse.getPosition());
 		}
+		*/
 		
 	}
 }

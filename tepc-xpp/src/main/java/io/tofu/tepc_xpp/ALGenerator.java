@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import io.tofu.commons.symbol.Alphabet;
 import io.tofu.commons.ts.TS;
-import io.tofu.commons.ts.TSEntry;
+import io.tofu.commons.ts.TSEntryToken;
 import io.tofu.tepal.AL;
 import io.tofu.teprl.machines.af.dt.DT;
 import io.tofu.teprl.machines.af.dt.DTConstants;
@@ -288,6 +288,6 @@ public class ALGenerator {
 		keywords[14] = "null";
 		
 		for (String k : keywords)
-			ts.put(ts.size(), new TSEntry(k, k, null, null));
+			ts.put(ts.size(), new TSEntryToken(k, k, null, null));
 	}
 }
