@@ -23,10 +23,6 @@ public class Main {
     		fileReader = new FileReader(args[0]);
     		bufferedReader = new BufferedReader(fileReader);
     		
-    		
-    		for (Token<Integer> token : c.getTokens(bufferedReader))
-				System.out.println(token.toString());
-    		
     		c.compile(bufferedReader);
     		System.out.println("The syntax analysis have been successfully finished");
     	} catch (Exception e) {
